@@ -1,4 +1,4 @@
-package org.ecore.JpaTests;
+package org.ecore.repository;
 
 import org.ecore.model.Need;
 import org.springframework.data.repository.CrudRepository;
