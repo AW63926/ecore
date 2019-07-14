@@ -1,4 +1,4 @@
-package org.ecore.ecore;
+package org.ecore.Jpa;
 
 import java.util.Optional;
 import static org.hamcrest.MatcherAssert.*;
