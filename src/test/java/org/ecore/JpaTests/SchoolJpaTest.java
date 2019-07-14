@@ -1,34 +1,34 @@
-package org.ecore.Jpa;
+package org.ecore.JpaTests;
 
 import java.util.Optional;
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
-import static org.hamcrest.MatcherAssert.*;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import org.ecore.model.School;
 import org.ecore.repository.SchoolRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
-public class schoolJpaMAppingsTestTest {
 
+public class SchoolJpaTest {
+	
 	@Resource
 	SchoolRepository schoolRepo;
 	
 	@Resource
-	TestEntityManager entityManager;
-	
+	EntityManager entityManager;
+
 	@Test
 	public void shouldSaveAndLoadSchool() {
-		School school = schoolRepo.save(new School("School"));
+		School school = schoolRepo.save(new School("name", "district", "address", "mapUrl"));
 		long schoolId = school.getId();
 		
 		entityManager.flush();
@@ -36,12 +36,13 @@ public class schoolJpaMAppingsTestTest {
 		
 		Optional<School> result = schoolRepo.findById(schoolId);
 		school = result.get();
-		assertThat(school.getName(), is("School"));
+		assertThat(school.getName(), is("name"));
+		
 	}
 	
 	@Test
 	public void shouldGenerateSchoolId() {
-		School school =schoolRepo.save(new School("School"));
+		School school = schoolRepo.save(new School("name", "district", "address", "mapUrl"));
 		long schoolId = school.getId();
 		
 		entityManager.flush();
@@ -50,4 +51,3 @@ public class schoolJpaMAppingsTestTest {
 		assertThat(schoolId, is(greaterThan(0L)));
 	}
 }
-

@@ -13,19 +13,31 @@ public class School {
 	
 	private String name;
 
-	public School(String name) {
+	private String district;
+
+	private String address;
+
+	private String mapUrl;
+
+	public School(String name, String district, String address, String mapUrl) {
 		this.name = name;
+		this.district = district;
+		this.address = address;
+		this.mapUrl = mapUrl;
 	}
 	
 	public School() {
 		
 	}
+
 	public long getId() {
 		
 		return id;
 	}
 
 	public String getName() {
+		
 		return name;
 	}
+
 }
