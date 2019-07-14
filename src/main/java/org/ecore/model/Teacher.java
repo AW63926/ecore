@@ -13,6 +13,7 @@ public class Teacher {
 	
 	private String name;
 	private String school;
+	private String specialty;
 
 	public long getId() {
 		return id;
@@ -25,6 +26,10 @@ public class Teacher {
 	public String getSchool() {
 		return school;
 	}
+	
+	public String getSpecialty() {
+		return specialty;
+	}
 
 	public Teacher () {
 	}
@@ -32,6 +37,7 @@ public class Teacher {
 	public Teacher(String name, String school) {
 		this.name = name;
 		this.school = school;
+		this.specialty = specialty;
 	}
 
 
