@@ -1,4 +1,4 @@
-package org.ecore.Jpa;
+package org.ecore.JpaTests;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.greaterThan;
