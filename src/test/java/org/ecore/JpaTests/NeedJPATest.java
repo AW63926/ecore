@@ -9,6 +9,8 @@ import java.util.Optional;
 import javax.annotation.Resource;
 
 import org.ecore.model.Need;
+import org.ecore.repository.NeedRepository;
+import org.ecore.repository.TagRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
