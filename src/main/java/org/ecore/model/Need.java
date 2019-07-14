@@ -5,21 +5,27 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
+@Entity
 public class Need {
-
-	public String name;
-	public int quantity;
+	
+	@GeneratedValue
+	@Id
 	private Long id;
 	
+	private String name;
+	private int quantity;
 
 	@Lob
 	public String descNeed;
 
-	@ManyToMany(mappedBy = "needs")
-	private Collection<Teacher> teachers;
+//	@ManyToMany(mappedBy = "needs")
+//	private Collection<Teacher> teachers;
 
 	//JsonIgnore
 	@ManyToMany
@@ -33,6 +39,10 @@ public class Need {
 
 	}
 	
+	public Need() {
+		
+	}
+
 	public Long getId() {
 		return id;
 	}

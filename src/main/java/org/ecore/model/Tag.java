@@ -1,27 +1,31 @@
 package org.ecore.model;
 
-import static java.lang.String.format;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashSet;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+@Entity
 public class Tag {
-
+	
+	@GeneratedValue
+	@Id
 	private Long id;
 	public String name;
-	public Collection<Tag> tags;
 
 	@ManyToMany(mappedBy = "tags")
 	private Collection<Need> needs;
 
-	public Tag(String name, Need... needs) {
+	public Tag(String name) {
 		this.name = name;
-		this.needs = new HashSet<>(Arrays.asList(needs));
 
+	}
+	
+	public Tag() {
+		
 	}
 
 	public Long getId() {
@@ -33,20 +37,15 @@ public class Tag {
 		return name;
 	}
 
-	public Collection<Tag> getTags() {
-		return tags;
-	}
-
 	public Collection<Need> getNeeds() {
 		return needs;
 	}
 
-	public Collection<String> getTagUrls() {
-		Collection<String> urls = new ArrayList<>();
-		for (Tag t : tags) {
-			urls.add(format("/show-tags/%d/tags/%s", this.getId(), t.getName()));
-		}
-		return urls;
+//	public Collection<String> getTagUrls() {
+//		Collection<String> urls = new ArrayList<>();
+//		for (Tag t : tags) {
+//			urls.add(format("/show-tags/%d/tags/%s", this.getId(), t.getName()));
+//		}
+//		return urls;
 	}
 
-}
