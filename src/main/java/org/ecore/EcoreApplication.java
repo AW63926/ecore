@@ -1,4 +1,4 @@
-package org.ecore.ecore;
+package org.ecore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
