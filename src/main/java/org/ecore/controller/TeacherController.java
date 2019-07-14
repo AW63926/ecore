@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.annotation.Resource;
 
 import org.ecore.model.Teacher;
+import org.ecore.notFoundException.TeacherNotFoundException;
 import org.ecore.repository.TeacherRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.Arrays;
 
 import org.ecore.model.Teacher;
+import org.ecore.notFoundException.TeacherNotFoundException;
 import org.ecore.repository.TeacherRepository;
 import org.junit.Before;
 import org.junit.Test;
