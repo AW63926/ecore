@@ -1,13 +1,15 @@
-package org.ecore.ecore;
+package org.ecore.Jpa;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import org.ecore.model.Teacher;
+import org.ecore.repository.TeacherRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -16,8 +18,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
-public class TeachersJPAMappingsTest {
-	
+
+public class TeachersJPATest {
+
 	@Resource
 	private TestEntityManager entityManager;
 	
@@ -50,3 +53,4 @@ public class TeachersJPAMappingsTest {
 	}
 
 }
+

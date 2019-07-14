@@ -1,11 +1,10 @@
-package org.ecore.ecore;
+package org.ecore.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-
 public class Teacher {
 	
 	@Id
@@ -15,11 +14,10 @@ public class Teacher {
 	private String name;
 	private String school;
 
-
 	public long getId() {
 		return id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -27,15 +25,13 @@ public class Teacher {
 	public String getSchool() {
 		return school;
 	}
-	
-	public Teacher() {
-		
+
+	public Teacher () {
 	}
-	
+
 	public Teacher(String name, String school) {
 		this.name = name;
 		this.school = school;
-		
 	}
 
 
