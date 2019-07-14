@@ -1,56 +1,35 @@
 package org.ecore.model;
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class School {
-
-	@GeneratedValue
+public class Teacher {
+	
 	@Id
+	@GeneratedValue
 	private long id;
 	
 	private String name;
-
-	private String district;
-
-	private String address;
-
-	private String mapUrl;
+	private String specialty;
 	
-	@OneToMany (mappedBy = "school")
-	private Collection<Teacher> teachers;
-
-	public School(String name, String district, String address, String mapUrl) {
-		this.name = name;
-		this.district = district;
-		this.address = address;
-		this.mapUrl = mapUrl;
-	}
-	
-	public School() {
-		
-	}
+	@ManyToOne
+	private School school;
 
 	public long getId() {
-		
 		return id;
 	}
 
 	public String getName() {
-		
 		return name;
 	}
 	
-	public Collection<Teacher> getTeachers() {
-		return teachers;
+	public School getSchool() {
+		return school;
 	}
 	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -67,12 +46,24 @@ public class School {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		School other = (School) obj;
+		Teacher other = (Teacher) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
 
-	
+	public String getSpecialty() {
+		return specialty;
+	}
+
+	public Teacher () {
+	}
+
+	public Teacher(String name, String specialty, School school) {
+		this.name = name;
+		this.specialty = specialty;
+		this.school = school;
+	}
+
 
 }
