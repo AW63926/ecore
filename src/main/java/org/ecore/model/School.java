@@ -1,4 +1,4 @@
-package org.ecore.ecore;
+package org.ecore.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

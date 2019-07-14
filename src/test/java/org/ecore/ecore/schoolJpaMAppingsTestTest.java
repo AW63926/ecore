@@ -10,6 +10,8 @@ import javax.annotation.Resource;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.ecore.model.School;
+import org.ecore.repository.SchoolRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
