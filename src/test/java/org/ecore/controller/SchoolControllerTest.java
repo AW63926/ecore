@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.ecore.model.School;
+import org.ecore.notFoundException.SchoolNotFoundException;
 import org.ecore.repository.SchoolRepository;
 import org.junit.Before;
 import org.junit.Test;

@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.annotation.Resource;
 
 import org.ecore.model.School;
+import org.ecore.notFoundException.SchoolNotFoundException;
 import org.ecore.repository.SchoolRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
