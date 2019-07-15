@@ -3,12 +3,14 @@ package org.ecore.JpaTests;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 
 import java.util.Optional;
 
 import javax.annotation.Resource;
 
 import org.ecore.model.Need;
+import org.ecore.model.Tag;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.TagRepository;
 import org.junit.Test;
@@ -56,23 +58,23 @@ public class NeedJPATest {
 		
 	}
 	
-//@Test 
-//public void shouldEstablishNeedToTagRelationships() {
-//	Tag chess = tagRepo.save(new Tag("chess" ));
-//	Tag crayons = tagRepo.save(new Tag("crayons"));
-//	
-//	Need need = new Need(null, 0, null, null);
-//	need = needRepo.save(need);
-//	long needId = need.getId();
-//	
-//	entityManager.flush();
-//	entityManager.clear();
-//	
-//	Optional<Need>result = needRepo.findById(needId);
-//	need = result.get();
-//	
-//	assertThat(need.getTags(), containsInAnyOrder(chess, crayons));
-//}
+@Test 
+public void shouldEstablishNeedToTagRelationships() {
+	Tag chess = tagRepo.save(new Tag("chess"));
+	Tag crayons = tagRepo.save(new Tag("crayons"));
+	
+	Need need = new Need();
+	need = needRepo.save(need);
+	long needId = need.getId();
+	
+	entityManager.flush();
+	entityManager.clear();
+	
+	Optional<Need>result = needRepo.findById(needId);
+	need = result.get();
+	
+	assertThat(need.getTags(), containsInAnyOrder(chess,crayons));
+}
 
 	}
 
