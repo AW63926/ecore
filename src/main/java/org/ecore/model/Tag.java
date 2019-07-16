@@ -41,11 +41,5 @@ public class Tag {
 		return needs;
 	}
 
-//	public Collection<String> getTagUrls() {
-//		Collection<String> urls = new ArrayList<>();
-//		for (Tag t : tags) {
-//			urls.add(format("/show-tags/%d/tags/%s", this.getId(), t.getName()));
-//		}
-//		return urls;
 	}
 

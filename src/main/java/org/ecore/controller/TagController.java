@@ -30,10 +30,10 @@ public class TagController {
 		
 	}
 		
-	@RequestMapping("/show-tags")
+	@RequestMapping("/all-tags")
 	public String findAllTags(Model model) {
 		model.addAttribute("tags", tagRepo.findAll());
-		return("tags");
+		return("all-tags");
 	}
 	
 }
