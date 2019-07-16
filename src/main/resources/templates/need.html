@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Need</title>
+    <title>A Need</title>
 </head>
 <body>
+<h1> A single Need </h1>
 
-    <div th:each= "needs: ${needs}">
-        <h2 th:text = "${need.name}"></h2>
+    <div th:each= "need: ${needs}">
+        <p th:text = "${need.name}"></p>
+        <p th:text ="${need.quantity}"></p>
+        <p th:text ="${need.descNeed}"></p>
+        <a href="http://localhost:8080/all-needs">Back to home</a>
     </div>
     
 </body>
