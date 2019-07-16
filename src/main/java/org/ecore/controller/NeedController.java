@@ -29,10 +29,10 @@ public class NeedController {
 		throw new NeedNotFoundException();
 	}
 
-	@RequestMapping("/show-needs")
+	@RequestMapping("/all-needs")
 	public String findAllNeeds(Model model) {
 		model.addAttribute("needs", needRepo.findAll());
-		return ("needs");
+		return ("all-needs");
 
 	}
 
@@ -42,7 +42,7 @@ public class NeedController {
 			Need deletedNeed = needRepo.findByName(needName);
 			needRepo.delete(deletedNeed);
 		}
-		return "redirect:/needs";
+		return "redirect:/all-needs";
 
 	}
 
@@ -53,7 +53,7 @@ public class NeedController {
 		if (newNeed == null) {
 			newNeed = new Need(needName, i, descNeed);
 		}
-		return "redirect:/needs";
+		return "redirect:/all-needs";
 
 	}
 
@@ -62,7 +62,7 @@ public class NeedController {
 
 		needRepo.deleteById(needId);
 
-		return "redirect:/needs";
+		return "redirect:/all-needs";
 
 	}
 
