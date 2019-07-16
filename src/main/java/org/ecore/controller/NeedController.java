@@ -15,26 +15,55 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class NeedController {
 
-@Resource
-NeedRepository needRepo;
+	@Resource
+	NeedRepository needRepo;
 
-@RequestMapping("/need")
-public String findOneNeed(@RequestParam(value="id")long id, Model model) throws NeedNotFoundException {
-Optional<Need> need = needRepo.findById(id);
+	@RequestMapping("/need")
+	public String findOneNeed(@RequestParam(value = "id") long id, Model model) throws NeedNotFoundException {
+		Optional<Need> need = needRepo.findById(id);
 
-if(need.isPresent()) {
-	model.addAttribute("needs", need.get());
-	return "need";
+		if (need.isPresent()) {
+			model.addAttribute("needs", need.get());
+			return "need";
+		}
+		throw new NeedNotFoundException();
 	}
-	throw new NeedNotFoundException();
-	}
-
 
 	@RequestMapping("/show-needs")
 	public String findAllNeeds(Model model) {
 		model.addAttribute("needs", needRepo.findAll());
 		return ("needs");
-		
+
+	}
+
+	@RequestMapping("/delete-need")
+	public String deleteNeedByName(String needName) {
+		if (needRepo.findByName(needName) != null) {
+			Need deletedNeed = needRepo.findByName(needName);
+			needRepo.delete(deletedNeed);
+		}
+		return "redirect:/needs";
+
+	}
+
+	@RequestMapping("/add-need")
+	public String addNeed(String needName, int i, String descNeed) {
+		Need newNeed = needRepo.findByName(needName);
+
+		if (newNeed == null) {
+			newNeed = new Need(needName, i, descNeed);
+		}
+		return "redirect:/needs";
+
+	}
+
+	@RequestMapping("/del-need")
+	public String deleteNeedById(Long needId) {
+
+		needRepo.deleteById(needId);
+
+		return "redirect:/needs";
+
 	}
 
 }

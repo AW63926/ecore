@@ -1,4 +1,4 @@
-package org.ecore.controller;
+package org.ecore.controllerTest;
 
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.ecore.controller.SchoolController;
 import org.ecore.model.School;
 import org.ecore.notFoundException.SchoolNotFoundException;
 import org.ecore.repository.SchoolRepository;
