@@ -58,23 +58,23 @@ public class NeedJPATest {
 		
 	}
 	//Adam, this test is also failing and making our JPA mappings to fail as well
-//@Test 
-//public void shouldEstablishNeedToTagRelationships() {
-//	Tag chess = tagRepo.save(new Tag("chess"));
-//	Tag crayons = tagRepo.save(new Tag("crayons"));
-//	
-//	Need need = new Need();
-//	need = needRepo.save(need);
-//	long needId = need.getId();
-//	
-//	entityManager.flush();
-//	entityManager.clear();
-//	
-//	Optional<Need>result = needRepo.findById(needId);
-//	need = result.get();
-//	
-//	assertThat(need.getTags(), containsInAnyOrder(chess,crayons));
-//}
+	@Test 
+	public void shouldEstablishNeedToTagRelationships() {
+		Tag chess = tagRepo.save(new Tag("chess"));
+		Tag crayons = tagRepo.save(new Tag("crayons"));
+	
+		Need need = new Need("Chess", 1, "chessclub", chess, crayons);
+		need = needRepo.save(need);
+		long needId = need.getId();
+	
+		entityManager.flush();
+		entityManager.clear();
+	
+		Optional<Need> result = needRepo.findById(needId);
+		need = result.get();
+	
+		assertThat(need.getTags(), containsInAnyOrder(chess,crayons));
+}
 
 	}
 
