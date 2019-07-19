@@ -66,7 +66,7 @@ public class CommunityMemberMockMvcTest {
 	public void shouldPutSingleCommunityMemberIntoModel() throws Exception {
 		when(communityMemberRepo.findById(1L)).thenReturn(Optional.of(communityMember));
 		
-		mvc.perform(get("/community-member?id=1")).andExpect(model().attribute("community-members", is(communityMember)));
+		mvc.perform(get("/community-member?id=1")).andExpect(model().attribute("communitymember", is(communityMember)));
 		
 	}
 	
@@ -86,7 +86,7 @@ public class CommunityMemberMockMvcTest {
 		Collection<CommunityMember> allCommunityMember = Arrays.asList(communityMember, anotherCommunityMember);
 		when(communityMemberRepo.findAll()).thenReturn(allCommunityMember);
 		
-		mvc.perform(get("/all-community-members")).andExpect(model().attribute("community-members", allCommunityMember));
+		mvc.perform(get("/all-community-members")).andExpect(model().attribute("communitymembers", allCommunityMember));
 	}
 	
 		
