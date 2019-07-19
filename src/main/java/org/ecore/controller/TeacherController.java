@@ -18,7 +18,7 @@ public class TeacherController {
 	@Resource
 	TeacherRepository teacherRepo;
 
-	@RequestMapping("/teachers")
+	@RequestMapping("/teacher")
 	public String findOneTeacher(@RequestParam(value="id")long id, Model model) throws TeacherNotFoundException {
 		Optional<Teacher> teacher = teacherRepo.findById(id);
 		
