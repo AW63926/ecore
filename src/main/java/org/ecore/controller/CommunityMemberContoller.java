@@ -24,7 +24,7 @@ public class CommunityMemberContoller {
 		Optional<CommunityMember> communityMember = communityMemberRepo.findById(id);
 
 		if (communityMember.isPresent()) {
-			model.addAttribute("communitymember", communityMember.get());
+			model.addAttribute("communitymembers", communityMember.get());
 			return "community-member";
 
 		}

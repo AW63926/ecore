@@ -46,7 +46,7 @@ public class CommunityMemberControllerTest {
 		
 		when(communityMemberRepo.findById(arbitraryCommunityMemberId)).thenReturn(Optional.of(communityMember));
 		underTest.findOneCommunityMember(arbitraryCommunityMemberId, model);
-		verify(model).addAttribute("community-members", communityMember);
+		verify(model).addAttribute("communitymembers", communityMember);
 		
 	}
 	
