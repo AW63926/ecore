@@ -9,7 +9,7 @@
 <body>
     <h2>Community members</h2>
     <div th:each= "communitymember: ${communitymembers}">
-        <a th:href="@{/community-member(${communitymember.id})}" th:text = "${communitymember.name}"></a>
+        <a th:href="@{/community-member(id=${communitymember.id})}" th:text = "${communitymember.name}"></a>
     </div>
 
 </body>
