@@ -36,7 +36,7 @@ public class EcorePopulator implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception{
 		CommunityMember member1 = communityMemberRepo.save(new CommunityMember("member1", "email1"));
-		System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD" + member1.getId());
+		
 		CommunityMember member2 = communityMemberRepo.save(new CommunityMember("member2", "email2"));
 		
 		Need need1 = needRepo.save(new Need("need1", 1, "desc1"));

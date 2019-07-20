@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-
-    <div th:each= "community-member: ${communitymembers}">
-        <h2 th:text = "${community-member.name}"></h2>
+    <h2>Community members</h2>
+    <div th:each= "communitymember: ${communitymembers}">
+        <a th:href="@{/community-member(${communitymember.id})}" th:text = "${communitymember.name}"></a>
     </div>
 
 </body>
