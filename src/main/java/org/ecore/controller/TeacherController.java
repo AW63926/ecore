@@ -30,10 +30,10 @@ public class TeacherController {
 		throw new TeacherNotFoundException();
 	}
 
-	@RequestMapping("/show-teachers")
+	@RequestMapping("/all-teachers")
 	public String findAllTeachers(Model model) {
 		model.addAttribute("teachers", teacherRepo.findAll());
-		return ("teachers");
+		return ("all-teachers");
 		
 	}
 	

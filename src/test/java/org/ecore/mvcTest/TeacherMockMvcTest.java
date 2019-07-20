@@ -66,19 +66,19 @@ public class TeacherMockMvcTest {
 	
 	@Test
 	public void shouldRouteToAllTeachersView() throws Exception {
-		mvc.perform(get("/show-teachers")).andExpect(view().name(is("teachers")));
+		mvc.perform(get("/all-teachers")).andExpect(view().name(is("all-teachers")));
 	}
 	
 	@Test
 	public void shouldBeOkForAllTeachers() throws Exception{
-		mvc.perform(get("/show-teachers")).andExpect(status().isOk());
+		mvc.perform(get("/all-teachers")).andExpect(status().isOk());
 	}
 	
 	@Test
 	public void shouldPutlAllTeachersInModel() throws Exception {
 		Collection<Teacher>allTeachers=Arrays.asList(teacher, teacher2);
 		when(teacherRepo.findAll()).thenReturn(allTeachers);
-		mvc.perform(get("/show-teachers")).andExpect(model().attribute("teachers", is(allTeachers)));
+		mvc.perform(get("/all-teachers")).andExpect(model().attribute("teachers", is(allTeachers)));
 		
 	}
 
