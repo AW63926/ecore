@@ -24,7 +24,7 @@ public class CommunityMemberContoller {
 		Optional<CommunityMember> communityMember = communityMemberRepo.findById(id);
 
 		if (communityMember.isPresent()) {
-			model.addAttribute("community-members", communityMember.get());
+			model.addAttribute("communitymember", communityMember.get());
 			return "community-member";
 
 		}
@@ -35,7 +35,7 @@ public class CommunityMemberContoller {
 
 	@RequestMapping("/all-community-members")
 	public String FindAllCommunityMembers(Model model) {
-		model.addAttribute("community-members", communityMemberRepo.findAll());
+		model.addAttribute("communitymembers", communityMemberRepo.findAll());
 		return "all-community-members";
 
 	}
