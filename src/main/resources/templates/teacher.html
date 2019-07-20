@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teacher</title>
+</head>
+<body>
+
+    <div th:each= "teacher: ${teachers}">
+        <h2 th:text = "${teacher.name}"></h2>
+        <p th:text= "${teacher.specialty}"></p>
+    </div>
+    
+</body>
+</html>
