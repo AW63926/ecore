@@ -13,7 +13,7 @@ public class School {
 	@GeneratedValue
 	@Id
 	private long id;
-	
+
 	private String name;
 
 	private String district;
@@ -21,8 +21,8 @@ public class School {
 	private String address;
 
 	private String mapUrl;
-	
-	@OneToMany (mappedBy = "school")
+
+	@OneToMany(mappedBy = "school")
 	private Collection<Teacher> teachers;
 
 	public School(String name, String district, String address, String mapUrl) {
@@ -31,25 +31,37 @@ public class School {
 		this.address = address;
 		this.mapUrl = mapUrl;
 	}
-	
+
 	public School() {
-		
+
 	}
 
 	public long getId() {
-		
+
 		return id;
 	}
 
 	public String getName() {
-		
+
 		return name;
 	}
-	
+
+	public String getAddress() {
+
+		return address;
+	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public String getMapUrl() {
+		return mapUrl;
+	}
+
 	public Collection<Teacher> getTeachers() {
 		return teachers;
 	}
-	
 
 	@Override
 	public int hashCode() {
@@ -72,7 +84,5 @@ public class School {
 			return false;
 		return true;
 	}
-
-	
 
 }
