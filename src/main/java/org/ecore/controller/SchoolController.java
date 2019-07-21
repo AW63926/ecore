@@ -31,10 +31,10 @@ public class SchoolController {
 		
 	}
 
-	@RequestMapping("/show-schools")
+	@RequestMapping("/all-schools")
 	public String findAllSchools(Model model) {
 		model.addAttribute("schools", schoolRepo.findAll());
-		return ("schools");
+		return ("all-schools");
 		
 	}
 
