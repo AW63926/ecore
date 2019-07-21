@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A School</title>
+</head>
+<body>
+<h1> A single School </h1>
+
+    <div th:each= "school: ${schools}">
+        <p th:text = "${school.name}"></p>
+        <p th:text ="${school.address}"></p>
+        <p th:text ="${school.district}"></p>
+        <p th:text ="${school.mapUrl}"></p>
+        <a href="http://localhost:8080/all-schools">Back to home</a>
+    </div>
+    
+</body>
+</html>
