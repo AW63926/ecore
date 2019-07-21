@@ -11,7 +11,7 @@
 
     <div th:each= "need: ${needs}">
         <li>
-        <a href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
+        <a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
         </li>
      </div>
     
