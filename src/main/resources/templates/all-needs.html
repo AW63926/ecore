@@ -14,6 +14,41 @@
         <a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
         </li>
      </div>
+
+    </div>
+    <form method ="POST">
+        <h3>Post A Need</h3>
+        <div>
+            <input type="text" name="needName" placeholder="Enter Need Title"/>
+        </div>
+
+        <div>
+            <input type="number" name="i"  min="0" placeholder="Please Enter Quantity"/>
+        </div>
+
+        <div>
+            <input type="text" name="descNeed" placeholder="Please Describe Your Need In Detail"/>
+        </div>
+
+        <div>
+            <button th:formaction="@{/add-need}">Post Need</button>
+        </div>
+
+    </form>
+    
+    
+    <form method="POST">
+    <div>
+
+        <input type="text" name="needName" />
+    </div>
+
+    <div>
+        <button th:formaction="@{/delete-need}">Delete Need</button>
+    </div>
+    </form>
+
+
     
 </body>
 </html>
