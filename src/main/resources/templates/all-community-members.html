@@ -10,7 +10,26 @@
     <h2>Community members</h2>
     <div th:each= "communitymember: ${communitymembers}">
         <a th:href="@{/community-member(id=${communitymember.id})}" th:text = "${communitymember.name}"></a>
+        <form method="POST">
+        <input type="hidden" name="name" th:value="${communitymember.name}"/>
+        <button th:formaction="@{/delete-community-member}">delete</button>
+    </form>
     </div>
+        <form method ="POST">
+            <h3>Add a new Community Member</h3>
+            <div>
+                <input type="text" name="name" placeholder="enter name"/>
+            </div>
+
+            <div>
+                <input type="text" name="email" placeholder="enter email address"/>
+            </div>
+
+            <div>
+                <button th:formaction="@{/add-community-member}">add new community member</button>
+            </div>
+        </form>
+    
 
 </body>
 </html>

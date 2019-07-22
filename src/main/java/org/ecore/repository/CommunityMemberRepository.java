@@ -6,4 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CommunityMemberRepository extends CrudRepository<CommunityMember, Long > {
 
+	CommunityMember findByNameIgnoreCaseLike(String name);
+
 }
