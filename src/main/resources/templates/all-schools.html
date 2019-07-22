@@ -12,8 +12,45 @@
     <div th:each= "school: ${schools}">
         <li>
         <a th:href="@{/school(id=${school.id})}" th:text="${school.name}"></a>
+
+        <form method="POST">
+            <div>
+            <input type="hidden" name="name" th:value="${school.name}"/>
+            </div>
+
+            <div>
+                <button th:formaction="@{/delete-school}">delete</button>
+            </div>
+
+        </form>
         </li>
      </div>
+
+     <form method="POST">
+         <div>
+             <input type="text" name="name" placeholder="enter name"/>
+    
+         </div>
+
+         <div>
+             <input type="text" name="district" placeholder="enter district"/>
+       
+            </div>
+         <div>
+            <input type="text" name="address" placeholder="enter address"/>
+           
+        </div>
+
+        <div>
+            <input type="text" name="mapUrl" placeholder="enter map link"/>
+       
+        </div>
+
+        <div>
+            <button formaction="/add-school">Add School</button>
+        </div>
+
+     </form>
     
 </body>
 </html>
