@@ -59,4 +59,21 @@ public class CommunityMemberControllerTest {
 		
 		
 	}
+	
+	@Test
+	public void shouldAddAdditionalCommunityMemberToModel() {
+		String name = "name";
+		String email= "email";
+		CommunityMember communityMember = communityMemberRepo.save(new CommunityMember(name, email));
+		underTest.addCommunityMember(name, email);
+		when(communityMemberRepo.save(communityMember)).thenReturn(communityMember);
+	}
+	
+	@Test public void shouldDeleteCommunityMemberByName() {
+		String memberName = communityMember.getName();
+		when(communityMemberRepo.findByNameIgnoreCaseLike(memberName)).thenReturn(communityMember);
+		underTest.deleteCommunityMemberByName(memberName);
+		verify(communityMemberRepo).delete(communityMember);
+	
+	}
 }
