@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="../static/css/styles.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +15,8 @@
         <a th:href="@{/school(id=${school.id})}" th:text="${school.name}"></a>
 
         <form method="POST">
-            <div>
-            <input type="hidden" name="name" th:value="${school.name}"/>
+            <div id="schoolDelete">
+            <input type="number" name="schoolId" th:value="${school.id}"/>
             </div>
 
             <div>
