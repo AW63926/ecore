@@ -15,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+
 @Controller
 public class SchoolController {
 	
@@ -57,14 +59,16 @@ public class SchoolController {
 
 	@RequestMapping("/delete-school")
 	public String deleteSchool(String name) {
-		Optional<School> foundSchoolResult = schoolRepo.findByNameIgnoreCaseLike(name);
-		School schoolToRemove = foundSchoolResult.get();
-		School deletedSchool = schoolRepo.getByNameIgnoreCaseLike(name);
-		for(Teacher teacher : schoolToRemove.getTeachers()) {
-			teacherRepo.delete(teacher);
+		School foundSchool = schoolRepo.findByName(name);
+
+		if (foundSchool != null) {
+
+			for (Teacher teacher : foundSchool.getTeachers()) {
+				teacherRepo.delete(teacher);
+			}
+			schoolRepo.delete(foundSchool);
 		}
 		
-		schoolRepo.delete(deletedSchool);
 		return "redirect:/all-schools";
 	}
 }
