@@ -12,4 +12,7 @@ public interface SchoolRepository extends CrudRepository<School, Long>{
 
 	Optional<School> findByNameIgnoreCaseLike(String name);
 
+	School findByName(String schoolName);
+
+
 }
