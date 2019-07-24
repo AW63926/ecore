@@ -13,7 +13,7 @@ public class Tag {
 	
 	@GeneratedValue
 	@Id
-	private Long id;
+	private long id;
 	public String name;
 
 	@ManyToMany(mappedBy = "tags")
@@ -28,7 +28,7 @@ public class Tag {
 		
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 
 	}
@@ -41,11 +41,30 @@ public class Tag {
 		return needs;
 	}
 
-//	public Collection<String> getTagUrls() {
-//		Collection<String> urls = new ArrayList<>();
-//		for (Tag t : tags) {
-//			urls.add(format("/show-tags/%d/tags/%s", this.getId(), t.getName()));
-//		}
-//		return urls;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Tag other = (Tag) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+	
+	
+
 	}
 

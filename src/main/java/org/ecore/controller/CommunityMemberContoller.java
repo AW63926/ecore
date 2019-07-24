@@ -24,7 +24,7 @@ public class CommunityMemberContoller {
 		Optional<CommunityMember> communityMember = communityMemberRepo.findById(id);
 
 		if (communityMember.isPresent()) {
-			model.addAttribute("community-members", communityMember.get());
+			model.addAttribute("communitymember", communityMember.get());
 			return "community-member";
 
 		}
@@ -35,9 +35,31 @@ public class CommunityMemberContoller {
 
 	@RequestMapping("/all-community-members")
 	public String FindAllCommunityMembers(Model model) {
-		model.addAttribute("community-members", communityMemberRepo.findAll());
+		model.addAttribute("communitymembers", communityMemberRepo.findAll());
 		return "all-community-members";
 
+	}
+
+	@RequestMapping("/add-community-member")
+	public String addCommunityMember(String name, String email) {
+		CommunityMember communityMember = communityMemberRepo.findByNameIgnoreCaseLike(name);
+		
+		if(communityMember == null) {
+			communityMember = new CommunityMember(name, email);
+			communityMemberRepo.save(communityMember);
+		}
+		
+		return "redirect:/all-community-members";
+		
+	}
+	@RequestMapping("/delete-community-member")
+	public String deleteCommunityMemberByName(String name) {
+		CommunityMember communityMember = communityMemberRepo.findByNameIgnoreCaseLike(name);
+		
+		if(communityMember != null) {
+			communityMemberRepo.delete(communityMember);
+		}
+		return "redirect:/all-community-members";
 	}
 
 }
