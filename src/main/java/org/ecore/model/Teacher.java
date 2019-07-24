@@ -1,15 +1,9 @@
 package org.ecore.model;
 
-import java.util.Collection;
-import java.util.HashSet;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-
-import java.util.Arrays;
 
 @Entity
 public class Teacher {
@@ -23,10 +17,6 @@ public class Teacher {
 	
 	@ManyToOne
 	private School school;
-	
-	@ManyToMany(mappedBy = "needs")
-	private Collection<Need> needs;
-
 
 	public long getId() {
 		return id;
@@ -44,18 +34,14 @@ public class Teacher {
 	public String getSpecialty() {
 		return specialty;
 	}
-	public Collection<Need>getNeeds(){
-		return needs;
-	}
 
 	public Teacher () {
 	}
 
-	public Teacher(String name, String specialty, School school, Need...needs) {
+	public Teacher(String name, String specialty, School school) {
 		this.name = name;
 		this.specialty = specialty;
 		this.school = school;
-		this.needs = new HashSet<>(Arrays.asList(needs));
 	}
 
 	@Override
