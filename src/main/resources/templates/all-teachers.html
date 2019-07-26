@@ -12,5 +12,46 @@
         <a th:href="@{/teacher(id=${teachers.id})}" th:text = "${teachers.name}"></a>
     </div>
 
+
+</div>
+<form method="POST">
+    <h3>Add A Teacher</h3>
+    <!-- to cater for visually impaired individuals, created the input ID for screen readers and other accessibility tools. -->
+    <div>
+        <label for="title">Teacher Name:</label> <input id="title" type="text"
+            name="teacherName" placeholder="Enter Teacher Name" required="required">
+    </div>
+
+    <div>
+        <label for="speciality">Speciality</label> <input id="quantity"
+            type="text" name="teacherSpeciality" placeholder="Please Enter Speciality"
+            required="required">
+    </div>
+
+    <div>
+        <label for="school name">School Name:</label> <input id="school name"
+            type="text" name="schoolName" placeholder="School Name"
+            required="required">
+    </div>
+
+    <div>
+        <button th:formaction="@{/add-teacher}">Add Teacher</button>
+    </div>
+</form>
+
+
+    <form method="POST">
+            <div>
+    
+                <input type="text" name="teacherName" required="required"/>
+            </div>
+    
+            <div>
+                <button th:formaction="@{/delete-teacher}">Delete Teacher</button>
+            </div>
+        </form>
+
+</form>
+
 </body>
 </html>

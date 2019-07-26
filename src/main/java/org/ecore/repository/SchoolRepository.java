@@ -14,7 +14,7 @@ public interface SchoolRepository extends CrudRepository<School, Long>{
 
 	School findByName(String name);
 
-	School findByName(String schoolName);
+	
 
 
 }
