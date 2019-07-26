@@ -48,8 +48,7 @@ public class CommunityMemberContoller {
 			communityMember = new CommunityMember(name, email);
 			communityMemberRepo.save(communityMember);
 		}
-		
-		return "redirect:/all-community-members";
+				return "redirect:/all-community-members";
 		
 	}
 	@RequestMapping("/delete-community-member")
