@@ -1,15 +1,15 @@
-#ECORE
+# ECORE
 ***
-##ECORE connects schools, teachers, and community member to share supplies and resources.
+## ECORE connects schools, teachers, and community member to share supplies and resources.
 ***
-###Schools
+### Schools
 
 Schools have the ability to:
 -
 
 ***
 
-###Teachers
+### Teachers
 
 Ability to interact with resource requests
 -post a request for resources 
