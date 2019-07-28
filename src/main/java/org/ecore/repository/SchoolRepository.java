@@ -8,10 +8,10 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface SchoolRepository extends CrudRepository<School, Long>{
 
-	School getByNameIgnoreCaseLike(String name);
+	
 
 	School findByNameIgnoreCaseLike(String name);
 
-	School findByName(String name);
+	
 
 }
