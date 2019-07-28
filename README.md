@@ -4,8 +4,8 @@
 ***
 ### Schools
 
-Schools have the ability to:
--
+
+
 
 ***
 
