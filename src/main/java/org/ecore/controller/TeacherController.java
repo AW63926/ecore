@@ -45,7 +45,7 @@ public class TeacherController {
 	
 	@RequestMapping("/add-teacher")
 	public String addTeacher(String teacherName, String teacherSpecialty, String schoolName) {
-		School school = schoolRepo.findByName(schoolName);
+		School school = schoolRepo.findByNameIgnoreCaseLike(schoolName);
 		
 		if(school == null) {
 			String schoolDistrict = null;

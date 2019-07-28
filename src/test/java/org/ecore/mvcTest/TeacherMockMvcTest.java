@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import java.util.Arrays;
 import org.ecore.controller.TeacherController;
 import org.ecore.model.Teacher;
+import org.ecore.repository.SchoolRepository;
 import org.ecore.repository.TeacherRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,6 +33,9 @@ public class TeacherMockMvcTest {
 	
 	@MockBean
 	private TeacherRepository teacherRepo;
+	
+	@MockBean
+	SchoolRepository schoolRepo;
 	
 	@Mock
 	private Teacher teacher;

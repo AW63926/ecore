@@ -77,7 +77,7 @@ public class SchoolControllerTest {
 	@Test
 	public void shouldDeleteSchoolFromModel() {
 		String name = school.getName();
-		when(schoolRepo.findByName(name)).thenReturn(school);
+		when(schoolRepo.findByNameIgnoreCaseLike(name)).thenReturn(school);
 		underTest.deleteSchool(name);
 		verify(schoolRepo).delete(school);
 	}

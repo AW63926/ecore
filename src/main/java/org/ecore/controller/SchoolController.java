@@ -48,7 +48,7 @@ public class SchoolController {
 
 	@RequestMapping("/add-school")
 	public String addSchool (String name, String district, String address, String mapUrl) {
-		School school = schoolRepo.getByNameIgnoreCaseLike(name);
+		School school = schoolRepo.findByNameIgnoreCaseLike(name);
 		
 		if(school == null) {
 			school = schoolRepo.save(new School(name, district, address, mapUrl));
@@ -59,7 +59,7 @@ public class SchoolController {
 
 	@RequestMapping("/delete-school")
 	public String deleteSchool(String name) {
-		School foundSchool = schoolRepo.findByName(name);
+		School foundSchool = schoolRepo.findByNameIgnoreCaseLike(name);
 
 		if (foundSchool != null) {
 
