@@ -58,8 +58,8 @@ public class TeacherMockMvcTest {
 	}
 	
 	@Test
-	public void shouldNotBeOkForSingleCourse() throws Exception {
-		mvc.perform(get("/course?id")).andExpect(status().isNotFound());
+	public void shouldNotBeOkForSingleTeacher() throws Exception {
+		mvc.perform(get("/teacher?id=1")).andExpect(status().isNotFound());
 	}
 	
 	@Test
