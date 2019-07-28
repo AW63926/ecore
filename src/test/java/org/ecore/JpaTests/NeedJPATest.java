@@ -10,9 +10,13 @@ import java.util.Optional;
 import javax.annotation.Resource;
 
 import org.ecore.model.Need;
+import org.ecore.model.School;
 import org.ecore.model.Tag;
+import org.ecore.model.Teacher;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.TagRepository;
+import org.ecore.repository.TeacherRepository;
+import org.ecore.repository.SchoolRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -33,9 +37,32 @@ public class NeedJPATest {
 	@Resource
 	private TagRepository tagRepo;
 	
+	@Resource
+	private TeacherRepository teacherRepo;
+	
+	@Resource
+	private SchoolRepository schoolRepo;
+	
+	@Resource
+	private School school;
+	
+	@Resource
+	private Teacher teacher;
+	
+	@Resource
+	private Teacher teacher2;
+	
+	@Resource
+	private Tag tag;
+	
+	@Resource
+	private Tag tag2;
+	
+	
+	
 	@Test 
 	public void shouldSaveAndLoadNeed() {
-		Need need = needRepo.save(new Need("name",5,"descNeed"));
+		Need need = needRepo.save(new Need("name",5,"descNeed", teacher, tag, tag2));
 		long needId = need.getId();
 		
 		entityManager.flush();
@@ -48,7 +75,7 @@ public class NeedJPATest {
 	
 	@Test 
 	public void shouldGenerateNeedById () {
-		Need need = needRepo.save(new Need("name", 5, "descNeed"));
+		Need need = needRepo.save(new Need("name", 5, "descNeed", teacher, tag, tag2));
 		long needId = need.getId();
 		
 		entityManager.flush();
@@ -63,7 +90,7 @@ public class NeedJPATest {
 		Tag chess = tagRepo.save(new Tag("chess"));
 		Tag crayons = tagRepo.save(new Tag("crayons"));
 	
-		Need need = new Need("Chess", 1, "chessclub", chess, crayons);
+		Need need = new Need("Chess", 1, "chessclub", teacher, chess, crayons);
 		need = needRepo.save(need);
 		long needId = need.getId();
 	
@@ -75,7 +102,32 @@ public class NeedJPATest {
 	
 		assertThat(need.getTags(), containsInAnyOrder(chess,crayons));
 }
+	@Test
+	public void shouldSaveNeedToTeacherRelationship() {
+		
+		School school2 = new School("name", "district", "address", "map");
+		schoolRepo.save(school2);
+		
+		Teacher teacher3 = new Teacher("name", "specialty", school2);
+		teacherRepo.save(teacher3);
+		long teacherId = teacher3.getId();
+		
+		Need need = new Need("name", 3, "descrip", teacher3, tag, tag2); 
+		needRepo.save(need);
+		
+		Need need2 = new Need("name2", 4, "des", teacher3, tag, tag2);
+		needRepo.save(need2);
+		
+		entityManager.flush();
+		entityManager.clear();
 
+		Optional <Teacher>result = teacherRepo.findById(teacherId);
+		teacher = result.get();
+		assertThat(teacher3.getNeeds(), containsInAnyOrder(need, need2));
+		
 	}
+
+
+}
 
 

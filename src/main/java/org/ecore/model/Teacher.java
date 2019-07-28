@@ -1,9 +1,14 @@
 package org.ecore.model;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Teacher {
@@ -15,8 +20,13 @@ public class Teacher {
 	private String name;
 	private String specialty;
 	
+	@JsonIgnore
 	@ManyToOne
 	private School school;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "teacher")
+	private Collection<Need> needs;
 
 	public long getId() {
 		return id;
@@ -43,7 +53,11 @@ public class Teacher {
 		this.specialty = specialty;
 		this.school = school;
 	}
-
+	
+	public Collection<Need> getNeeds() {
+		return needs;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -65,5 +79,7 @@ public class Teacher {
 			return false;
 		return true;
 	}
+
+	
 
 }

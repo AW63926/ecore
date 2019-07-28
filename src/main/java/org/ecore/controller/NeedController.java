@@ -51,7 +51,7 @@ public class NeedController {
 		Need newNeed = needRepo.findByName(needName);
 
 		if (newNeed == null) {
-			newNeed = new Need(needName, i, descNeed);
+			newNeed = new Need(needName, i, descNeed, null, null);
 			needRepo.save(newNeed);
 		}
 		return "redirect:/all-needs";
