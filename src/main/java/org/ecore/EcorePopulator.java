@@ -8,6 +8,7 @@ import org.ecore.model.School;
 import org.ecore.model.Tag;
 import org.ecore.model.Teacher;
 import org.ecore.repository.CommunityMemberRepository;
+import org.ecore.repository.MaterialRepository;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.SchoolRepository;
 import org.ecore.repository.TagRepository;
@@ -32,6 +33,9 @@ public class EcorePopulator implements CommandLineRunner{
 	
 	@Resource
 	private TeacherRepository teacherRepo;
+	
+	@Resource
+	private MaterialRepository materialRepo;
 	
 	@Override
 	public void run(String... args) throws Exception{

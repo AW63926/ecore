@@ -28,7 +28,7 @@ public class SchoolControllerTest {
 	
 	@Mock
 	private School school;
-	Long schoolId;
+	long id;
 	
 	@Mock
 	private School anotherSchool;
@@ -76,9 +76,8 @@ public class SchoolControllerTest {
 	
 	@Test
 	public void shouldDeleteSchoolFromModel() {
-		String name = school.getName();
-		when(schoolRepo.findByNameIgnoreCaseLike(name)).thenReturn(school);
-		underTest.deleteSchool(name);
-		verify(schoolRepo).delete(school);
+		
+		underTest.deleteSchoolById(id);
+		verify(schoolRepo).deleteById(id);
 	}
 }
