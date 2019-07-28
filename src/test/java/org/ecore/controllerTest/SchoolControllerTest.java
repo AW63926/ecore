@@ -1,15 +1,14 @@
 package org.ecore.controllerTest;
 
-import static org.mockito.Mockito.when;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-import java.util.Optional;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
 
 import org.ecore.controller.SchoolController;
-import org.ecore.model.CommunityMember;
 import org.ecore.model.School;
 import org.ecore.notFoundException.SchoolNotFoundException;
 import org.ecore.repository.SchoolRepository;

@@ -41,16 +41,7 @@
         <li>
         <a th:href="@{/school(id=${school.id})}" th:text="${school.name}"></a>
 
-        <form method="POST">
-            <div>
-            <input class="hiddenInput" type="number" name="id" th:value="${school.id}"/>
-            </div>
-
-            <div>
-                <button th:formaction="@{/delete-school}">delete</button>
-            </div>
-
-        </form>
+        
         </li>
      </div>
 

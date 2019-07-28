@@ -1,6 +1,5 @@
 package org.ecore.controller;
 
-import java.util.Collection;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -58,9 +57,14 @@ public class SchoolController {
 	}
 
 	@RequestMapping("/delete-school")
-	public String deleteSchoolById(long id) {
+	public String deleteSchoolById(String name) {
+		School foundSchool = schoolRepo.findByNameIgnoreCaseLike(name);		
+		long foundSchoolId = foundSchool.getId();
 		
-		schoolRepo.deleteById(id);
+		for(Teacher teacher : foundSchool.getTeachers()) {
+			teacherRepo.delete(teacher);;
+		}
+		schoolRepo.deleteById(foundSchoolId);
     
 		return "redirect:/all-schools";
 	}
