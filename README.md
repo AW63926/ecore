@@ -8,6 +8,12 @@
 
 ## **USERS**
 
+Each landing page will feature:
+- login (if required)
+- user specific information and forms
+- view showing all posted needs or materials
+
+
 ***
 
 ### **Schools**
@@ -41,6 +47,8 @@ Ability to interact with need and resource requests by:
 
 ***
 ***
+
+
 
 ## **FORMS**
 
