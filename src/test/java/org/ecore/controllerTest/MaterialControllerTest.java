@@ -76,7 +76,7 @@ public class MaterialControllerTest {
 	
 	@Test
 	public void shouldDeleteMaterialById() {
-		underTest.deleteById(id);
+		underTest.deleteMaterialById(id);
 		verify(materialRepo).deleteById(id);
 		
 	}

@@ -51,7 +51,7 @@ public class MaterialController {
 	}
 
 	@RequestMapping("/delete-material")
-	public String deleteById(Long id) {
+	public String deleteMaterialById(Long id) {
 
 		materialRepo.deleteById(id);
 

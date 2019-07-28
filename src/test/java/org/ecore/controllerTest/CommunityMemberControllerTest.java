@@ -33,6 +33,7 @@ public class CommunityMemberControllerTest {
 	
 	@Mock
 	CommunityMember communityMember;
+	private long id;
 	
 	@Mock
 	CommunityMember anotherCommunityMember;
@@ -76,11 +77,9 @@ public class CommunityMemberControllerTest {
 		
 	}
 	
-	@Test public void shouldDeleteCommunityMemberByName() {
-		String memberName = communityMember.getName();
-		when(communityMemberRepo.findByNameIgnoreCaseLike(memberName)).thenReturn(communityMember);
-		underTest.deleteCommunityMemberByName(memberName);
-		verify(communityMemberRepo).delete(communityMember);
+	@Test public void shouldDeleteCommunityMemberByID() {
+		underTest.deleteCommunityMemberById(id);
+		verify(communityMemberRepo).deleteById(id);
 	
 	}
 }
