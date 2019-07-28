@@ -34,16 +34,16 @@ public class MaterialController {
 	@RequestMapping("/all-materials")
 	public String findAllMaterials(Model model) {
 		model.addAttribute("materials", materialRepo.findAll());
-		return ("all-materials");
+		return "all-materials";
 
 	}
 
-	@RequestMapping("/add-material)")
-	public String addMaterial(String name, int quantity, String materialDesc, Tag... tags) {
+	@RequestMapping("/add-material")
+	public String addMaterial(String name, int quantity, String descMaterial) {
 		Material material = materialRepo.findByName(name);
 
 		if (material == null) {
-			material = materialRepo.save(new Material(name, quantity, materialDesc, tags));
+			material = materialRepo.save(new Material(name, quantity, descMaterial));
 
 		}
 

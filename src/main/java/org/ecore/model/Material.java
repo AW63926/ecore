@@ -47,6 +47,16 @@ public class Material {
 		
 		return name;
 	}
+	
+	public int getQuantity() {
+		
+		return quantity;
+	}
+	
+	public String getDescMaterial () {
+		
+		return descMaterial;
+	}
 
 	public Collection<Tag> getTags() {
 		

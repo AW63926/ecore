@@ -19,7 +19,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
-public class ResourceJpaTest {
+public class MaterialJpaTest {
 
 	@Resource
 	private TestEntityManager entityManager;

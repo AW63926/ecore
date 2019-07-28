@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Materials</h2>
+    <div th:each= "material: ${materials}">
+        <a th:href="@{/material(id=${material.id})}" th:text = "${material.name}"></a>
+        <form method="POST">
+        <input class="hiddenInput" type="number" name="id" th:value="${material.id}"/>
+        <button th:formaction="@{/delete-material}">delete</button>
+    </form>
+    </div>
+        <form method ="POST">
+            <h3>Add A New Material</h3>
+            <div>
+                <input type="text" name="name" placeholder="enter name"/>
+            </div>
+
+            <div>
+                    <input type="number" name="quantity" placeholder="enter quantity"/>
+            </div>
+
+            <div>
+                <input type="text" name="descMaterial" placeholder="enter description"/>
+            </div>
+
+            <div>
+                <button th:formaction="@{/add-material}">add material</button>
+            </div>
+        </form>
+    
+
+</body>
+</html>
