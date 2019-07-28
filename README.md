@@ -1,20 +1,23 @@
-# ECORE
-***
-## ECORE connects schools, teachers, and community member to share supplies and resources.
-***
-
-## USERS
+# **ECORE**
 
 ***
 
-### Schools
+## **ECORE connects schools, teachers, and community member to share supplies and resources**
+
+***
+
+## **USERS**
+
+***
+
+### **Schools**
 
 
 
 
 ***
 
-### Teachers
+### **Teachers**
 
 Ability to interact with resource requests
 - post a request for resources 
@@ -30,7 +33,7 @@ Ability to interact with a need request
 
 ***
 
-### Community Members
+### **Community Members**
 
 Ability to interact with need and resource requests by:
 - viewing posted needs and resources
@@ -39,13 +42,11 @@ Ability to interact with need and resource requests by:
 ***
 ***
 
-## FORMS
+## **FORMS**
 
 ***
 
-*** 
-
-### Needs
+### **Needs**
 
 Anything that is needed by a teacher they can post to the site
 - name of need
@@ -54,7 +55,7 @@ Anything that is needed by a teacher they can post to the site
 - optional ability to tag the need
 - response form for the community or another teacher to fulfill the need
 
-### Materials
+### **Materials**
 
 Anything that the teacher has available to download or share
 
