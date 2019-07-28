@@ -35,7 +35,7 @@ public class Material implements StorageService{
 	
 	private String descMaterial;
 	
-	private Path rootLocation;
+	//private Path rootLocation;
 	
 	@ManyToMany
 	private Collection<Tag> tags;
