@@ -43,21 +43,13 @@ public class NeedJPATest {
 	@Resource
 	private SchoolRepository schoolRepo;
 	
-	@Resource
-	private School school;
-	
-	@Resource
 	private Teacher teacher;
 	
-	@Resource
 	private Teacher teacher2;
 	
-	@Resource
 	private Tag tag;
 	
-	@Resource
 	private Tag tag2;
-	
 	
 	
 	@Test 
@@ -107,22 +99,27 @@ public class NeedJPATest {
 		
 		School school2 = new School("name", "district", "address", "map");
 		schoolRepo.save(school2);
-		
+
 		Teacher teacher3 = new Teacher("name", "specialty", school2);
 		teacherRepo.save(teacher3);
 		long teacherId = teacher3.getId();
 		
-		Need need = new Need("name", 3, "descrip", teacher3, tag, tag2); 
+		Tag tag3 = new Tag("name");
+		Tag tag4 = new Tag("name2");
+		tagRepo.save(tag3);
+		tagRepo.save(tag4);
+		
+		Need need = new Need("name", 3, "descrip", teacher3, tag3, tag4); 
 		needRepo.save(need);
 		
-		Need need2 = new Need("name2", 4, "des", teacher3, tag, tag2);
+		Need need2 = new Need("name2", 4, "des", teacher3, tag3, tag4);
 		needRepo.save(need2);
 		
 		entityManager.flush();
 		entityManager.clear();
 
 		Optional <Teacher>result = teacherRepo.findById(teacherId);
-		teacher = result.get();
+		teacher3 = result.get();
 		assertThat(teacher3.getNeeds(), containsInAnyOrder(need, need2));
 		
 	}
