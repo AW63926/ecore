@@ -37,10 +37,10 @@ public class EcorePopulator implements CommandLineRunner{
 	@Resource
 	private MaterialRepository materialRepo;
 	
-	@Resource
+	
 	private Teacher teacher;
 	
-	@Resource
+	
 	private Tag tag;
 	
 	@Override
