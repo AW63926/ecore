@@ -12,24 +12,55 @@
     <div th:each= "material: ${materials}">
         <a th:href="@{/material(id=${material.id})}" th:text = "${material.name}"></a>
           </div>
-        <form method ="POST">
+        <form method ="POST" enctype="multipart/form-data" action="/">
             <h3>Add A New Material</h3>
             <div>
-                <input type="text" name="name" placeholder="enter name"/>
+                <input type="text" name="name" placeholder="enter name" required="required"/>
             </div>
 
             <div>
-                    <input type="number" name="quantity" placeholder="enter quantity"/>
+                    <input type="number" name="quantity" placeholder="enter quantity" required="required"/>
             </div>
 
             <div>
-                <input type="text" name="descMaterial" placeholder="enter description"/>
+                <input type="text" name="descMaterial" placeholder="enter description" required="required"/>
             </div>
 
             <div>
+             <table>
+                    <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                    <!--<tr><td></td><td><input type="submit" value="Upload" /></td></tr>-->
+                    
+                </table>
+                
                 <button th:formaction="@{/add-material}">add material</button>
             </div>
         </form>
+
+
+       
+            <!--
+            <div>
+                <form method="POST" enctype="multipart/form-data" action="/">
+                    <table>
+                        <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                        <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                    </table>
+                </form>
+            </div>
+
+        -->
+
+            <div>
+                    <ul>
+                        <li th:each="file : ${files}">
+                            <a th:href="${file}" th:text="${file}" />
+                        </li>
+                    </ul>
+                </div>
+    
+        
+            
     
 
 </body>
