@@ -23,6 +23,14 @@ Ability to interact with a need request
 - delete a need that they posted
 - communicate with the community at large through a form on their post
 
+***
+
+### Community Members
+
+Ability to interact with need and resource requests by:
+- viewing posted needs and resources
+- completing form on the post to communicate with the poster
+
 
 
 
