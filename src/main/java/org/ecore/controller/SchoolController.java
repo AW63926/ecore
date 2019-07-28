@@ -61,7 +61,7 @@ public class SchoolController {
 	public String deleteSchoolById(long id) {
 		
 		schoolRepo.deleteById(id);
-		
+    
 		return "redirect:/all-schools";
 	}
 }
