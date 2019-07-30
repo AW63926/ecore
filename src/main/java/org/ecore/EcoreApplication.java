@@ -8,6 +8,7 @@ public class EcoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EcoreApplication.class, args);
+	
 	}
 
 }
