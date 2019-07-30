@@ -7,6 +7,8 @@ import static org.mockito.Mockito.when;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 
 import org.ecore.controller.SchoolController;
 import org.ecore.model.School;
@@ -21,46 +23,48 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 
 public class SchoolControllerTest {
-	
+
+	private static final long SCHOOL_ID = 1L;
+
 	@InjectMocks
 	private SchoolController underTest;
-	
+
 	@Mock
 	private School school;
-	long id;
-	
+	Long schoolId;
+
 	@Mock
 	private School anotherSchool;
-	
+
 	@Mock
 	private SchoolRepository schoolRepo;
-	
+
 	@Mock
 	private Model model;
-	
+
 	@Before
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 	}
-	
+
 	@Test
-	public void shouldAddASingleSchoolToModel() throws SchoolNotFoundException { 
+	public void shouldAddASingleSchoolToModel() throws SchoolNotFoundException {
 		long arbitrarySchoolId = 1;
 		when(schoolRepo.findById(arbitrarySchoolId)).thenReturn(Optional.of(school));
-	
+
 		underTest.findOneSchool(arbitrarySchoolId, model);
 		verify(model).addAttribute("schools", school);
 	}
-	
+
 	@Test
 	public void shouldAddMultipleSchoolsToModel() {
 		Collection<School> allSchools = Arrays.asList(school, anotherSchool);
 		when(schoolRepo.findAll()).thenReturn(allSchools);
-		
+
 		underTest.findAllSchools(model);
 		verify(model).addAttribute("schools", allSchools);
 	}
-	
+
 	@Test
 	public void shouldAddAdditionalSchoolToModel() {
 		String name = "name";
@@ -72,11 +76,12 @@ public class SchoolControllerTest {
 		verify(schoolRepo).save(schoolArgument.capture());
 		assertEquals("name", schoolArgument.getValue().getName());
 	}
-	
+
 	@Test
 	public void shouldDeleteSchoolFromModel() {
-		
-		underTest.deleteSchoolById(id);
-		verify(schoolRepo).deleteById(id);
+		when(schoolRepo.findById(SCHOOL_ID)).thenReturn(Optional.of(school));
+		underTest.deleteSchoolById(SCHOOL_ID);
+
+		verify(schoolRepo).deleteById(SCHOOL_ID);
 	}
 }

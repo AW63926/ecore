@@ -57,15 +57,16 @@ public class SchoolController {
 	}
 
 	@RequestMapping("/delete-school")
-	public String deleteSchoolById(String name) {
-		School foundSchool = schoolRepo.findByNameIgnoreCaseLike(name);		
-		long foundSchoolId = foundSchool.getId();
+	public String deleteSchoolById(Long schoolId) {
+		Optional<School> foundSchoolResult = schoolRepo.findById(schoolId);
+		School schoolToRemove = foundSchoolResult.get();
 		
-		for(Teacher teacher : foundSchool.getTeachers()) {
-			teacherRepo.delete(teacher);;
+		for(Teacher teacher : schoolToRemove.getTeachers()) {
+			teacherRepo.delete(teacher);
 		}
-		schoolRepo.deleteById(foundSchoolId);
-    
+		
+		schoolRepo.deleteById(schoolId);
+		
 		return "redirect:/all-schools";
 	}
 }

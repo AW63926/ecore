@@ -38,8 +38,9 @@
                 <div class="main">
 
     <div th:each= "teacher: ${teachers}">
-        <h2 th:text = "${teacher.name}"></h2>
+        <p th:text = "${teacher.name}"></p>
         <p th:text= "${teacher.specialty}"></p>
+        <p th:each="school: ${teacher.school}" th:text="${school.name}"></p>
     </div>
 
 </div>
