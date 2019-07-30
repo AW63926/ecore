@@ -48,17 +48,14 @@ public class CommunityMemberContoller {
 			communityMember = new CommunityMember(name, email);
 			communityMemberRepo.save(communityMember);
 		}
-		
-		return "redirect:/all-community-members";
+				return "redirect:/all-community-members";
 		
 	}
 	@RequestMapping("/delete-community-member")
-	public String deleteCommunityMemberByName(String name) {
-		CommunityMember communityMember = communityMemberRepo.findByNameIgnoreCaseLike(name);
+	public String deleteCommunityMemberById(long id) {
+
+		communityMemberRepo.deleteById(id);
 		
-		if(communityMember != null) {
-			communityMemberRepo.delete(communityMember);
-		}
 		return "redirect:/all-community-members";
 	}
 

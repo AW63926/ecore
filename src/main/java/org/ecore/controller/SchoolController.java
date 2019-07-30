@@ -1,6 +1,5 @@
 package org.ecore.controller;
 
-import java.util.Collection;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -48,7 +47,7 @@ public class SchoolController {
 
 	@RequestMapping("/add-school")
 	public String addSchool (String name, String district, String address, String mapUrl) {
-		School school = schoolRepo.getByNameIgnoreCaseLike(name);
+		School school = schoolRepo.findByNameIgnoreCaseLike(name);
 		
 		if(school == null) {
 			school = schoolRepo.save(new School(name, district, address, mapUrl));
@@ -58,16 +57,15 @@ public class SchoolController {
 	}
 
 	@RequestMapping("/delete-school")
-	public String deleteSchool(String name) {
-		School foundSchool = schoolRepo.findByName(name);
-
-		if (foundSchool != null) {
-
-			for (Teacher teacher : foundSchool.getTeachers()) {
-				teacherRepo.delete(teacher);
-			}
-			schoolRepo.delete(foundSchool);
+	public String deleteSchoolById(Long schoolId) {
+		Optional<School> foundSchoolResult = schoolRepo.findById(schoolId);
+		School schoolToRemove = foundSchoolResult.get();
+		
+		for(Teacher teacher : schoolToRemove.getTeachers()) {
+			teacherRepo.delete(teacher);
 		}
+		
+		schoolRepo.deleteById(schoolId);
 		
 		return "redirect:/all-schools";
 	}

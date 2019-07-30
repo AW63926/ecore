@@ -1,54 +1,96 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Needs</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="./css/style.css">
+<title>Needs</title>
 </head>
+
 <body>
-<h1>A List of Needs</h1>
 
-    <div th:each= "need: ${needs}">
-        <li>
-        <a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
-        </li>
-     </div>
+		<div class="header">
+                <h1>ECORE</h1>
+                <p>We can use a large icon. </p>
+              </div>
+              
+              <div class="navbar">
+					<a href="/index" class="active">Home</a>
+					<a href="/all-schools">Schools</a>
+				  <a href="/all-teachers">Teachers</a>
+				  <a href="/all-community-members">Community</a>
+				  <a href="/all-materials">Resources</a>
+				  <a href="#" class="right">Contact Us</a>
+				</div>
+              
+              <div class="row">
+                <div class="side">
+                  <h2>ECORE</h2>
+                  <h5>(Below is icon of ecore)</h5>
+                  <div class="fakeimg" style="height:200px;">Image</div>
+                  <p>Information about ECORE</p>
+                  <h3>more information about the most recent requests for the website</h3>
+                  <p>Lorem ipsum dolor sit ame.</p>
+                  <div class="fakeimg" style="height:60px;">Image</div><br>
+                  <div class="fakeimg" style="height:60px;">Image</div><br>
+                  <div class="fakeimg" style="height:60px;">Image</div>
+				</div>
+				
+                <div class="main">
 
-    </div>
-    <form method ="POST">
-        <h3>Post A Need</h3>
-        <div>
-            <input type="text" name="needName" placeholder="Enter Need Title"/>
-        </div>
+	<h1>A List of Needs</h1>
 
-        <div>
-            <input type="number" name="i"  min="0" placeholder="Please Enter Quantity"/>
-        </div>
+	<div th:each="need: ${needs}">
+		<li><a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
+		</li>
+	</div>
 
-        <div>
-            <input type="text" name="descNeed" placeholder="Please Describe Your Need In Detail"/>
-        </div>
+	
+	<form method="POST">
+		<h3>Post A Need</h3>
+		<!-- to cater for visually impaired individuals, created the input ID for screen readers and other accessibility tools. -->
+		<div>
+			<label for="title">Need title:</label> <input id="title" type="text"
+				name="needName" placeholder="Enter Need Title" required="required">
+		</div>
 
-        <div>
-            <button th:formaction="@{/add-need}">Post Need</button>
-        </div>
+		<div>
+			<label for="quantity">Quantity:</label> <input id="quantity"
+				type="number" name="i" min="0" placeholder="Please Enter Quantity"
+				required="required">
+		</div>
 
-    </form>
+		<div>
+			<label for="description">Description:</label> <input id="description"
+				type="text" name="descNeed" placeholder="Describe Need In Detail"
+				required="required">
+		</div>
+
+		<div>
+			<button th:formaction="@{/add-need}">Post Need</button>
+		</div>
+
+	</form>
+
+
+	<form method="POST">
+		<div>
+
+			<input type="text" name="needName" />
+		</div>
+
+		<div>
+			<button th:formaction="@{/delete-need}">Delete Need</button>
+		</div>
+	</form>
+
+</div>
+</div>
     
-    
-    <form method="POST">
-    <div>
+        <div class="footer">
+                <h2>The Footer</h2>
+              </div>
 
-        <input type="text" name="needName" />
-    </div>
-
-    <div>
-        <button th:formaction="@{/delete-need}">Delete Need</button>
-    </div>
-    </form>
-
-
-    
 </body>
 </html>

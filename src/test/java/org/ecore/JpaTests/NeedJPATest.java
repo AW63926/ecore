@@ -42,7 +42,7 @@ public class NeedJPATest {
 		entityManager.clear();
 		
 		Optional<Need>result = needRepo.findById(needId);
-		need=result.get();
+		need = result.get();
 		assertThat(need.getName(), is("name"));
 	}
 	

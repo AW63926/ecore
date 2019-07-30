@@ -10,4 +10,6 @@ public interface TeacherRepository extends CrudRepository<Teacher, Long> {
 
 	Collection<Teacher> findBySchoolContains(School school);
 
+	Teacher findByNameIgnoreCaseLike(String teacherName);
+
 }
