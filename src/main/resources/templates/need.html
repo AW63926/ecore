@@ -42,10 +42,24 @@
         <p th:text = "${need.name}"></p>
         <p th:text ="${need.quantity}"></p>
         <p th:text ="${need.descNeed}"></p>
-        <a href="http://localhost:8080/all-needs">Back to home</a>
     </div>
 
-    <h2>Send an Email to a Teacher to Fulfil Their Need </h2>
+    <div>
+      <input class = "needId" name = "needId" type = "hidden" th:value = "${needs.id}"/>
+    <section class = "add-tag">
+      <input type = "text" placeholder = "Add a Tag To Your Need" />
+      <button>Submit Tag</button> 
+    </section>
+    <section class = "tags-list">
+      <ul th:each="tag: ${needs.tags}">
+               <input class = "tagId" name = "id" type = "hidden" th:value = "${tag.id}"/>
+               <a th:href="@{/tag(id=${tag.id})}"    th:text= "${tag.name}"></a>
+               <button class = "x">&times;</button>
+       </ul>     
+    </section>
+    </div>
+
+    <h2>Send an Email to a Teacher to Fulfill Their Need </h2>
         <form action="mailto:someone@example.com" method="post" enctype="text/plain">
             Name:<br>
             <input type="text" name="name"><br>
@@ -56,12 +70,17 @@
             <input type="submit" value="Send">
             <input type="reset" value="Reset">
             </form>
+            <a href="http://localhost:8080/all-needs">Back to home</a>
+
     
 </div>
+
 </div>
     
         <div class="footer">
                 <h2>The Footer</h2>
               </div>
+
+    <script src="./js/need.js"></script>
 </body>
 </html>
