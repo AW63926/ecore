@@ -38,9 +38,21 @@
                 <div class="main">
 
     <div th:each= "teacher: ${teachers}">
-        <h2 th:text = "${teacher.name}"></h2>
+        <p th:text = "${teacher.name}"></p>
         <p th:text= "${teacher.specialty}"></p>
+
+        <p th:each="school: ${teacher.school}" th:text="${school.name}"></p>
+
+        <form method="POST">
+                <div>
+                        <input type="hidden" name="teacherName" th:value="${teacher.name}"/>
+                </div>
         
+                <div>
+                    <button th:formaction="@{/delete-teacher}">Delete Teacher</button>
+                </div>
+            </form>
+
     </div>
 
 </div>

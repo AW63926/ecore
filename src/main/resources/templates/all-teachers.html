@@ -48,18 +48,20 @@
     <!-- to cater for visually impaired individuals, created the input ID for screen readers and other accessibility tools. -->
     <div>
         <label for="title">Teacher Name:</label> <input id="title" type="text"
-            name="teacherName" placeholder="Enter Teacher Name" required="required">
+            name="name" placeholder="Enter Teacher Name" required="required">
     </div>
 
     <div>
+
         <label for="specialty">Specialty</label> <input id="specialty"
             type="text" name="teacherSpecialty" placeholder="Please Enter Specialty"
+
             required="required">
     </div>
 
     <div>
         <label for="school name">School Name:</label> <input id="school name"
-            type="text" name="schoolName" placeholder="School Name"
+            type="text" name="school" placeholder="School Name"
             required="required">
     </div>
 
@@ -69,18 +71,9 @@
 </form>
 
 
-    <form method="POST">
-            <div>
     
-                <input type="text" name="teacherName" required="required"/>
-            </div>
-    
-            <div>
-                <button th:formaction="@{/delete-teacher}">Delete Teacher</button>
-            </div>
-        </form>
 
-</form>
+
 
 </div>
 </div>
