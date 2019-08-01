@@ -40,6 +40,7 @@
     <div th:each= "teacher: ${teachers}">
         <p th:text = "${teacher.name}"></p>
         <p th:text= "${teacher.specialty}"></p>
+
         <p th:each="school: ${teacher.school}" th:text="${school.name}"></p>
 
         <form method="POST">
@@ -51,6 +52,7 @@
                     <button th:formaction="@{/delete-teacher}">Delete Teacher</button>
                 </div>
             </form>
+
     </div>
 
 </div>
