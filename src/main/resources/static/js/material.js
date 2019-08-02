@@ -21,20 +21,20 @@ tagAddButton.addEventListener('click', function(){
 
 tagsList.addEventListener('click', function(event){
     if(event.target.classList.contains('x')){
-        let tagId = event.target.previousElementSibling.previousE;ementsibling.value;
+        let tagId = event.target.previousElementSibling.previousElementSibling.value;
         console.log(tagId);
-        removeTag(tagid);
+        removeTag(tagId);
     }
 })
 
 function postTags(tagName){
     const materialIdToadd = document.querySelector('.materialId');
-    xhr.open('POST', '/material-tags/add/' + tagName + '/' + materialIdToadd.value, true);
+    xhr.open('POST', '/materials/tags/' + tagName + '/' + materialIdToadd.value, true);
     xhr.send();
 }
 
 function removeTag(tagId){
-    const materialIdToRemove = document.querySelector('materialId');
-    xhr.open('POST', '/material-tags/add/' + tagName + '/' + materialIdToRemove.value, true);
+    const materialIdToRemove = document.querySelector('.materialId');
+    xhr.open('POST', '/materials/tags/remove/' + tagId + '/' + materialIdToRemove.value, true);
     xhr.send();
 }

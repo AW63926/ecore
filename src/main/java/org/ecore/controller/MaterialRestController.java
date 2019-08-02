@@ -36,7 +36,7 @@ public class MaterialRestController {
 		return materialRepo.findById(id);
 	}
 	
-	@RequestMapping("/material-tags/{tagName}")
+	@RequestMapping("/tags/{tagName}")
 	public Collection<Material> findAllMaterialsbyTag(@PathVariable(value = "tagName") String tagName) {
 		Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
 		

@@ -81,34 +81,34 @@ public class MaterialController {
 		return materialRepo.findByTagsContains(tag);
 	}
 	
-	@RequestMapping(path = "/tags/add/{tagName}/{id}", method = RequestMethod.POST)
-	public String addTagToMaterial(@PathVariable String tagName, @PathVariable Long id, Model model) {
+	@RequestMapping(path = "/materials/tags/{tagName}/{materialId}", method = RequestMethod.POST)
+	public String addTagToMaterial(@PathVariable String tagName, @PathVariable Long materialId, Model model) {
 		Tag tagToAdd = tagRepo.findByName(tagName);
 		if(tagToAdd == null) {
 			tagToAdd = new Tag(tagName);
 			tagRepo.save(tagToAdd);
 		}
 		
-		Material materialToAddTo = materialRepo.findById(id).get();
+		Material materialToAddTo = materialRepo.findById(materialId).get();
 	
 		materialToAddTo.addTag(tagToAdd);
 		materialRepo.save(materialToAddTo);
 		
 		model.addAttribute("material", materialToAddTo);
 		
-		return "partial/tags-list-added";
+		return "partial/tags-list-materials-added";
 	}
 	
-	@RequestMapping(path = "/tags/remove/{tagId}/{materialId}", method = RequestMethod.POST)
-	public String removeTagFromMaterial(@PathVariable Long tagId, @PathVariable Long needId, Model model) {
+	@RequestMapping(path = "/materials/tags/remove/{tagId}/{materialId}", method = RequestMethod.POST)
+	public String removeTagFromMaterial(@PathVariable Long tagId, @PathVariable Long materialId, Model model) {
 		Tag tagToRemove = tagRepo.findById(tagId).get();
 		
-		Material materialToRemoveFrom = materialRepo.findById(needId).get();
+		Material materialToRemoveFrom = materialRepo.findById(materialId).get();
 		
 		materialToRemoveFrom.removeTag(tagToRemove);
 		materialRepo.save(materialToRemoveFrom);
-		model.addAttribute("need", materialToRemoveFrom);
+		model.addAttribute("material", materialToRemoveFrom);
 		
-		return "partial/tags-list-removed";
+		return "partial/tags-list-materials-removed";
 	}
 }
