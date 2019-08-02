@@ -28,13 +28,13 @@ tagsList.addEventListener('click', function(event){
 })
 
 function postTags(tagName){
-    const materialIdToadd = document.querySelector('.materialId');
-    xhr.open('POST', '/material-tags/add/' + tagName + '/' + materialIdToadd.value, true);
+    const materialIdToAdd= document.querySelector('.materialId');
+    xhr.open('POST', '/tags/add/' + tagName + '/' + materialIdToAdd.value, true);
     xhr.send();
 }
 
 function removeTag(tagId){
-    const materialIdToRemove = document.querySelector('materialId');
-    xhr.open('POST', '/material-tags/add/' + tagName + '/' + materialIdToRemove.value, true);
+    const materialIdToRemove= document.querySelector('.materialId');
+    xhr.open('POST', '/tags/remove/' + tagId + '/' + materialIdToRemove.value, true);
     xhr.send();
 }

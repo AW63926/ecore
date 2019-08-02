@@ -66,17 +66,17 @@ public class MaterialControllerTest {
 		
 	}
 	
-	@Test
-	public void shouldAddAdditonalMaterialToModelbyName() {
-		String materialName = "name";
-		int quantity = 1;
-		String materialDesc = "desc";
-		underTest.addMaterial(materialName, quantity, materialDesc, teacher);
-		ArgumentCaptor<Material> materialArgument = ArgumentCaptor.forClass(Material.class);
-		verify(materialRepo).save(materialArgument.capture());
-		assertEquals("name", materialArgument.getValue().getName());		
-		
-	}
+//	@Test
+//	public void shouldAddAdditonalMaterialToModelbyName() {
+//		String materialName = "name";
+//		int quantity = 1;
+//		String materialDesc = "desc";
+//		underTest.addMaterial(materialName, quantity, materialDesc, teacher);
+//		ArgumentCaptor<Material> materialArgument = ArgumentCaptor.forClass(Material.class);
+//		verify(materialRepo).save(materialArgument.capture());
+//		assertEquals("name", materialArgument.getValue().getName());		
+//		
+//	}
 	
 	@Test
 	public void shouldDeleteMaterialById() {
