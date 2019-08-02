@@ -86,23 +86,23 @@ public class NeedController {
 
 	}
 	
-	@RequestMapping(path = "/tags/{tagName}/{id}", method = RequestMethod.POST)
-	public String addTagToNeed(@PathVariable String tagName, @PathVariable Long id, Model model) {
-		Tag tagToAdd = tagRepo.findByName(tagName);
-		if(tagToAdd == null) {
-			tagToAdd = new Tag(tagName);
-			tagRepo.save(tagToAdd);
-		}
-		
-		Need needToAddTo = needRepo.findById(id).get();
-	
-		needToAddTo.addTag(tagToAdd);
-		needRepo.save(needToAddTo);
-		
-		model.addAttribute("need", needToAddTo);
-		
-		return "partial/tags-list-added";
-	}
+//	@RequestMapping(path = "/tags/{tagName}/{id}", method = RequestMethod.POST)
+//	public String addTagToNeed(@PathVariable String tagName, @PathVariable Long id, Model model) {
+//		Tag tagToAdd = tagRepo.findByName(tagName);
+//		if(tagToAdd == null) {
+//			tagToAdd = new Tag(tagName);
+//			tagRepo.save(tagToAdd);
+//		}
+//		
+//		Need needToAddTo = needRepo.findById(id).get();
+//	
+//		needToAddTo.addTag(tagToAdd);
+//		needRepo.save(needToAddTo);
+//		
+//		model.addAttribute("need", needToAddTo);
+//		
+//		return "partial/tags-list-added";
+//	}
 	
 	@RequestMapping(path = "/tags/remove/{tagId}/{needId}", method = RequestMethod.POST)
 	public String removeTagFromNeed(@PathVariable Long tagId, @PathVariable Long needId, Model model) {

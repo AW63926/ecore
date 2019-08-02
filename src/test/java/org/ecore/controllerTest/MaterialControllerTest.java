@@ -1,15 +1,16 @@
 package org.ecore.controllerTest;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.junit.Assert.assertEquals;
-
 
 import org.ecore.controller.MaterialController;
 import org.ecore.model.Material;
+import org.ecore.model.Teacher;
 import org.ecore.notFoundException.MaterialNotFoundException;
 import org.ecore.repository.MaterialRepository;
 import org.junit.Before;
@@ -37,6 +38,9 @@ public class MaterialControllerTest {
 	
 	@Mock
 	Model model;
+	
+	@Mock
+	Teacher teacher;
 	
 	@Before
 	public void setup() {
@@ -67,7 +71,7 @@ public class MaterialControllerTest {
 		String materialName = "name";
 		int quantity = 1;
 		String materialDesc = "desc";
-		underTest.addMaterial(materialName, quantity, materialDesc);
+		underTest.addMaterial(materialName, quantity, materialDesc, teacher);
 		ArgumentCaptor<Material> materialArgument = ArgumentCaptor.forClass(Material.class);
 		verify(materialRepo).save(materialArgument.capture());
 		assertEquals("name", materialArgument.getValue().getName());		

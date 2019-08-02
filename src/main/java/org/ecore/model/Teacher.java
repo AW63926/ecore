@@ -27,6 +27,10 @@ public class Teacher {
 	@JsonIgnore
 	@OneToMany(mappedBy = "teacher")
 	private Collection<Need> needs;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "teacher")
+	private Collection<Material> materials;
 
 	public long getId() {
 		return id;
@@ -45,8 +49,6 @@ public class Teacher {
 		return specialty;
 	}
 
-	public Teacher () {
-	}
 
 	public Teacher(String name, String specialty, School school) {
 		this.name = name;
@@ -54,8 +56,15 @@ public class Teacher {
 		this.school = school;
 	}
 	
+	public Teacher () {
+	}
+	
 	public Collection<Need> getNeeds() {
 		return needs;
+	}
+	
+	public Collection<Material> getMaterial() {
+		return materials;
 	}
 	
 	@Override
