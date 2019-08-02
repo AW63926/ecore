@@ -3,6 +3,7 @@ package org.ecore;
 import javax.annotation.Resource;
 
 import org.ecore.model.CommunityMember;
+import org.ecore.model.Material;
 import org.ecore.model.Need;
 import org.ecore.model.School;
 import org.ecore.model.Tag;
@@ -30,7 +31,7 @@ public class EcorePopulator implements CommandLineRunner{
 	
 	@Resource
 	private TagRepository tagRepo;
-	
+	 
 	@Resource
 	private TeacherRepository teacherRepo;
 	
@@ -62,5 +63,8 @@ public class EcorePopulator implements CommandLineRunner{
 		Teacher teacher2 = teacherRepo.save(new Teacher("name2", "specialty2", school2));
 		Teacher teacher3 = teacherRepo.save(new Teacher("name3", "specialty1", school1));
 		Teacher teacher4 = teacherRepo.save(new Teacher("name4", "specialty2", school2));
+		
+		Material material1 = materialRepo.save(new Material("material1", 1, "desc1", teacher1, tag));
+		Material material2 = materialRepo.save(new Material("material2", 2, "desc2", teacher2, tag));
 	}
 }

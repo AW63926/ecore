@@ -1,10 +1,10 @@
 const tagAddButton = document.querySelector('.addTag button');
-const tagAddInput = document.querySelector('addTag input');
-const tagsLis = document.querySelector('tagsList');
+const tagAddInput = document.querySelector('.addTag input');
+const tagsList = document.querySelector('.tagsList');
 const documentContainer = document.querySelector('.container');
-const needId =document.querySelector('needId');
+const materialId = document.querySelector('.materialId');
 
-const xhr = new HMHLHttpRequest()
+const xhr = new XMLHttpRequest()
 xhr.onreadystatechange = function(){
     if(xhr.readyState === 4 && xhr.status === 200){
         const res = xhr.responseText;
@@ -13,9 +13,9 @@ xhr.onreadystatechange = function(){
 }
 
 tagAddButton.addEventListener('click', function(){
-    postTags(tagAddInput.nodeValue, needId.value);
+    postTags(tagAddInput.value, materialId.value);
     console.log(tagAddInput.value);
-    tagAddInput.value = '';
+    tagAddInput.value = "";
 
 })
 
@@ -27,7 +27,7 @@ tagsList.addEventListener('click', function(event){
     }
 })
 
-function posttags(tagName){
+function postTags(tagName){
     const materialIdToadd = document.querySelector('.materialId');
     xhr.open('POST', '/tags/' + tagName + '/' + materialIdToadd.value, true);
     xhr.send();

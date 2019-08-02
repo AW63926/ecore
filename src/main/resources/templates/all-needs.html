@@ -52,7 +52,7 @@
 		<!-- to cater for visually impaired individuals, created the input ID for screen readers and other accessibility tools. -->
 		<div>
 			<label for="title">Need title:</label> <input id="title" type="text"
-				name="name" placeholder="Enter Need Title" required="required">
+				name="needName" placeholder="Enter Need Title" required="required">
 		</div>
 
 		<div>
@@ -63,9 +63,21 @@
 
 		<div>
 			<label for="description">Description:</label> <input id="description"
-				type="text" name="descNeed" placeholder="Describe Need In Detail"
+				type="text" name="needDesc" placeholder="Describe Need In Detail"
 				required="required">
 		</div>
+
+		<div>
+			<label for="description">Teacher:</label> <input id="teacher"
+				type="text" name="teacherName" placeholder="Teacher Name"
+				required="required">
+		</div>
+
+		<div>
+				<label for="tag">Teacher:</label> <input id="tag"
+					type="text" name="tagName" placeholder="optional"
+					>
+			</div>
 
 		<div>
 			<button th:formaction="@{/add-need}">Post Need</button>
