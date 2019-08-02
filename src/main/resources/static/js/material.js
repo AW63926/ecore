@@ -29,12 +29,12 @@ tagsList.addEventListener('click', function(event){
 
 function postTags(tagName){
     const materialIdToadd = document.querySelector('.materialId');
-    xhr.open('POST', '/tags/' + tagName + '/' + materialIdToadd.value, true);
+    xhr.open('POST', '/material-tags/add/' + tagName + '/' + materialIdToadd.value, true);
     xhr.send();
 }
 
 function removeTag(tagId){
     const materialIdToRemove = document.querySelector('materialId');
-    xhr.open('POST', '/tags/' + tagName + '/' + materialIdToRemove.value, true);
+    xhr.open('POST', '/material-tags/add/' + tagName + '/' + materialIdToRemove.value, true);
     xhr.send();
 }

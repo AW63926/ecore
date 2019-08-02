@@ -81,7 +81,7 @@ public class MaterialController {
 		return materialRepo.findByTagsContains(tag);
 	}
 	
-	@RequestMapping(path = "/tags/{tagName}/{id}", method = RequestMethod.POST)
+	@RequestMapping(path = "/tags/add/{tagName}/{id}", method = RequestMethod.POST)
 	public String addTagToMaterial(@PathVariable String tagName, @PathVariable Long id, Model model) {
 		Tag tagToAdd = tagRepo.findByName(tagName);
 		if(tagToAdd == null) {
@@ -94,7 +94,7 @@ public class MaterialController {
 		materialToAddTo.addTag(tagToAdd);
 		materialRepo.save(materialToAddTo);
 		
-		model.addAttribute("need", materialToAddTo);
+		model.addAttribute("material", materialToAddTo);
 		
 		return "partial/tags-list-added";
 	}
