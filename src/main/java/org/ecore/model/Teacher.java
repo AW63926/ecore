@@ -63,7 +63,7 @@ public class Teacher {
 		return needs;
 	}
 	
-	public Collection<Material> getMaterial() {
+	public Collection<Material> getMaterials() {
 		return materials;
 	}
 	

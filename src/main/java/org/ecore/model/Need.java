@@ -65,6 +65,10 @@ public class Need {
 	public int getQuantity() {
 		return quantity;
 	}
+	
+	public Teacher getTeacher() {
+		return teacher;
+	}
 
 	@Override
 	public int hashCode() {

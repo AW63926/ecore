@@ -71,6 +71,10 @@ public class Material {
 		
 		return tags;
 	}
+	
+	public Teacher getTeacher() {
+		return teacher;
+	}
 
 	public void addTag(Tag tagToAdd) {
 		tags.add(tagToAdd);	

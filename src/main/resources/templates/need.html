@@ -20,7 +20,7 @@
                 <a href="/all-teachers">Teachers</a>
                 <a href="/all-community-members">Community</a>
                 <a href="/all-materials">Resources</a>
-                <a href="#" class="right">Contact Us</a>
+                <a href="/signup" class="right">Sign Up</a>
               </div>
               
               <div class="row">
@@ -33,15 +33,20 @@
                   <p>Lorem ipsum dolor sit ame.</p>
                   <div class="fakeimg" style="height:60px;">Image</div><br>
                   <div class="fakeimg" style="height:60px;">Image</div><br>
+                  <div class="fakeimg" style="height:60px;">Image</div><br>
                   <div class="fakeimg" style="height:60px;">Image</div>
                 </div>
                 <div class="main">
 <h1> A single Need </h1>
 
     <div th:each= "need: ${needs}">
-        <p th:text = "${need.name}"></p>
+      <p th:text = "${need.name}"></p>
+      <p class="descriptors">Quantity Requested</p>
         <p th:text ="${need.quantity}"></p>
+        <p class="descriptors">Description</p>
         <p th:text ="${need.descNeed}"></p>
+        <p class="descriptors">Requesting Teacher</p>
+        <p th:each= "teacher: ${needs.teacher}" th:text="${teacher.name}"></p>
     </div>
 
     <div>
