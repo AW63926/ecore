@@ -52,12 +52,17 @@ public class MaterialController {
 	}
 
 	@RequestMapping("/add-material")
-	public String addMaterial(String name, int quantity, String descMaterial, String teacherName) {
+	public String addMaterial(String name, int quantity, String descMaterial, String teacherName, String tagName) {
 		
 		Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(teacherName);
 		
 		Material material = materialRepo.findByName(name);
-
+		if(tagName != null) {
+			Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
+			if(tag == null) {
+				tag = tagRepo.save(new Tag(tagName));
+			}
+		}
 		if (material == null) {
 			material = materialRepo.save(new Material(name, quantity, descMaterial, teacher));
 

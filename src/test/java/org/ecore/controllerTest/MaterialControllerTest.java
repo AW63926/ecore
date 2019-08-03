@@ -10,9 +10,12 @@ import java.util.Optional;
 
 import org.ecore.controller.MaterialController;
 import org.ecore.model.Material;
+import org.ecore.model.Tag;
 import org.ecore.model.Teacher;
 import org.ecore.notFoundException.MaterialNotFoundException;
 import org.ecore.repository.MaterialRepository;
+import org.ecore.repository.TagRepository;
+import org.ecore.repository.TeacherRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -40,7 +43,17 @@ public class MaterialControllerTest {
 	Model model;
 	
 	@Mock
-	Teacher teacher;
+	private TeacherRepository teacherRepo;
+	
+	@Mock
+	private TagRepository tagRepo;
+	
+	
+	@Mock
+	private Teacher teacher;
+	
+	@Mock
+	private Tag tag;
 	
 	@Before
 	public void setup() {
@@ -71,7 +84,11 @@ public class MaterialControllerTest {
 		String materialName = "name";
 		int quantity = 1;
 		String materialDesc = "desc";
-		underTest.addMaterial(materialName, quantity, materialDesc, teacher);
+		String teacher = "teacher";
+		String tagName = "tag name";
+		
+		
+		underTest.addMaterial(materialName, quantity, materialDesc, teacher, tagName);
 		ArgumentCaptor<Material> materialArgument = ArgumentCaptor.forClass(Material.class);
 		verify(materialRepo).save(materialArgument.capture());
 		assertEquals("name", materialArgument.getValue().getName());		
