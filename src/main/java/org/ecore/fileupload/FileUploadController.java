@@ -19,6 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import org.ecore.fileupload.FileUploadController;
+
 import org.ecore.filestorage.StorageFileNotFoundException;
 import org.ecore.filestorage.StorageService;
 
@@ -40,7 +42,7 @@ public class FileUploadController {
                         "serveFile", path.getFileName().toString()).build().toString())
                 .collect(Collectors.toList()));
 
-        return "all-materials";
+        return "uploadForm";
     }
 
     @GetMapping("/files/{filename:.+}")
@@ -60,7 +62,7 @@ public class FileUploadController {
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");
 
-        return "redirect:/all-materials";
+        return "redirect:/";
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)
