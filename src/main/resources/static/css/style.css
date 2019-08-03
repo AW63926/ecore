@@ -84,6 +84,10 @@
     width: 100%;
     padding: 20px;
   }
+
+  .hiddenInput {
+    display : none;
+}
   
   
   .footer {
@@ -101,3 +105,5 @@
     .navbar a {
       float: none;
       width: 100%;
+    }
+  }

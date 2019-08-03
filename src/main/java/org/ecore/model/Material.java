@@ -1,6 +1,5 @@
 package org.ecore.model;
 
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -8,64 +7,80 @@ import java.util.HashSet;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
-public class Need {
-	
-	@GeneratedValue
-	@Id
-	private long id;
-	
-	private String name;
-	private int quantity;
 
-	@Lob
-	public String descNeed;
+
+@Entity
+public class Material {
+	
+	@GeneratedValue	
+	@Id
+	long id;
+	private String name;
+	
+	private int quantity;
+	
+	private String descMaterial;
+	
+	@JsonIgnore
+	@ManyToMany
+	private Collection<Tag> tags;
 	
 	@JsonIgnore
 	@ManyToOne
 	private Teacher teacher;
 
-	@JsonIgnore
-	@ManyToMany
-	private Collection<Tag> tags;
-
-	public Need(String name, int quantity, String descNeed, Teacher teacher, Tag...tags) {
+	public Material(String name, int quantity, String descMaterial, Teacher teacher, Tag...tags) {
 		this.name = name;
 		this.quantity = quantity;
-		this.descNeed = descNeed;
+		this.descMaterial = descMaterial;
 		this.teacher = teacher;
-		this.tags = new HashSet<>(Arrays.asList(tags));
-
+		this.tags = new HashSet<> (Arrays.asList(tags));
+		
 	}
 	
-	public Need() {
+	public Material() {
 		
 	}
 
-
 	public long getId() {
+		
 		return id;
 	}
 
+	public String getName() {
+		
+		return name;
+	}
+	
+	public int getQuantity() {
+		
+		return quantity;
+	}
+	
+	public String getDescMaterial () {
+		
+		return descMaterial;
+	}
+
 	public Collection<Tag> getTags() {
+		
 		return tags;
 	}
 
-
-	public String getName() {
-	return name;
-	
-}
-	public int getQuantity() {
-		return quantity;
+	public void addTag(Tag tagToAdd) {
+		tags.add(tagToAdd);	
+		
 	}
-
+	
+	public void removeTag(Tag tagToRemove) {
+		tags.remove(tagToRemove);		
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -82,21 +97,11 @@ public class Need {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Need other = (Need) obj;
+		Material other = (Material) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
 
-	public void addTag(Tag tagToAdd) {
-		tags.add(tagToAdd);		
-	}
-	
-	public void removeTag(Tag tagToRemove) {
-		tags.remove(tagToRemove);		
-	}
-
-
-	
 
 }
