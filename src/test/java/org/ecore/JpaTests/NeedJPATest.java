@@ -1,10 +1,12 @@
 package org.ecore.JpaTests;
 
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import javax.annotation.Resource;
@@ -94,6 +96,63 @@ public class NeedJPATest {
 	
 		assertThat(need.getTags(), containsInAnyOrder(chess,crayons));
 }
+	
+	@Test
+	public void shouldFindNeedsForTag() {
+		Tag crayons = tagRepo.save(new Tag("crayons"));
+		
+		Need need1 = needRepo.save(new Need("Need1", 1, "chessclub", teacher, crayons));
+		Need need2 = needRepo.save(new Need("Need2", 1, "school supplies", teacher2, crayons));
+		
+		entityManager.flush();
+		entityManager.clear();
+		
+		Collection<Need> needsForTag = needRepo.findByTagsContains(crayons);
+		assertThat(needsForTag, containsInAnyOrder(need1, need2));
+	}
+	
+	@Test
+	public void shouldFindNeedsForTagId() {
+		Tag crayons = tagRepo.save(new Tag("crayons"));
+		long tagId = crayons.getId();
+		
+		Need need1 = needRepo.save(new Need("Need1", 1, "chessclub", teacher, crayons));
+		Need need2 = needRepo.save(new Need("Need2", 1, "school supplies", teacher2, crayons));
+		
+		entityManager.flush();
+		entityManager.clear();
+		
+		Collection<Need> needForTag = needRepo.findByTagsId(tagId);
+		assertThat(needForTag, containsInAnyOrder(need1, need2));
+		
+	}
+	
+	@Test
+	public void shouldSaveTagsToNeed() {
+		Tag crayons = tagRepo.save(new Tag("crayons"));
+		long tagId = crayons.getId();
+		
+		Need need1 = needRepo.save(new Need("Need1", 1, "chessclub", teacher, crayons));
+
+		Tag chess = tagRepo.save(new Tag("chess"));
+		long tagId2 = chess.getId();
+		
+		need1.addTag(chess);
+		needRepo.save(need1);
+		
+		entityManager.flush();
+		entityManager.clear();
+		
+		Optional<Need>result = needRepo.findById(need1.getId());
+		Need retrieveNeed = result.get();
+		
+		assertThat(retrieveNeed.getTags(), containsInAnyOrder(crayons, chess));
+		
+		Optional<Tag>result2 = tagRepo.findById(chess.getId());
+		Tag retrieveTag = result2.get();
+		assertThat(retrieveTag.getNeeds(), contains(need1));
+	}
+	
 	@Test
 	public void shouldSaveNeedToTeacherRelationship() {
 		

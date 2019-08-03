@@ -88,6 +88,15 @@ public class Need {
 		return true;
 	}
 
+	public void addTag(Tag tagToAdd) {
+		tags.add(tagToAdd);		
+	}
+	
+	public void removeTag(Tag tagToRemove) {
+		tags.remove(tagToRemove);		
+	}
+
+
 	
 
 }

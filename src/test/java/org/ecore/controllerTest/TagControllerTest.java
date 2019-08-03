@@ -8,8 +8,10 @@ import java.util.Collection;
 import java.util.Optional;
 
 import org.ecore.controller.TagController;
+import org.ecore.model.Need;
 import org.ecore.model.Tag;
 import org.ecore.notFoundException.TagNotFoundException;
+import org.ecore.repository.NeedRepository;
 import org.ecore.repository.TagRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +21,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 
 public class TagControllerTest {
-
+	private static final long NEED_ID = 1L;
 	@InjectMocks
 	private TagController underTest;
 
@@ -35,6 +37,12 @@ public class TagControllerTest {
 
 	@Mock
 	private Model model;
+	
+	@Mock
+	private NeedRepository needRepo;
+	
+	@Mock
+	private Need need;
 
 	@Before
 	public void setUp() {
@@ -55,6 +63,7 @@ public class TagControllerTest {
 	public void shouldAddAllTagsToModel() {
 		Collection<Tag> allTags = Arrays.asList(tag, anotherTag);
 		when(tagRepo.findAll()).thenReturn(allTags);
+		when(needRepo.findById(NEED_ID)).thenReturn(Optional.of(need));
 
 		underTest.findAllTags(model);
 		verify(model).addAttribute("tags", allTags);

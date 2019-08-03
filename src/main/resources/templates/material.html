@@ -44,6 +44,21 @@
         <p th:text= "${material.descMaterial}"></p>
     </div>
 
+    <div>
+      <input class="materialId" name ="materialId" type="hidden" th:value="${material.id}"/>
+      <section class= "addTag">
+        <input type="text" placeholder="Add A Tag To Your Need"/>
+        <button>Submit Tag</button>
+      </section>
+      <section class ="tagsList">
+        <ul th:each="tag: ${material.tags}">
+          <input class= "tagId" type="hidden" name="id" th:value="tag.id"/>
+          <a th:href="@{/tag(id=${tag.id})}" th:text= "${tag.name}"></a>
+          <button class= "x">&times;</button>
+        </ul>
+      </section>
+    </div>
+
     <form method="POST">
                
         <input class="hiddenInput" type="number" name="id" th:value="${material.id}"/>
@@ -57,6 +72,6 @@
                 <h2>The Footer</h2>
               </div>
     
-    
+              <script src="./js/material.js"></script>
 </body>
 </html>

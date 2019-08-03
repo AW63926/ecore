@@ -40,6 +40,11 @@
     <div th:each= "communitymember: ${communitymember}">
         <h2 th:text = "${communitymember.name}"></h2>
         <p th:text= "${communitymember.email}"></p>
+
+        <form method="POST">
+                <input class="hiddenInput" type="number" name="id" th:value="${communitymember.id}"/>
+                <button th:formaction="@{/delete-community-member}">delete</button>
+            </form>
     </div>
 
 </div>

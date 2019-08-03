@@ -44,20 +44,20 @@ public class TeacherController {
 	}
 	
 	@RequestMapping("/add-teacher")
-	public String addTeacher(String teacherName, String teacherSpecialty, String schoolName) {
-		School school = schoolRepo.findByNameIgnoreCaseLike(schoolName);
+	public String addTeacher(String name, String specialty, String school) {
+		School school1 = schoolRepo.findByNameIgnoreCaseLike(school);
 		
 		if(school == null) {
-			String schoolDistrict = null;
-			String schoolAddress = null;
-			String schoolMapUrl = null;
-			school = new School(schoolName, schoolDistrict, schoolAddress, schoolMapUrl);
-			schoolRepo.save(school);
+			String schoolDistrict = "dist";
+			String schoolAddress = "address";
+			String schoolMapUrl = "url";
+			school1 = new School(school, schoolDistrict, schoolAddress, schoolMapUrl);
+			schoolRepo.save(school1);
 		}
 		
-		Teacher newTeacher = teacherRepo.findByNameIgnoreCaseLike(teacherName);
-		if(newTeacher==null) {
-			newTeacher = new Teacher(teacherName, teacherSpecialty, school);
+		Teacher newTeacher = teacherRepo.findByNameIgnoreCaseLike(name);
+		if(newTeacher == null) {
+			newTeacher = new Teacher(name, specialty, school1);
 			teacherRepo.save(newTeacher);
 		}
 		return "redirect:/all-teachers" ; 

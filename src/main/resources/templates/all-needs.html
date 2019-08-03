@@ -57,15 +57,27 @@
 
 		<div>
 			<label for="quantity">Quantity:</label> <input id="quantity"
-				type="number" name="i" min="0" placeholder="Please Enter Quantity"
+				type="number" name="needQuantity" min="0" placeholder="Please Enter Quantity"
 				required="required">
 		</div>
 
 		<div>
 			<label for="description">Description:</label> <input id="description"
-				type="text" name="descNeed" placeholder="Describe Need In Detail"
+				type="text" name="needDesc" placeholder="Describe Need In Detail"
 				required="required">
 		</div>
+
+		<div>
+			<label for="description">Teacher:</label> <input id="teacher"
+				type="text" name="teacherName" placeholder="Teacher Name"
+				required="required">
+		</div>
+
+		<div>
+				<label for="tag">Tag:</label> <input id="tag"
+					type="text" name="tagName" placeholder="optional"
+					>
+			</div>
 
 		<div>
 			<button th:formaction="@{/add-need}">Post Need</button>
@@ -77,7 +89,7 @@
 	<form method="POST">
 		<div>
 
-			<input type="text" name="needName" />
+			<input type="text" name="name" />
 		</div>
 
 		<div>
