@@ -39,10 +39,12 @@
 
     <div th:each= "material: ${material}">
         <h2 th:text = "${material.name}"></h2>
-        <p> Quantity</p>
+        <p class="descriptors"> Quantity</p>
         <p th:text= "${material.quantity}"></p>
-        <p>Description</p>
+        <p class="descriptors">Description</p>
         <p th:text= "${material.descMaterial}"></p>
+        <p class="descriptors">Posting Teacher</p>
+        <p th:each="teacher: ${material.teacher}" th:text= "${teacher.name}"></p>
     </div>
 
     <div>

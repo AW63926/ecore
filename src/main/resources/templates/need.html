@@ -40,9 +40,13 @@
 <h1> A single Need </h1>
 
     <div th:each= "need: ${needs}">
-        <p th:text = "${need.name}"></p>
+      <p th:text = "${need.name}"></p>
+      <p class="descriptors">Quantity Requested</p>
         <p th:text ="${need.quantity}"></p>
+        <p class="descriptors">Description</p>
         <p th:text ="${need.descNeed}"></p>
+        <p class="descriptors">Requesting Teacher</p>
+        <p th:each= "teacher: ${needs.teacher}" th:text="${teacher.name}"></p>
     </div>
 
     <div>
