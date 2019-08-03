@@ -67,8 +67,9 @@ public class MaterialController {
 			material = materialRepo.save(new Material(name, quantity, descMaterial, teacher));
 
 		}
-
-		return "redirect:/all-materials";
+		
+		long id = material.getId();
+		return "redirect:/material?id=" + id;
 	}
 
 	@RequestMapping("/delete-material")
