@@ -57,14 +57,15 @@ public class MaterialController {
 		Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(teacherName);
 		
 		Material material = materialRepo.findByName(name);
-		if(tagName != null) {
-			Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
+		Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
+		
+		
 			if(tag == null) {
 				tag = tagRepo.save(new Tag(tagName));
 			}
-		}
+		
 		if (material == null) {
-			material = materialRepo.save(new Material(name, quantity, descMaterial, teacher));
+			material = materialRepo.save(new Material(name, quantity, descMaterial, teacher, tag));
 
 		}
 		

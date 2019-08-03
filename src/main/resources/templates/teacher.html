@@ -75,7 +75,7 @@
         </div>
 
         <div>
-            <input type="text" name="tagName" placeholder="enter tag (optional)" />
+            <input type="text" name="tagName" placeholder="enter tag" required="required" />
         </div>
 
         <div>
@@ -83,6 +83,36 @@
         </div>
       </form>
     </div>
+
+    <div>
+        <form id="addNeed">
+          <h3>Post a Need</h3>
+          <div>
+              <input type="text" name="needName" placeholder="enter name" required="required"/>
+          </div>
+  
+          <div>
+                  <input type="number" name="needQuantity" placeholder="enter quantity" required="required"/>
+          </div>
+  
+          <div>
+              <input type="text" name="needDescription" placeholder="enter description" required="required"/>
+          </div>
+  
+          <div>
+              <input th:each="teacher: ${teachers}" type="hidden" name="teacherName" th:value="${teacher.name}"/>
+          </div>
+  
+          <div>
+              <input type="text" name="tagName" placeholder="enter tag" required="required" />
+          </div>
+  
+          <div>
+              <button th:formaction="@{/add-need}">add need</button>
+          </div>
+        </form>
+      </div>
+
 
 </div>
 </div>
