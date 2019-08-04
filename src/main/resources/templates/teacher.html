@@ -38,7 +38,8 @@
                 <div class="main">
 
     <div th:each= "teacher: ${teachers}">
-        <p th:text = "${teacher.name}"></p>
+        <h2>Welcome to your home page</h2>
+        <h2 th:text = "${teacher.name}"></h2>
         <p th:text= "${teacher.specialty}"></p>
 
         <p th:each="school: ${teacher.school}" th:text="${school.name}"></p>
@@ -55,8 +56,9 @@
 
     </div>
 
-    <div>
-      <form id="addMaterial">
+    <div id="forms">
+    <div id="addMaterial">
+      <form >
         <h3>Post a Resource</h3>
         <div>
             <input type="text" name="name" placeholder="enter name" required="required"/>
@@ -84,8 +86,8 @@
       </form>
     </div>
 
-    <div>
-        <form id="addNeed">
+    <div id="addNeed">
+        <form >
           <h3>Post a Need</h3>
           <div>
               <input type="text" name="needName" placeholder="enter name" required="required"/>
@@ -112,7 +114,21 @@
           </div>
         </form>
       </div>
+      </div>
 
+      <div id="lists">
+        <div class="postList" th:each="teacher: ${teachers}">
+            <h3>Your Currently Posted Resources</h3>
+            <a th:each="material: ${teacher.materials}" th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
+          
+        </div>
+
+        <div class="postList" th:each="teacher: ${teachers}">
+          <h3>Your Currently Posted Needs</h3>
+          <a th:each="need: ${teacher.needs}"  th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
+          
+        </div>
+      </div>
 
 </div>
 </div>
