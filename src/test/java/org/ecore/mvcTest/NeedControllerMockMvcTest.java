@@ -7,8 +7,11 @@ import java.util.Arrays;
 
 import org.ecore.controller.NeedController;
 import org.ecore.model.Need;
+import org.ecore.model.Tag;
+import org.ecore.model.Teacher;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.TagRepository;
+import org.ecore.repository.TeacherRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -34,6 +37,9 @@ public class NeedControllerMockMvcTest {
 
 	@MockBean
 	private NeedRepository needRepo;
+	
+	@MockBean
+	private TeacherRepository teacherRepo;
 
 	@Mock
 	private Need need;
@@ -43,6 +49,12 @@ public class NeedControllerMockMvcTest {
 
 	@Mock
 	private Need anotherNeed;
+	
+	@Mock
+	private Teacher teacher;
+	
+	@Mock
+	private Tag tag;
 	
 	@Test
 	public void shouldRouteToSingleNeedView() throws Exception {

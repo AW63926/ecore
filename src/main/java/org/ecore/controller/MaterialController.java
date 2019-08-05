@@ -56,60 +56,57 @@ public class MaterialController {
 		
 		Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(teacherName);
 		
-		if (tagName != null) {
-			Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
-
-			if (tag == null) {
-				tag = new Tag(tagName);
-				tagRepo.save(tag);
-			
-		}
-		
 		Material material = materialRepo.findByName(name);
-
+		Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
+		
+		
+			if(tag == null) {
+				tag = tagRepo.save(new Tag(tagName));
+			}
+		
 		if (material == null) {
 			material = materialRepo.save(new Material(name, quantity, descMaterial, teacher, tag));
 
 		}
-		}
-
-		return "redirect:/all-materials";
+		
+		long id = material.getId();
+		return "redirect:/material?id=" + id;
 	}
 
 	@RequestMapping("/delete-material")
-	public String deleteMaterialById(Long materialId) {
+	public String deleteMaterialById(Long id) {
 
-		materialRepo.deleteById(materialId);
+		materialRepo.deleteById(id);
 
 		return "redirect:/all-materials";
 
 	}
 	
-//	@RequestMapping("/tags/{tagName}")
-//	public Collection<Material> findAllNeedsByTag(@PathVariable(value = "tagName") String tagName){
-//		Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
-//		return materialRepo.findByTagsContains(tag);
-//	}
+	@RequestMapping("/tags/{tagName}")
+	public Collection<Material> findAllNeedsByTag(@PathVariable(value = "tagName") String tagName){
+		Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
+		return materialRepo.findByTagsContains(tag);
+	}
 	
-	@RequestMapping(path = "/tags/add/{tagName}/{id}", method = RequestMethod.POST)
-	public String addTagToMaterial(@PathVariable String tagName, @PathVariable Long id, Model model) {
+	@RequestMapping(path = "/materials/tags/{tagName}/{materialId}", method = RequestMethod.POST)
+	public String addTagToMaterial(@PathVariable String tagName, @PathVariable Long materialId, Model model) {
 		Tag tagToAdd = tagRepo.findByName(tagName);
 		if(tagToAdd == null) {
 			tagToAdd = new Tag(tagName);
 			tagRepo.save(tagToAdd);
 		}
 		
-		Material materialToAddTo = materialRepo.findById(id).get();
+		Material materialToAddTo = materialRepo.findById(materialId).get();
 	
 		materialToAddTo.addTag(tagToAdd);
 		materialRepo.save(materialToAddTo);
 		
 		model.addAttribute("material", materialToAddTo);
 		
-		return "partial/tags-list-added-material";
+		return "partial/tags-list-materials-added";
 	}
 	
-	@RequestMapping(path = "/tags/remove/{tagId}/{materialId}", method = RequestMethod.POST)
+	@RequestMapping(path = "/materials/tags/remove/{tagId}/{materialId}", method = RequestMethod.POST)
 	public String removeTagFromMaterial(@PathVariable Long tagId, @PathVariable Long materialId, Model model) {
 		Tag tagToRemove = tagRepo.findById(tagId).get();
 		
@@ -119,6 +116,6 @@ public class MaterialController {
 		materialRepo.save(materialToRemoveFrom);
 		model.addAttribute("material", materialToRemoveFrom);
 		
-		return "partial/tags-list-removed-material";
+		return "partial/tags-list-materials-removed";
 	}
 }

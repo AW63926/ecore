@@ -46,6 +46,56 @@
 		</li>
 	</div>
 
+	
+	<form method="POST">
+		<h3>Post A Need</h3>
+		<!-- to cater for visually impaired individuals, created the input ID for screen readers and other accessibility tools. -->
+		<div>
+			<label for="title">Need title:</label> <input id="title" type="text"
+				name="needName" placeholder="Enter Need Title" required="required">
+		</div>
+
+		<div>
+			<label for="quantity">Quantity:</label> <input id="quantity"
+				type="number" name="needQuantity" min="0" placeholder="Please Enter Quantity"
+				required="required">
+		</div>
+
+		<div>
+			<label for="description">Description:</label> <input id="description"
+				type="text" name="needDesc" placeholder="Describe Need In Detail"
+				required="required">
+		</div>
+
+		<div>
+			<label for="description">Teacher:</label> <input id="teacher"
+				type="text" name="teacherName" placeholder="Teacher Name"
+				required="required">
+		</div>
+
+		<div>
+				<label for="tag">Tag:</label> <input id="tag"
+					type="text" name="tagName" placeholder="optional"
+					>
+			</div>
+
+		<div>
+			<button th:formaction="@{/add-need}">Post Need</button>
+		</div>
+
+	</form>
+
+
+	<form method="POST">
+		<div>
+
+			<input type="text" name="name" />
+		</div>
+
+		<div>
+			<button th:formaction="@{/delete-need}">Delete Need</button>
+		</div>
+	</form>
 
 </div>
 </div>
