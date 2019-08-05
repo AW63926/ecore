@@ -1,21 +1,27 @@
 package org.ecore.JpaTests;
 
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
+import static org.junit.Assert.assertThat;
+
 import java.util.Optional;
 
 import javax.annotation.Resource;
-import static org.hamcrest.Matchers.*;
-import org.ecore.model.Material;
-import org.ecore.model.Tag;
-import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 
-import static org.junit.Assert.assertThat;
+import org.ecore.model.Material;
+import org.ecore.model.School;
+import org.ecore.model.Tag;
+import org.ecore.model.Teacher;
 import org.ecore.repository.MaterialRepository;
+import org.ecore.repository.SchoolRepository;
 import org.ecore.repository.TagRepository;
+import org.ecore.repository.TeacherRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
@@ -30,9 +36,17 @@ public class MaterialJpaTest {
 	@Resource
 	private TagRepository tagRepo;
 	
+	@Resource
+	private TeacherRepository teacherRepo;
+	
+	@Resource
+	private SchoolRepository schoolRepo;
+	
+	private Teacher teacher;
+	
 	@Test
 	public void shouldSaveAndLoadMaterial () {
-		 Material material = materialRepo.save(new Material("name", 1, "descNeed"));
+		 Material material = materialRepo.save(new Material("name", 1, "descNeed", teacher));
 		 long materialId = material.getId();
 		 
 		 entityManager.flush();
@@ -46,7 +60,7 @@ public class MaterialJpaTest {
 	
 	@Test
 	public void shouldGenerateMaterialById () {
-		Material material = materialRepo.save(new Material("name", 1, "descNeed"));
+		Material material = materialRepo.save(new Material("name", 1, "descNeed", teacher));
 		long materialId = material.getId();
 		
 		entityManager.flush();
@@ -62,7 +76,7 @@ public class MaterialJpaTest {
 		Tag tag1 = tagRepo.save(new Tag("tag1"));
 		Tag tag2 = tagRepo.save(new Tag("tag2"));
 		
-		Material material = materialRepo.save(new Material("name", 1, "descNeed", tag1, tag2));
+		Material material = materialRepo.save(new Material("name", 1, "descNeed", teacher, tag1, tag2));
 		long materialId = material.getId();
 		
 		entityManager.flush();

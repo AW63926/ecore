@@ -10,6 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Need {
@@ -23,18 +26,20 @@ public class Need {
 
 	@Lob
 	public String descNeed;
+	
+	@JsonIgnore
+	@ManyToOne
+	private Teacher teacher;
 
-//	@ManyToMany(mappedBy = "needs")
-//	private Collection<Teacher> teachers;
-
-	//JsonIgnore
+	@JsonIgnore
 	@ManyToMany
 	private Collection<Tag> tags;
 
-	public Need(String name, int quantity, String descNeed, Tag...tags) {
+	public Need(String name, int quantity, String descNeed, Teacher teacher, Tag...tags) {
 		this.name = name;
 		this.quantity = quantity;
 		this.descNeed = descNeed;
+		this.teacher = teacher;
 		this.tags = new HashSet<>(Arrays.asList(tags));
 
 	}
@@ -60,6 +65,10 @@ public class Need {
 	public int getQuantity() {
 		return quantity;
 	}
+	
+	public Teacher getTeacher() {
+		return teacher;
+	}
 
 	@Override
 	public int hashCode() {
@@ -82,6 +91,15 @@ public class Need {
 			return false;
 		return true;
 	}
+
+	public void addTag(Tag tagToAdd) {
+		tags.add(tagToAdd);		
+	}
+	
+	public void removeTag(Tag tagToRemove) {
+		tags.remove(tagToRemove);		
+	}
+
 
 	
 

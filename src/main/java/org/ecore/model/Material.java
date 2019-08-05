@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -23,13 +26,19 @@ public class Material {
 	
 	private String descMaterial;
 	
+	@JsonIgnore
 	@ManyToMany
 	private Collection<Tag> tags;
+	
+	@JsonIgnore
+	@ManyToOne
+	private Teacher teacher;
 
-	public Material(String name, int quantity, String descMaterial, Tag...tags) {
+	public Material(String name, int quantity, String descMaterial, Teacher teacher, Tag...tags) {
 		this.name = name;
 		this.quantity = quantity;
 		this.descMaterial = descMaterial;
+		this.teacher = teacher;
 		this.tags = new HashSet<> (Arrays.asList(tags));
 		
 	}
@@ -62,7 +71,20 @@ public class Material {
 		
 		return tags;
 	}
+	
+	public Teacher getTeacher() {
+		return teacher;
+	}
 
+	public void addTag(Tag tagToAdd) {
+		tags.add(tagToAdd);	
+		
+	}
+	
+	public void removeTag(Tag tagToRemove) {
+		tags.remove(tagToRemove);		
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -84,5 +106,6 @@ public class Material {
 			return false;
 		return true;
 	}
+
 
 }

@@ -19,7 +19,7 @@
                 <a href="/all-teachers">Teachers</a>
                 <a href="/all-community-members">Community</a>
                 <a href="/all-materials">Resources</a>
-                <a href="#" class="right">Contact Us</a>
+                <a href="/signup" class="right">Sign Up</a>
               </div>
               
               <div class="row">
@@ -32,16 +32,34 @@
                   <p>Lorem ipsum dolor sit ame.</p>
                   <div class="fakeimg" style="height:60px;">Image</div><br>
                   <div class="fakeimg" style="height:60px;">Image</div><br>
+                  <div class="fakeimg" style="height:60px;">Image</div><br>
                   <div class="fakeimg" style="height:60px;">Image</div>
                 </div>
                 <div class="main">
 
     <div th:each= "material: ${material}">
         <h2 th:text = "${material.name}"></h2>
-        <p> Quantity</p>
+        <p class="descriptors"> Quantity</p>
         <p th:text= "${material.quantity}"></p>
-        <p>Description</p>
+        <p class="descriptors">Description</p>
         <p th:text= "${material.descMaterial}"></p>
+        <p class="descriptors">Posting Teacher</p>
+        <p th:each="teacher: ${material.teacher}" th:text= "${teacher.name}"></p>
+    </div>
+
+    <div>
+      <input class="materialId" name ="materialId" type="hidden" th:value="${material.id}"/>
+      <section class= "addTag">
+        <input type="text" placeholder="Add A Tag To Your Need"/>
+        <button>Submit Tag</button>
+      </section>
+      <section class ="tagsList">
+        <ul th:each="tag: ${material.tags}">
+          <input class= "tagId" type="hidden" name="id" th:value="tag.id"/>
+          <a th:href="@{/tag(id=${tag.id})}" th:text= "${tag.name}"></a>
+          <button class= "x">&times;</button>
+        </ul>
+      </section>
     </div>
 
     <form method="POST">
@@ -57,6 +75,6 @@
                 <h2>The Footer</h2>
               </div>
     
-    
+              <script src="./js/material.js"></script>
 </body>
 </html>

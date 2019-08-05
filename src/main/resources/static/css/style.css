@@ -85,6 +85,10 @@
     padding: 20px;
   }
 
+  .descriptors{
+    font-weight: bold;
+  }
+
   .hiddenInput {
     display : none;
 }

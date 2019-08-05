@@ -20,7 +20,7 @@
                   <a href="/all-teachers">Teachers</a>
                   <a href="/all-community-members">Community</a>
                   <a href="/all-materials">Resources</a>
-                  <a href="#" class="right">Contact Us</a>
+                  <a href="/signup" class="right">Sign Up</a>
                 </div>
               
               <div class="row">
@@ -33,6 +33,7 @@
                   <p>Lorem ipsum dolor sit ame.</p>
                   <div class="fakeimg" style="height:60px;">Image</div><br>
                   <div class="fakeimg" style="height:60px;">Image</div><br>
+                  <div class="fakeimg" style="height:60px;">Image</div><br>
                   <div class="fakeimg" style="height:60px;">Image</div>
                 </div>
                 <div class="main">
@@ -40,6 +41,7 @@
     <div th:each= "teacher: ${teachers}">
         <p th:text = "${teacher.name}"></p>
         <p th:text= "${teacher.specialty}"></p>
+
         <p th:each="school: ${teacher.school}" th:text="${school.name}"></p>
 
         <form method="POST">
@@ -51,7 +53,67 @@
                     <button th:formaction="@{/delete-teacher}">Delete Teacher</button>
                 </div>
             </form>
+
     </div>
+
+    <div>
+      <form id="addMaterial">
+        <h3>Post a Resource</h3>
+        <div>
+            <input type="text" name="name" placeholder="enter name" required="required"/>
+        </div>
+
+        <div>
+                <input type="number" name="quantity" placeholder="enter quantity" required="required"/>
+        </div>
+
+        <div>
+            <input type="text" name="descMaterial" placeholder="enter description" required="required"/>
+        </div>
+
+        <div>
+            <input th:each="teacher: ${teachers}" type="hidden" name="teacherName" th:value="${teacher.name}"/>
+        </div>
+
+        <div>
+            <input type="text" name="tagName" placeholder="enter tag" required="required" />
+        </div>
+
+        <div>
+            <button th:formaction="@{/add-material}">add material</button>
+        </div>
+      </form>
+    </div>
+
+    <div>
+        <form id="addNeed">
+          <h3>Post a Need</h3>
+          <div>
+              <input type="text" name="needName" placeholder="enter name" required="required"/>
+          </div>
+  
+          <div>
+                  <input type="number" name="needQuantity" placeholder="enter quantity" required="required"/>
+          </div>
+  
+          <div>
+              <input type="text" name="needDescription" placeholder="enter description" required="required"/>
+          </div>
+  
+          <div>
+              <input th:each="teacher: ${teachers}" type="hidden" name="teacherName" th:value="${teacher.name}"/>
+          </div>
+  
+          <div>
+              <input type="text" name="tagName" placeholder="enter tag" required="required" />
+          </div>
+  
+          <div>
+              <button th:formaction="@{/add-need}">add need</button>
+          </div>
+        </form>
+      </div>
+
 
 </div>
 </div>
