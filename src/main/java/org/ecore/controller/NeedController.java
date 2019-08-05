@@ -76,8 +76,8 @@ public class NeedController {
 			needRepo.save(newNeed);
 
 		}
-		long id = newNeed.getId();
-		return "redirect:/need?id=" + id;
+		long id = teacher.getId();
+		return "redirect:/teacher?id=" + id;
 
 	}
 
