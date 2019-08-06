@@ -63,20 +63,21 @@ public class NeedController {
 			String tagName) {
 		Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(teacherName);
 
-		if (tagName != null) {
-			Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
-
-			if (tag == null) {
-				tag = new Tag(tagName);
-				tagRepo.save(tag);
-			
-		}
 		Need newNeed = needRepo.findByNameIgnoreCaseLike(needName);
+		Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
+
+		if (tag == null) {
+			tag = new Tag(tagName);
+			tagRepo.save(tag);
+		}
+
 		if (newNeed == null) {
 			newNeed = new Need(needName, needQuantity, needDescription, teacher, tag);
 			needRepo.save(newNeed);
-		}}
-		return "redirect:/all-needs";
+
+		}
+		long id = teacher.getId();
+		return "redirect:/teacher?id=" + id;
 
 	}
 
@@ -89,24 +90,23 @@ public class NeedController {
 
 	}
 
-	 @RequestMapping(path = "/tags/{tagName}/{id}", method = RequestMethod.POST)
-	 public String addTagToNeed(@PathVariable String tagName, @PathVariable Long
-	 id, Model model) {
-	 Tag tagToAdd = tagRepo.findByName(tagName);
-	 if(tagToAdd == null) {
-	 tagToAdd = new Tag(tagName);
-	 tagRepo.save(tagToAdd);
-	 }
-	
-	 Need needToAddTo = needRepo.findById(id).get();
-	
-	 needToAddTo.addTag(tagToAdd);
-	 needRepo.save(needToAddTo);
-	
-	 model.addAttribute("need", needToAddTo);
-	
-	 return "partial/tags-list-added";
-	 }
+	@RequestMapping(path = "/tags/{tagName}/{id}", method = RequestMethod.POST)
+	public String addTagToNeed(@PathVariable String tagName, @PathVariable Long id, Model model) {
+		Tag tagToAdd = tagRepo.findByName(tagName);
+		if (tagToAdd == null) {
+			tagToAdd = new Tag(tagName);
+			tagRepo.save(tagToAdd);
+		}
+
+		Need needToAddTo = needRepo.findById(id).get();
+
+		needToAddTo.addTag(tagToAdd);
+		needRepo.save(needToAddTo);
+
+		model.addAttribute("need", needToAddTo);
+
+		return "partial/tags-list-added";
+	}
 
 	@RequestMapping(path = "/tags/remove/{tagId}/{needId}", method = RequestMethod.POST)
 	public String removeTagFromNeed(@PathVariable Long tagId, @PathVariable Long needId, Model model) {

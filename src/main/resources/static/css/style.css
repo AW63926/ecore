@@ -85,8 +85,42 @@
     padding: 20px;
   }
 
+  .descriptors{
+    font-weight: bold;
+  }
+
   .hiddenInput {
     display : none;
+    
+    
+}
+
+#forms, #lists {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+}
+
+#addNeed, #addMaterial {
+  display: flex;
+  flex-direction: row;
+  height: 250px;
+  width: 300px;
+  border: black;
+  padding: 2em;
+  justify-content: left;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  height: 250px;
+  width: 300px;
+  border: black;
+  padding: 2em;
+  justify-content: left;
+
 }
   
   
