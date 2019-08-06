@@ -69,8 +69,8 @@ public class MaterialController {
 
 		}
 		
-		long id = material.getId();
-		return "redirect:/material?id=" + id;
+		long id = teacher.getId();
+		return "redirect:/teacher?id=" + id;
 	}
 
 	@RequestMapping("/delete-material")
