@@ -37,14 +37,21 @@
                   <div class="fakeimg" style="height:60px;">Image</div>
                 </div>
                 <div class="main">
-
-    <div th:each= "teacher: ${teachers}">
-        <h2>Welcome to your home page</h2>
+    <section id="teacherWelcomeBanner" th:each= "teacher: ${teachers}">
+    <div >
+    <h2>Welcome to your home page</h2>
         <h2 th:text = "${teacher.name}"></h2>
+      </div>
+    <div id="teacherPersonalInfo">        
+        <div id="profilePic">
+        <img id="profilePic"  src="./images/femaleavatar.png"/>
+      </div>
+      <div id="teacherTextInfo">
+        <h3>Specialty</h3>
         <p th:text= "${teacher.specialty}"></p>
-
+        <h3>School</h3>
         <p th:each="school: ${teacher.school}" th:text="${school.name}"></p>
-
+      
         <form method="POST">
                 <div>
                         <input type="hidden" name="teacherName" th:value="${teacher.name}"/>
@@ -54,8 +61,9 @@
                     <button th:formaction="@{/delete-teacher}">Delete Teacher</button>
                 </div>
             </form>
-
+          </div>
     </div>
+  </section>
 
     <div id="forms">
     <div id="addMaterial">
@@ -88,7 +96,7 @@
     </div>
 
     <div id="addNeed">
-        <form >
+        <form id="addNeedForm">
           <h3>Post a Need</h3>
           <div>
               <input type="text" name="needName" placeholder="enter name" required="required"/>
@@ -118,13 +126,13 @@
       </div>
 
       <div id="lists">
-        <div class="postList" th:each="teacher: ${teachers}">
+        <div class="teacherPostList" th:each="teacher: ${teachers}">
             <h3>Your Currently Posted Resources</h3>
             <a th:each="material: ${teacher.materials}" th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
           
         </div>
 
-        <div class="postList" th:each="teacher: ${teachers}">
+        <div class="teacherPostList" th:each="teacher: ${teachers}">
           <h3>Your Currently Posted Needs</h3>
           <a th:each="need: ${teacher.needs}"  th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
           
