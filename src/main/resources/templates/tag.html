@@ -39,6 +39,8 @@
                 <div class="main">
     <div th:each= "tag: ${tags}">
         <h2 th:text = "${tag.name}"></h2>
+        <div th:each="need: ${needs}">
+          <h3 id = "singleneed"> <a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></h3>
      
     </div>
 
