@@ -50,28 +50,28 @@
         </li>
      </div>
 
-     <form method="POST">
-         <div>
-             <input type="text" name="name" placeholder="enter name" required="required"/>
+     <form method="POST" class="form">
+         <div class="form-group">
+             <input type="text" name="name" placeholder="enter name" required="required" class="form-control"/>
      
          </div>
 
-         <div>
-             <input type="text" name="district" placeholder="enter district" required="required"/>
+         <div class="form-group">
+             <input type="text" name="district" placeholder="enter district" required="required" class="form-control"/>
        
             </div>
-         <div>
-            <input type="text" name="address" placeholder="enter address" required="required"/>
+         <div class="form-group">
+            <input type="text" name="address" placeholder="enter address" required="required" class="form-control"/>
            
         </div>
 
-        <div>
-            <input type="text" name="mapUrl" placeholder="enter map link"/>
+        <div class="form-group">
+            <input type="text" name="mapUrl" placeholder="enter map link" class="form-control"/>
        
         </div>
 
-        <div>
-            <button formaction="/add-school">Add School</button>
+        <div class="form-group">
+            <button formaction="/add-school" class="btn btn-primary">Add School</button>
         </div>
 
      </form>

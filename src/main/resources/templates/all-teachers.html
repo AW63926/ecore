@@ -47,34 +47,34 @@
     </div>
 
 
-
-<form method="POST">
+<div class="col-md-7">
+<form method="POST" class="form">
     <h3>Add A Teacher</h3>
     <!-- to cater for visually impaired individuals, created the input ID for screen readers and other accessibility tools. -->
-    <div>
-        <label for="title">Teacher Name:</label> <input id="title" type="text"
+    <div class="form-group">
+        <label for="title" class="">Teacher Name:</label> <input class="form-control" id="title" type="text"
             name="name" placeholder="Enter Teacher Name" required="required">
     </div>
 
-    <div>
+    <div class="form-group">
 
-        <label for="specialty">Specialty</label> <input id="specialty"
+        <label for="specialty">Specialty</label> <input class="form-control" id="specialty"
             type="text" name="teacherSpecialty" placeholder="Please Enter Specialty"
 
             required="required">
     </div>
 
-    <div>
-        <label for="school name">School Name:</label> <input id="school name"
+    <div class="form-group">
+        <label for="school_name">School Name:</label> <input class="form-control" id="school_name"
             type="text" name="school" placeholder="School Name"
             required="required">
     </div>
 
-    <div>
-        <button th:formaction="@{/add-teacher}">Add Teacher</button>
+    <div class="form-group">
+        <button class="btn btn-primary" th:formaction="@{/add-teacher}">Add Teacher</button>
     </div>
 </form>
-
+</div>
 
     
 
