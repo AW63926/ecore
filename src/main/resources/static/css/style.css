@@ -95,10 +95,28 @@
     
 }
 
+#teacherPersonalInfo {
+  display: flex;
+  flex-flow: row;
+  margin: auto auto;
+  background-color: #aaa;
+}
+#teacherWelcomeBanner {
+  background-color: #f1f1f1;
+}
+#teacherTextInfo {
+  margin: auto;
+}
+#profilePic {
+  height: 260px;
+  width: 260px;
+}
+
 #forms, #lists {
   display: flex;
   flex-flow: row;
   justify-content: space-evenly;
+  background: #f1f1f1;
 }
 
 #addNeed, #addMaterial {
@@ -106,12 +124,14 @@
   flex-direction: row;
   height: 250px;
   width: 300px;
-  border: black;
   padding: 2em;
-  justify-content: left;
+  justify-content: left;  
+  border-color: black;
 }
 
-.postList {
+
+
+.teacherPostList {
   display: flex;
   flex-direction: column;
   margin-top: 2em;
@@ -120,8 +140,13 @@
   border: black;
   padding: 2em;
   justify-content: left;
+ }
 
-}
+ .teacherPostList a {
+   display: flex;
+   flex-flow: column;
+  line-height: 2em;
+ }
   
   
   .footer {
