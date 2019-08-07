@@ -149,13 +149,7 @@
  }
   
   
-  .footer {
-    padding: 20px;
-    text-align: center;
-    background: #ddd;
-  }
-
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {   background-color:#e5ecf4;
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {   background-color:#e5ecf4;
 color:#4a89dc;}
 
 .login-shadow{-webkit-box-shadow: 5px -5px 6px 0px rgba(82,82,82,0.52);
@@ -267,6 +261,12 @@ box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
   animation: inputHighlighter 0.3s ease;
 }
 
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+  }
+
   @media screen and (max-width: 700px) {
     .row {   
       flex-direction: column;
@@ -300,9 +300,3 @@ box-shadow: -5px 0px 6px 0px rgba(82,82,82,0.52);
               padding-right:50px;}
 }
 
-
-.modal-body{background-image:url('http://res.cloudinary.com/rinma/image/upload/v1500489833/Airplane-flying-desktop-pictureproba2_rlcced.jpg');
-background-size:cover;
-z-inedx:4;}
-
-em{display:none;}
