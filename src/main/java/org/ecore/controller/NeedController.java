@@ -40,6 +40,17 @@ public class NeedController {
 		}
 		throw new NeedNotFoundException();
 	}
+	
+	@RequestMapping("/need/community")
+	public String findOneNeedForCommunity(@RequestParam(value = "id") long id, Model model) throws NeedNotFoundException {
+		Optional<Need> need = needRepo.findById(id);
+
+		if (need.isPresent()) {
+			model.addAttribute("needs", need.get());
+			return "community-member";
+		}
+		throw new NeedNotFoundException();
+	}
 
 	@RequestMapping("/all-needs")
 	public String findAllNeeds(Model model) {
