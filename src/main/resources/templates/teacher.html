@@ -44,7 +44,7 @@
       </div>
     <div id="teacherPersonalInfo">        
         <div id="profilePic">
-        <img id="profilePic"  src="./images/femaleavatar.png"/>
+        <img id="profilePic"  src="./images/avatar.png"/>
       </div>
       <div id="teacherTextInfo">
         <h3>Specialty</h3>
@@ -128,14 +128,37 @@
       <div id="lists">
         <div class="teacherPostList" th:each="teacher: ${teachers}">
             <h3>Your Currently Posted Resources</h3>
-            <a th:each="material: ${teacher.materials}" th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
-          
+            <div th:each="material: ${teacher.materials}">
+            <a th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
+            <form>
+              <div>
+              <input type="hidden" name="id" th:value="${material.id}"/>
+            </div>
+
+            <div>
+              <button th:formaction="@{/delete-material}">&times;</button>
+            </div>
+            </form>
+            
+          </div>
         </div>
 
         <div class="teacherPostList" th:each="teacher: ${teachers}">
           <h3>Your Currently Posted Needs</h3>
-          <a th:each="need: ${teacher.needs}"  th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
-          
+          <div th:each="need: ${teacher.needs}">
+          <a  th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
+
+          <form>
+              <div>
+              <input type="hidden" name="needName" th:value="${need.name}"/>
+            </div>
+
+            <div>
+              <button th:formaction="@{/delete-need}">&times;</button>
+            </div>
+            </form>
+
+        </div>
         </div>
       </div>
 
