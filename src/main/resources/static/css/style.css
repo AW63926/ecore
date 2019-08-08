@@ -129,8 +129,6 @@
   border-color: black;
 }
 
-
-
 .teacherPostList {
   display: flex;
   flex-direction: column;
@@ -147,17 +145,20 @@
    flex-flow: column;
   line-height: 2em;
  }
-  
-  
+
+ 
+
   .footer {
     padding: 20px;
     text-align: center;
     background: #ddd;
   }
+
   @media screen and (max-width: 700px) {
     .row {   
       flex-direction: column;
     }
+
   }
   
   @media screen and (max-width: 400px) {
@@ -166,3 +167,5 @@
       width: 100%;
     }
   }
+
+
