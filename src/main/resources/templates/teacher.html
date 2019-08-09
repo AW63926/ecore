@@ -37,13 +37,21 @@
                   <div class="fakeimg" style="height:60px;">Image</div>
                 </div>
                 <div class="main">
-
-    <div th:each= "teacher: ${teachers}">
-        <p th:text = "${teacher.name}"></p>
+    <section id="teacherWelcomeBanner" th:each= "teacher: ${teachers}">
+    <div >
+    <h2>Welcome to your home page</h2>
+        <h2 th:text = "${teacher.name}"></h2>
+      </div>
+    <div id="teacherPersonalInfo">        
+        <div>
+        <img id="profilePic"  src="./images/avatar.png"/>
+      </div>
+      <div id="teacherTextInfo">
+        <h3>Specialty</h3>
         <p th:text= "${teacher.specialty}"></p>
-
+        <h3>School</h3>
         <p th:each="school: ${teacher.school}" th:text="${school.name}"></p>
-
+      
         <form method="POST">
                 <div>
                         <input type="hidden" name="teacherName" th:value="${teacher.name}"/>
@@ -53,11 +61,13 @@
                     <button th:formaction="@{/delete-teacher}">Delete Teacher</button>
                 </div>
             </form>
-
+          </div>
     </div>
+  </section>
 
-    <div>
-      <form id="addMaterial">
+    <div id="forms">
+    <div id="addMaterial">
+      <form >
         <h3>Post a Resource</h3>
         <div>
             <input type="text" name="name" placeholder="enter name" required="required"/>
@@ -85,8 +95,8 @@
       </form>
     </div>
 
-    <div>
-        <form id="addNeed">
+    <div id="addNeed">
+        <form id="addNeedForm">
           <h3>Post a Need</h3>
           <div>
               <input type="text" name="needName" placeholder="enter name" required="required"/>
@@ -113,7 +123,44 @@
           </div>
         </form>
       </div>
+      </div>
 
+      <div id="lists">
+        <div class="teacherPostList" th:each="teacher: ${teachers}">
+            <h3>Your Currently Posted Resources</h3>
+            <div th:each="material: ${teacher.materials}">
+            <a th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
+            <form>
+              <div>
+              <input type="hidden" name="id" th:value="${material.id}"/>
+            </div>
+
+            <div>
+              <button th:formaction="@{/delete-material}">&times;</button>
+            </div>
+            </form>
+            
+          </div>
+        </div>
+
+        <div class="teacherPostList" th:each="teacher: ${teachers}">
+          <h3>Your Currently Posted Needs</h3>
+          <div th:each="need: ${teacher.needs}">
+          <a  th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
+
+          <form>
+              <div>
+              <input type="hidden" name="needName" th:value="${need.name}"/>
+            </div>
+
+            <div>
+              <button th:formaction="@{/delete-need}">&times;</button>
+            </div>
+            </form>
+
+        </div>
+        </div>
+      </div>
 
 </div>
 </div>

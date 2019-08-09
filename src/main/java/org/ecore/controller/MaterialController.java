@@ -69,16 +69,21 @@ public class MaterialController {
 
 		}
 		
-		long id = material.getId();
-		return "redirect:/material?id=" + id;
+		long id = teacher.getId();
+		return "redirect:/teacher?id=" + id;
 	}
 
 	@RequestMapping("/delete-material")
 	public String deleteMaterialById(Long id) {
-
+		Optional<Material> materialToReturn = materialRepo.findById(id);
+		Material material = materialToReturn.get();
+		Teacher teacher = teacherRepo.findByMaterials(material);
+		Long teacherId = teacher.getId();
 		materialRepo.deleteById(id);
+		
+		
 
-		return "redirect:/all-materials";
+		return "redirect:/teacher?id=" + teacherId;
 
 	}
 	

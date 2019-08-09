@@ -45,6 +45,13 @@
     </div>
     <div class="main">
 
+        <h1>A List of Needs</h1>
+
+        <div th:each="need: ${needs}">
+            <li><a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
+            </li>
+        </div>
+
         <h2>Community members</h2>
         <div th:each="communitymember: ${communitymembers}">
             <a th:href="@{/community-member(id=${communitymember.id})}" th:text="${communitymember.name}"></a>
@@ -61,6 +68,7 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 <div class="footer">
     <h2>The Footer</h2>

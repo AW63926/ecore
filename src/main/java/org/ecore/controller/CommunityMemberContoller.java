@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.ecore.model.CommunityMember;
 import org.ecore.notFoundException.CommunityMembersNotFoundException;
 import org.ecore.repository.CommunityMemberRepository;
+import org.ecore.repository.NeedRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,9 @@ public class CommunityMemberContoller {
 
 	@Resource
 	CommunityMemberRepository communityMemberRepo;
+	
+	@Resource
+	NeedRepository needRepo;
 
 	@RequestMapping("/community-member")
 	public String findOneCommunityMember(@RequestParam(value = "id") long id, Model model)
@@ -35,7 +39,7 @@ public class CommunityMemberContoller {
 
 	@RequestMapping("/all-community-members")
 	public String FindAllCommunityMembers(Model model) {
-		model.addAttribute("communitymembers", communityMemberRepo.findAll());
+		model.addAttribute("needs", needRepo.findAll());
 		return "all-community-members";
 
 	}

@@ -50,11 +50,15 @@ public class NeedController {
 
 	@RequestMapping("/delete-need")
 	public String deleteNeedByName(String needName) {
-		if (needRepo.findByName(needName) != null) {
+		Need need = needRepo.findByName(needName);
+		Teacher teacher = teacherRepo.findByNeeds(need);
+		Long teacherId = teacher.getId();
+		if (need != null) {
 			Need deletedNeed = needRepo.findByName(needName);
 			needRepo.delete(deletedNeed);
 		}
-		return "redirect:/all-needs";
+		
+		return "redirect:/teacher?id=" + teacherId;
 
 	}
 
@@ -76,8 +80,8 @@ public class NeedController {
 			needRepo.save(newNeed);
 
 		}
-		long id = newNeed.getId();
-		return "redirect:/need?id=" + id;
+		long id = teacher.getId();
+		return "redirect:/teacher?id=" + id;
 
 	}
 
