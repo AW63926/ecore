@@ -53,7 +53,7 @@
         <h3>School</h3>
         <p th:each="school: ${teacher.school}" th:text="${school.name}"></p>
       
-        <form method="POST">
+        <form class="teacherPost" method="POST">
                 <div>
                         <input type="hidden" name="teacherName" th:value="${teacher.name}"/>
                 </div>
@@ -68,17 +68,20 @@
 
     <div id="forms">
     <div id="addMaterial">
-      <form >
+      <form class="teacherPost" method="POST" >
         <h3>Post a Resource</h3>
         <div>
+          <label>ResourceName</label>
             <input type="text" name="name" placeholder="enter name" required="required"/>
         </div>
 
         <div>
+            <label>Quantity</label>
                 <input type="number" name="quantity" placeholder="enter quantity" required="required"/>
         </div>
 
         <div>
+            <label>Description</label>
             <input type="text" name="descMaterial" placeholder="enter description" required="required"/>
         </div>
 
@@ -87,6 +90,7 @@
         </div>
 
         <div>
+            <label>Tag Name</label>
             <input type="text" name="tagName" placeholder="enter tag" required="required" />
         </div>
 
@@ -97,17 +101,20 @@
     </div>
 
     <div id="addNeed">
-        <form id="addNeedForm">
+        <form class="teacherPost" method="POST">
           <h3>Post a Need</h3>
           <div>
+              <label>Need Name</label>
               <input type="text" name="needName" placeholder="enter name" required="required"/>
           </div>
   
           <div>
+              <label>Quantity</label>
                   <input type="number" name="needQuantity" placeholder="enter quantity" required="required"/>
           </div>
   
           <div>
+              <label>Description</label>
               <input type="text" name="needDescription" placeholder="enter description" required="required"/>
           </div>
   
@@ -116,6 +123,7 @@
           </div>
   
           <div>
+              <label>Tag Name</label>
               <input type="text" name="tagName" placeholder="enter tag" required="required" />
           </div>
   
@@ -129,18 +137,20 @@
       <div id="lists">
         <div class="teacherPostList" th:each="teacher: ${teachers}">
             <h3>Your Currently Posted Resources</h3>
+            
             <div th:each="material: ${teacher.materials}">
             <a th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
+            <div>
             <form>
               <div>
               <input type="hidden" name="id" th:value="${material.id}"/>
             </div>
 
             <div>
-              <button th:formaction="@{/delete-material}">&times;</button>
+              <button th:formaction="@{/delete-material}">delete</button>
             </div>
             </form>
-            
+          </div>
           </div>
         </div>
 
@@ -155,7 +165,7 @@
             </div>
 
             <div>
-              <button th:formaction="@{/delete-need}">&times;</button>
+              <button th:formaction="@{/delete-need}">delete</button>
             </div>
             </form>
 
