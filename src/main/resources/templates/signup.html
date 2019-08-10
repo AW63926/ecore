@@ -1,49 +1,72 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style.css">    
-    <title>Document</title>
+<title>ECORE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<link rel="stylesheet" href="./css/style.css"> 
 <body>
 
-        <div class="header">
-                <h1>ECORE</h1>
-                <p>We can use a large icon. </p>
-              </div>
-              
-              <div class="navbar">
-                    <a href="/index" class="active">Home</a>
-                    <a href="/all-schools">Schools</a>
-                  <a href="/all-teachers">Teachers</a>
-                  <a href="/all-community-members">Community</a>
-                  <a href="/all-materials">Resources</a>
-                  <a href="/signup" class="right">Sign Up</a>
-                </div>
-              
-              <div class="row">
-                <div class="side">
-                  <h2>ECORE</h2>
-                  <h5>(Below is icon of ecore)</h5>
-                  <div class="fakeimg" style="height:200px;">Image</div>
-                  <p>Information about ECORE</p>
-                  <h3>more information about the most recent requests for the website</h3>
-                  <p>Lorem ipsum dolor sit ame.</p>
-                  <div class="fakeimg" style="height:60px;">Image</div><br>
-                  <div class="fakeimg" style="height:60px;">Image</div><br>
-                  <div class="fakeimg" style="height:60px;">Image</div><br>
-                  <div class="fakeimg" style="height:60px;">Image</div>
-                </div>
-                <div class="main">
-                    <p> sign up information will go here. </p>
+<div class="header">
+  <h1>ECORE</h1>
+  <p>We can use a large icon. </p>
+</div>
+
+<div class="navbar">
+    <a href="/index" class="active">Home</a>
+    <a href="/all-schools">Schools</a>
+  <a href="/all-teachers">Teachers</a>
+  <a href="/all-community-members">Community</a>
+  <a href="/all-materials">Resources</a>
+  <a href="/signup" class="right">Login/Sign Up</a>
+  <button class="right" href="/signup" data-toggle="modal" data-target=".log-sign">Sign In/Register</button>
+</div>
+
+<div class="row">
+  <div class="side">
+    <h2>ECORE</h2>
+    <h5>(Below is icon of ecore)</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Information about ECORE</p>
+    <h3>more information about the most recent requests for the website</h3>
+    <p>Lorem ipsum dolor sit ame.</p>
+    <div class="fakeimg" style="height:60px;">Image</div><br>
+    <div class="fakeimg" style="height:60px;">Image</div><br>
+    <div class="fakeimg" style="height:60px;">Image</div><br>
+    <div class="fakeimg" style="height:60px;">Image</div>
+  </div>
+  <div class="main">
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button> 
+  
+    <div id="id01" class="modal"> 
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span> 
+        <form class="modal-content animate" action="/action_page.php"> 
+            <div class="container"> 
+                <label><b>Email</b></label> 
+                <input type="text" placeholder="Enter Email" name="email" required> 
+  
+                <label><b>Password</b></label> 
+                <input type="password" placeholder="Enter Password" name="psw" required> 
+  
+                <label><b>Repeat Password</b></label> 
+                <input type="password" placeholder="Repeat Password" name="psw-repeat" required> 
+                <input type="checkbox"> Remember me 
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> 
+  
+                <div class="clearfix"> 
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> 
+                    <button type="submit" class="signupbtn">Sign Up</button> 
+                </div> 
+            </div> 
+        </form> 
+    </div> 
+ </div> 
+</body> 
+<div class="footer">
+  <h2>The Footer</h2>
+  <script src="./js/signup.js"></script>
 
 </div>
-    
-        <div class="footer">
-                <h2>The Footer</h2>
-              </div>
-
-</body>
+  
 </html>
