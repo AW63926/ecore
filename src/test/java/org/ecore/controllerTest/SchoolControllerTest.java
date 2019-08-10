@@ -7,13 +7,13 @@ import static org.mockito.Mockito.when;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 
 import org.ecore.controller.SchoolController;
 import org.ecore.model.School;
 import org.ecore.notFoundException.SchoolNotFoundException;
+import org.ecore.repository.MaterialRepository;
 import org.ecore.repository.SchoolRepository;
+import org.ecore.repository.TeacherRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -38,6 +38,13 @@ public class SchoolControllerTest {
 
 	@Mock
 	private SchoolRepository schoolRepo;
+	
+	@Mock
+	private MaterialRepository materialRepo;
+	
+	@Mock
+	private TeacherRepository teacherRepo;
+	
 
 	@Mock
 	private Model model;
@@ -82,6 +89,6 @@ public class SchoolControllerTest {
 		when(schoolRepo.findById(SCHOOL_ID)).thenReturn(Optional.of(school));
 		underTest.deleteSchoolById(SCHOOL_ID);
 
-		verify(schoolRepo).deleteById(SCHOOL_ID);
+		verify(schoolRepo).delete(school);
 	}
 }

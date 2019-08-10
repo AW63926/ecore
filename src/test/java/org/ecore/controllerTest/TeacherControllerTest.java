@@ -24,6 +24,8 @@ import org.springframework.ui.Model;
 
 public class TeacherControllerTest {
 	
+	private static final long TEACHER_ID = 1L;
+
 	@InjectMocks
 	private TeacherController underTest;
 	
@@ -90,8 +92,9 @@ public class TeacherControllerTest {
 	
 	@Test
 	public void shouldRemoveTeacherFromModelById() {
-		underTest.deleteTeacherById(teacherId);
-		verify(teacherRepo).deleteById(teacherId);
+		when(teacherRepo.findById(TEACHER_ID)).thenReturn(Optional.of(teacher));
+		underTest.deleteTeacherById(TEACHER_ID);
+		verify(teacherRepo).delete(teacher);
 	}
 
 }
