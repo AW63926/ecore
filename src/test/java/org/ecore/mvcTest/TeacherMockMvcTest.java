@@ -2,17 +2,21 @@ package org.ecore.mvcTest;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
 
 import javax.annotation.Resource;
 
-import java.util.Arrays;
 import org.ecore.controller.TeacherController;
 import org.ecore.model.Teacher;
+import org.ecore.repository.MaterialRepository;
+import org.ecore.repository.NeedRepository;
 import org.ecore.repository.SchoolRepository;
 import org.ecore.repository.TeacherRepository;
 import org.junit.Test;
@@ -36,6 +40,13 @@ public class TeacherMockMvcTest {
 	
 	@MockBean
 	SchoolRepository schoolRepo;
+	
+	@MockBean 
+	NeedRepository needRepo;
+	
+	@MockBean 
+	MaterialRepository materialRepo;
+	
 	
 	@Mock
 	private Teacher teacher;
