@@ -1,6 +1,5 @@
 package org.ecore.controllerTest;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -11,12 +10,13 @@ import java.util.Optional;
 import org.ecore.controller.NeedController;
 import org.ecore.model.Need;
 import org.ecore.model.Tag;
+import org.ecore.model.Teacher;
 import org.ecore.notFoundException.NeedNotFoundException;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.TagRepository;
+import org.ecore.repository.TeacherRepository;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -36,6 +36,12 @@ public class NeedControllerTest {
 
 	@Mock
 	private NeedRepository needRepo;
+	
+	@Mock
+	TeacherRepository teacherRepo;
+	
+	@Mock
+	Teacher teacher;
 
 	@Mock
 	private Tag tag;
@@ -90,6 +96,7 @@ public class NeedControllerTest {
 	public void shouldRemoveNeedFromModelByName() {
 		String needName = need.getName();
 		when(needRepo.findByName(needName)).thenReturn(need);
+		when(teacherRepo.findByNeeds(need)).thenReturn(teacher);
 		underTest.deleteNeedByName(needName);
 		verify(needRepo).delete(need);
 
