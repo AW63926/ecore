@@ -14,6 +14,7 @@ import java.util.Optional;
 import javax.annotation.Resource;
 
 import org.ecore.controller.NeedController;
+import org.ecore.filestorage.StorageService;
 import org.ecore.model.Need;
 import org.ecore.model.Tag;
 import org.ecore.model.Teacher;
@@ -45,6 +46,9 @@ public class NeedControllerMockMvcTest {
 	
 	@MockBean
 	private CommunityMemberRepository communityMemberRepo;
+	
+	@MockBean
+	private StorageService storage;
 
 	@Mock
 	private Need need;
