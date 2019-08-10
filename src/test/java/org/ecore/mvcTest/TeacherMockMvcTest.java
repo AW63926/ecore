@@ -14,6 +14,7 @@ import java.util.Optional;
 import javax.annotation.Resource;
 
 import org.ecore.controller.TeacherController;
+import org.ecore.filestorage.StorageService;
 import org.ecore.model.Teacher;
 import org.ecore.repository.MaterialRepository;
 import org.ecore.repository.NeedRepository;
@@ -46,6 +47,9 @@ public class TeacherMockMvcTest {
 	
 	@MockBean 
 	MaterialRepository materialRepo;
+	
+	@MockBean
+	private StorageService storage;
 	
 	
 	@Mock

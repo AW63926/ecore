@@ -1,28 +1,30 @@
 package org.ecore.JpaTests;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
+import static org.junit.Assert.assertThat;
 
 import java.util.Collection;
 import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import org.ecore.filestorage.StorageService;
 import org.ecore.model.Need;
 import org.ecore.model.School;
 import org.ecore.model.Tag;
 import org.ecore.model.Teacher;
 import org.ecore.repository.NeedRepository;
+import org.ecore.repository.SchoolRepository;
 import org.ecore.repository.TagRepository;
 import org.ecore.repository.TeacherRepository;
-import org.ecore.repository.SchoolRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -44,6 +46,9 @@ public class NeedJPATest {
 	
 	@Resource
 	private SchoolRepository schoolRepo;
+	
+	@MockBean
+	private StorageService storage;
 	
 	private Teacher teacher;
 	

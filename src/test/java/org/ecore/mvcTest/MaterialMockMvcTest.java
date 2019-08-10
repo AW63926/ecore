@@ -14,6 +14,7 @@ import java.util.Optional;
 import javax.annotation.Resource;
 
 import org.ecore.controller.MaterialController;
+import org.ecore.filestorage.StorageService;
 import org.ecore.model.Material;
 import org.ecore.model.Tag;
 import org.ecore.model.Teacher;
@@ -45,6 +46,9 @@ public class MaterialMockMvcTest {
 	@MockBean
 	private TagRepository tagRepo;
 	
+	@MockBean
+	private StorageService storage;
+	
 	@Mock
 	private Material material;
 	
@@ -64,7 +68,7 @@ public class MaterialMockMvcTest {
 		long materialId = 1;
 		when(materialRepo.findById(materialId)).thenReturn(Optional.of(material));
 		
-		mvc.perform(get("/material?id=1")).andExpect(view().name(is("material")));
+		mvc.perform(get("/single-material?id=1")).andExpect(view().name(is("material")));
 	}
 	
 	@Test
@@ -72,7 +76,7 @@ public class MaterialMockMvcTest {
 		long materialId = 1;
 		when(materialRepo.findById(materialId)).thenReturn(Optional.of(material));
 		
-		mvc.perform(get("/material?id=1")).andExpect(status().isOk());
+		mvc.perform(get("/single-material?id=1")).andExpect(status().isOk());
 		
 	}
 	
@@ -85,7 +89,7 @@ public class MaterialMockMvcTest {
 	public void shouldPutSingleMaterialIntoModel () throws Exception {
 		when(materialRepo.findById(1l)).thenReturn(Optional.of(material));
 		
-		mvc.perform(get("/material?id=1")).andExpect(model().attribute("material", is(material)));
+		mvc.perform(get("/single-material?id=1")).andExpect(model().attribute("material", is(material)));
 		
 	}
 	
