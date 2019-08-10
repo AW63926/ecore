@@ -6,6 +6,7 @@ public class StorageException extends RuntimeException {
         super(message);
     }
     //test
+    //test
 
     public StorageException(String message, Throwable cause) {
         super(message, cause);
