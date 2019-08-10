@@ -52,7 +52,7 @@
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title= "Close Modal"></span>
 
-<form class = "modal-content" action="/nav-teacher">
+<form class = "modal-content" action="/teacher-signup">
   <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
@@ -66,7 +66,8 @@
 
     <input type="text" placeholder="School" name="school" required>
 
-    <input type="email" placeholder="Email" name="email" required>
+    <input type="email" placeholder="Email" name="emailAddress" required>
+
     <input type="password" placeholder="Enter Password" name="psw" required>
     <em> minimum 6 characters</em>
     <label>
@@ -90,13 +91,13 @@
 <div id="id02" class="modal">
   <span onclick="document.getElementById('id02').style.display='none'" class="close" title= "Close Modal"></span>
 
-<form class = "modal-content" action="/nav-teacher">
+<form class = "modal-content" action="/login-submit">
   <div class="container">
 
     <hr>
 
     <label for="email"><b>Email address</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input type="text" placeholder="Enter Email" name="emailAddress" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
