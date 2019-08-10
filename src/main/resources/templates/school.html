@@ -37,16 +37,27 @@
                   <div class="fakeimg" style="height:60px;">Image</div><br>
                   <div class="fakeimg" style="height:60px;">Image</div>
                 </div>
+
                 <div class="main">
-<h1> A single School </h1>
 
-    <div th:each= "school: ${schools}">
-        <p th:text = "${school.name}"></p>
+                  <section class="welcomeBanner" th:each= "school: ${schools}">
+                    <div>
+                        <h1 th:text = "${school.name}"></h1>
+                    </div>
+    <div  class="personalInfo" >
+      <div>
+          <img class="profilePic"  src="./images/schoolavatar.jpg"/>
+      </div>
+      <div class="textInfo">
+        <h3>Address</h3>
         <p th:text ="${school.address}"></p>
+        <h3>SchoolDistrict</h3>
         <p th:text ="${school.district}"></p>
+        <h3>Map</h3>
         <p th:text ="${school.mapUrl}"></p>
-        <form method="POST">
 
+        <form id="schoolDelete" method="POST">
+          
             <div>
                 <input class="hiddenInput" type="number" name="schoolId" th:value="${school.id}"/>
                 </div>
@@ -58,9 +69,10 @@
             </div>
 
         </form>
-        <a href="http://localhost:8080/all-schools">Back to home</a>
+        
     </div>
-
+  </div>
+  </section>
 </div>
 </div>
     

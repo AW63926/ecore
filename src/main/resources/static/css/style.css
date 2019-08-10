@@ -95,19 +95,19 @@
     
 }
 
-#teacherPersonalInfo {
+.personalInfo {
   display: flex;
   flex-flow: row;
   margin: auto auto;
   background-color: #aaa;
 }
-#teacherWelcomeBanner {
+.welcomeBanner {
   background-color: #f1f1f1;
 }
-#teacherTextInfo {
+.textInfo {
   margin: auto;
 }
-#profilePic {
+.profilePic {
   height: 260px;
   width: 260px;
 }
@@ -122,7 +122,7 @@
   box-sizing: border-box;
 }
 
-.teacherPost button {
+.teacherPost button, #schoolDelete button {
   width: 100%;
   background-color: #4CAF50;
   color: white;
@@ -182,15 +182,21 @@
  }
 
  .teacherPostList button {
-  width: 35%;
+  
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 10px 8px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 14px;
+ }
+
+ .teacherListInfo {
+   display: flex;
+   flex-flow: row;
+   margin-left: 1em;
  }
 
 
