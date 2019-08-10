@@ -1,6 +1,7 @@
 package org.ecore.fileupload;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,9 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import org.ecore.fileupload.FileUploadController;
-
+import org.ecore.model.Material;
+import org.ecore.notFoundException.MaterialNotFoundException;
+import org.ecore.repository.MaterialRepository;
 import org.ecore.filestorage.StorageFileNotFoundException;
 import org.ecore.filestorage.StorageService;
 
@@ -28,21 +31,31 @@ import org.ecore.filestorage.StorageService;
 public class FileUploadController {
 
     private final StorageService storageService;
+    
+    @Autowired
+    MaterialRepository materialRepo;
 
     @Autowired
     public FileUploadController(StorageService storageService) {
         this.storageService = storageService;
     }
 
-    @GetMapping("/")
-    public String listUploadedFiles(Model model) throws IOException {
+    @GetMapping("/material")
+    public String listUploadedFiles(@RequestParam(value = "id") long id, Model model)
+    throws IOException, MaterialNotFoundException {
 
         model.addAttribute("files", storageService.loadAll().map(
                 path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
                         "serveFile", path.getFileName().toString()).build().toString())
                 .collect(Collectors.toList()));
 
-        return "uploadForm";
+        Optional<Material> material = materialRepo.findById(id);
+		if (material.isPresent()) {
+			model.addAttribute("material", material.get());
+			return "material";
+		}
+
+		throw new MaterialNotFoundException();
     }
 
     @GetMapping("/files/{filename:.+}")
@@ -54,15 +67,15 @@ public class FileUploadController {
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
 
-    @PostMapping("/")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+    @PostMapping("/add-item")
+    public String handleFileUpload(@RequestParam(value = "id")long id, @RequestParam("file") MultipartFile file,
             RedirectAttributes redirectAttributes) {
 
         storageService.store(file);
         redirectAttributes.addFlashAttribute("message",
                 "You successfully uploaded " + file.getOriginalFilename() + "!");
 
-        return "redirect:/";
+        return "redirect:/material?id=" + id;
     }
 
     @ExceptionHandler(StorageFileNotFoundException.class)

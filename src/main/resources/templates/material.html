@@ -62,10 +62,33 @@
         </ul>
       </section>
     </div>
+    <div th:if="${message}">
+      <h2 th:text="${message}"/>
+    </div>
+    
+    <div>
+      <form method="POST" enctype="multipart/form-data" action="/add-item">
+        <table>
+          <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+          <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+        <input class="materialId" name="id" type="hidden" th:value="${material.id}" />
+        </table>
+      </form>
+    </div>
+    
+    <div>
+      <ul>
+        <li th:each="file : ${files}">
+          <a th:href="${file}" th:text="${file}" />
+        </li>
+      </ul>
+    </div>
+    </div>
 
    
 </div>
-</div>
+
+
     
         <div class="footer">
                 <h2>The Footer</h2>
