@@ -35,10 +35,10 @@
 //	private CommunityMemberRepository communityMemberRepo;
 //	
 //	@Mock
-//	CommunityMember communityMember;
+//	private CommunityMember communityMember;
 //	
 //	@Mock
-//	CommunityMember anotherCommunityMember;
+//	private CommunityMember anotherCommunityMember;
 //	
 //	@Test
 //	public void shouldRouteToSingleCommunityMemberView() throws Exception {

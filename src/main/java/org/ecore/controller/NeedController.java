@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import org.ecore.model.CommunityMember;
 import org.ecore.model.Need;
 import org.ecore.model.Tag;
 import org.ecore.model.Teacher;
@@ -29,7 +30,7 @@ public class NeedController {
 
 	@Resource
 	TeacherRepository teacherRepo;
-
+	
 	@RequestMapping("/need")
 	public String findOneNeed(@RequestParam(value = "id") long id, Model model) throws NeedNotFoundException {
 		Optional<Need> need = needRepo.findById(id);
@@ -37,6 +38,17 @@ public class NeedController {
 		if (need.isPresent()) {
 			model.addAttribute("needs", need.get());
 			return "need";
+		}
+		throw new NeedNotFoundException();
+	}
+	
+	@RequestMapping("/need/community")
+	public String findOneNeedForCommunity(@RequestParam(value = "id") long id, Model model) throws NeedNotFoundException {
+		Optional<Need> need = needRepo.findById(id);
+		
+		if (need.isPresent()) {
+			model.addAttribute("needs", need.get());
+			return "community-member";
 		}
 		throw new NeedNotFoundException();
 	}

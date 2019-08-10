@@ -44,7 +44,10 @@
           <h3 id = "singleneed"> <a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></h3>
      
     </div>
-
+    <div th:each="material: ${materials}">
+      <h3 id = "singlematerial"> <a th:href="@{/material(id=${material.id})}" th:text="${material.name}"></h3>
+ 
+</div>
 </div>
 </div>
     
