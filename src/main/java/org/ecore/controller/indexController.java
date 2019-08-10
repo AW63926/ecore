@@ -12,9 +12,5 @@ public class indexController {
 		return "index";
 	}
 	
-	@RequestMapping("/teacher-login")
-	public String showLogin() {
-		
-		return "teacher-login";
-	}
+	
 }
