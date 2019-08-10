@@ -92,9 +92,9 @@ public class TeacherControllerTest {
 	
 	@Test
 	public void shouldRemoveTeacherFromModelById() {
-//		when(teacherRepo.findById(TEACHER_ID)).thenReturn(Optional.of(teacher));
-		underTest.deleteTeacherById(teacherId);
-		verify(teacherRepo).deleteById(teacherId);
+		when(teacherRepo.findById(TEACHER_ID)).thenReturn(Optional.of(teacher));
+		underTest.deleteTeacherById(TEACHER_ID);
+		verify(teacherRepo).delete(teacher);
 	}
 
 }

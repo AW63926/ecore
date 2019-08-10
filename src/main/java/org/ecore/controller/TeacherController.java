@@ -98,7 +98,7 @@ public class TeacherController {
 		for(Material material : foundTeacher.getMaterials()) {
 			materialRepo.delete(material);
 		}
-		teacherRepo.deleteById(teacherId);
+		teacherRepo.delete(foundTeacher);
 
 		return "redirect:/all-teachers";
 	}
