@@ -90,6 +90,14 @@ public class TeacherController {
 	@RequestMapping("/del-teacher")
 	public String deleteTeacherById(Long teacherId) {
 		Optional<Teacher> foundTeacherResult = teacherRepo.findById(teacherId);
+		Teacher foundTeacher = foundTeacherResult.get();
+		for(Need need : foundTeacher.getNeeds()) {
+			needRepo.delete(need);
+		}
+		
+		for(Material material : foundTeacher.getMaterials()) {
+			materialRepo.delete(material);
+		}
 		teacherRepo.deleteById(teacherId);
 
 		return "redirect:/all-teachers";
