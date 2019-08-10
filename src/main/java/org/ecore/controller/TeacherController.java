@@ -132,5 +132,9 @@ public class TeacherController {
 		return "redirect:/teacher?id=" + teacherId;
 
 	}
+	@RequestMapping("/nav-teacher")
+	public String goToTeacher() {
+		return "redirect:/teacher?id=" +9;
+	}
 
 }
