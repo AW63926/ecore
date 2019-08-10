@@ -6,12 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
-import org.ecore.filestorage.StorageProperties;
 
-import org.ecore.filestorage.StorageService;
 
 @SpringBootApplication
-@EnableConfigurationProperties(StorageProperties.class)
 public class EcoreApplication {
 
 	public static void main(String[] args) {
@@ -19,12 +16,5 @@ public class EcoreApplication {
 	
 	}
 	
-	@Bean
-    CommandLineRunner init(StorageService storageService) {
-        return (args) -> {
-            storageService.deleteAll();
-            storageService.init();
-        };
-    }
 
 }
