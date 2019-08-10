@@ -10,7 +10,7 @@
   
   
   .header {
-    padding: 80px;
+    padding: 20px;
     text-align: center;
     background: #1abc9c;
     color: white;
@@ -199,9 +199,9 @@
    margin-left: 1em;
  }
 
-
-
-
+ #popUpWindow{
+  //background: lightblue; 
+}
 
   .footer {
     padding: 20px;
@@ -235,3 +235,4 @@ background-color: #1B709E;
 background-color: #005E78;
 border: 1px solid transparent;
 }
+
