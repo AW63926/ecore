@@ -1,17 +1,21 @@
 package org.ecore.controllerTest;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.junit.Assert.assertEquals;
-
 
 import org.ecore.controller.MaterialController;
 import org.ecore.model.Material;
+import org.ecore.model.Tag;
+import org.ecore.model.Teacher;
 import org.ecore.notFoundException.MaterialNotFoundException;
 import org.ecore.repository.MaterialRepository;
+import org.ecore.repository.TagRepository;
+import org.ecore.repository.TeacherRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -37,6 +41,19 @@ public class MaterialControllerTest {
 	
 	@Mock
 	Model model;
+	
+	@Mock
+	private TeacherRepository teacherRepo;
+	
+	@Mock
+	private TagRepository tagRepo;
+	
+	
+	@Mock
+	private Teacher teacher;
+	
+	@Mock
+	private Tag tag;
 	
 	@Before
 	public void setup() {
@@ -67,7 +84,11 @@ public class MaterialControllerTest {
 		String materialName = "name";
 		int quantity = 1;
 		String materialDesc = "desc";
-		underTest.addMaterial(materialName, quantity, materialDesc);
+		String teacherName = "teacher";
+		String tagName = "tag name";
+		
+		when(teacherRepo.findByNameIgnoreCaseLike(teacherName)).thenReturn(teacher);
+		underTest.addMaterial(materialName, quantity, materialDesc, teacherName, tagName);
 		ArgumentCaptor<Material> materialArgument = ArgumentCaptor.forClass(Material.class);
 		verify(materialRepo).save(materialArgument.capture());
 		assertEquals("name", materialArgument.getValue().getName());		
@@ -76,6 +97,8 @@ public class MaterialControllerTest {
 	
 	@Test
 	public void shouldDeleteMaterialById() {
+		when(materialRepo.findById(id)).thenReturn(Optional.of(material));
+		when(teacherRepo.findByMaterials(material)).thenReturn(teacher);
 		underTest.deleteMaterialById(id);
 		verify(materialRepo).deleteById(id);
 		

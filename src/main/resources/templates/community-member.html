@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Community Member</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>A Need</title>
 </head>
 <body>
 
@@ -15,13 +15,16 @@
               </div>
               
               <div class="navbar">
+
                     <a href="/index" class="active">Home</a>
                     <a href="/all-schools">Schools</a>
                   <a href="/all-teachers">Teachers</a>
                   <a href="/all-community-members">Community</a>
                   <a href="/all-materials">Resources</a>
-                  <a href="#" class="right">Contact Us</a>
+                  <a href="/signup" class="right">Login/Sign Up</a>
+                  <button class="right" href="#signup" data-toggle="modal" data-target=".log-sign">Sign In/Register</button>
                 </div>
+
               
               <div class="row">
                 <div class="side">
@@ -33,26 +36,44 @@
                   <p>Lorem ipsum dolor sit ame.</p>
                   <div class="fakeimg" style="height:60px;">Image</div><br>
                   <div class="fakeimg" style="height:60px;">Image</div><br>
+                  <div class="fakeimg" style="height:60px;">Image</div><br>
                   <div class="fakeimg" style="height:60px;">Image</div>
                 </div>
                 <div class="main">
+<h1> A single Need </h1>
 
-    <div th:each= "communitymember: ${communitymember}">
-        <h2 th:text = "${communitymember.name}"></h2>
-        <p th:text= "${communitymember.email}"></p>
-
-        <form method="POST">
-                <input class="hiddenInput" type="number" name="id" th:value="${communitymember.id}"/>
-                <button th:formaction="@{/delete-community-member}">delete</button>
-            </form>
+    <div th:each= "need: ${needs}">
+      <p th:text = "${need.name}"></p>
+      <p class="descriptors">Quantity Requested</p>
+        <p th:text ="${need.quantity}"></p>
+        <p class="descriptors">Description</p>
+        <p th:text ="${need.descNeed}"></p>
+        <p class="descriptors">Requesting Teacher</p>
+        <p th:each= "teacher: ${needs.teacher}" th:text="${teacher.name}"></p>
     </div>
 
+    <h2>Send an Email to a Teacher to Fulfill Their Need </h2>
+        <form action="mailto:someone@example.com" method="post" enctype="text/plain">
+            Name:<br>
+            <input type="text" name="name"><br>
+            E-mail:<br>
+            <input type="text" name="mail"><br>
+            Comment:<br>
+            <input type="text" name="comment" size="50"><br><br>
+            <input type="submit" value="Send">
+            <input type="reset" value="Reset">
+            </form>
+            <a href="http://localhost:8080/all-needs">Back to home</a>
+
+    
 </div>
+
 </div>
     
         <div class="footer">
                 <h2>The Footer</h2>
               </div>
-    
+
+    <script src="../js/need.js"></script>
 </body>
 </html>

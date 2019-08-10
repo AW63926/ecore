@@ -1,25 +1,25 @@
 package org.ecore.mvcTest;
 
-import java.util.Optional;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import javax.annotation.Resource;
-
-import org.ecore.controller.MaterialController;
-import org.ecore.model.Material;
-import org.ecore.repository.MaterialRepository;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
 
 import javax.annotation.Resource;
 
-import static org.hamcrest.Matchers.*;
-
-
-import org.ecore.controller.CommunityMemberContoller;
-import org.ecore.model.CommunityMember;
-import org.ecore.repository.CommunityMemberRepository;
-
+import org.ecore.controller.MaterialController;
+import org.ecore.model.Material;
+import org.ecore.model.Tag;
+import org.ecore.model.Teacher;
+import org.ecore.repository.MaterialRepository;
+import org.ecore.repository.TagRepository;
+import org.ecore.repository.TeacherRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -27,9 +27,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(MaterialController.class)
@@ -42,11 +39,25 @@ public class MaterialMockMvcTest {
 	@MockBean
 	private MaterialRepository materialRepo;
 	
+	@MockBean
+	private TeacherRepository teacherRepo;
+	
+	@MockBean
+	private TagRepository tagRepo;
+	
 	@Mock
 	private Material material;
 	
 	@Mock
 	private Material anotherMaterial;
+	
+	@Mock
+	private Tag tag;
+	
+	
+	@Mock
+	private Teacher teacher;
+	
 	
 	@Test
 	public void shouldRouteToSingleMaterialView() throws Exception {

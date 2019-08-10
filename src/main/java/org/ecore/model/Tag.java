@@ -18,6 +18,9 @@ public class Tag {
 
 	@ManyToMany(mappedBy = "tags")
 	private Collection<Need> needs;
+	
+	@ManyToMany(mappedBy = "tags")
+	private Collection<Material> materials;
 
 	public Tag(String name) {
 		this.name = name;
@@ -27,6 +30,7 @@ public class Tag {
 	public Tag() {
 		
 	}
+	
 
 	public long getId() {
 		return id;
@@ -39,6 +43,10 @@ public class Tag {
 
 	public Collection<Need> getNeeds() {
 		return needs;
+	}
+	
+	public Collection<Material> getMaterials() {
+		return materials;
 	}
 
 	@Override

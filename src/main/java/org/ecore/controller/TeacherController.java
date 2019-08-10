@@ -4,9 +4,13 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import org.ecore.model.Material;
+import org.ecore.model.Need;
 import org.ecore.model.School;
 import org.ecore.model.Teacher;
 import org.ecore.notFoundException.TeacherNotFoundException;
+import org.ecore.repository.MaterialRepository;
+import org.ecore.repository.NeedRepository;
 import org.ecore.repository.SchoolRepository;
 import org.ecore.repository.TeacherRepository;
 import org.springframework.stereotype.Controller;
@@ -22,6 +26,12 @@ public class TeacherController {
 	
 	@Resource
 	SchoolRepository schoolRepo;
+	
+	@Resource
+	NeedRepository needRepo;
+	
+	@Resource
+	MaterialRepository materialRepo;
 	
 
 	@RequestMapping("/teacher")
@@ -66,6 +76,14 @@ public class TeacherController {
 	@RequestMapping("/delete-teacher")
 	public String deleteTeacherByName(String teacherName) {
 		Teacher foundTeacher = teacherRepo.findByNameIgnoreCaseLike(teacherName);
+		
+		for(Need need : foundTeacher.getNeeds()) {
+			needRepo.delete(need);
+		}
+		
+		for(Material material : foundTeacher.getMaterials()) {
+			materialRepo.delete(material);
+		}
 			teacherRepo.delete(foundTeacher);
 		
 		return "redirect:/all-teachers";

@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.ecore.model.CommunityMember;
 import org.ecore.notFoundException.CommunityMembersNotFoundException;
 import org.ecore.repository.CommunityMemberRepository;
+import org.ecore.repository.NeedRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,9 @@ public class CommunityMemberContoller {
 
 	@Resource
 	CommunityMemberRepository communityMemberRepo;
+	
+	@Resource
+	NeedRepository needRepo;
 
 	@RequestMapping("/community-member")
 	public String findOneCommunityMember(@RequestParam(value = "id") long id, Model model)
@@ -25,6 +29,7 @@ public class CommunityMemberContoller {
 
 		if (communityMember.isPresent()) {
 			model.addAttribute("communitymember", communityMember.get());
+			model.addAttribute("needs", needRepo.findAll());
 			return "community-member";
 
 		}
@@ -35,28 +40,29 @@ public class CommunityMemberContoller {
 
 	@RequestMapping("/all-community-members")
 	public String FindAllCommunityMembers(Model model) {
-		model.addAttribute("communitymembers", communityMemberRepo.findAll());
+		model.addAttribute("needs", needRepo.findAll());
 		return "all-community-members";
 
 	}
 
-	@RequestMapping("/add-community-member")
-	public String addCommunityMember(String name, String email) {
-		CommunityMember communityMember = communityMemberRepo.findByNameIgnoreCaseLike(name);
-		
-		if(communityMember == null) {
-			communityMember = new CommunityMember(name, email);
-			communityMemberRepo.save(communityMember);
-		}
-				return "redirect:/all-community-members";
-		
-	}
-	@RequestMapping("/delete-community-member")
-	public String deleteCommunityMemberById(long id) {
-
-		communityMemberRepo.deleteById(id);
-		
-		return "redirect:/all-community-members";
-	}
-
+//	@RequestMapping("/add-community-member")
+//	public String addCommunityMember(String name, String email) {
+//		CommunityMember communityMember = communityMemberRepo.findByNameIgnoreCaseLike(name);
+//		
+//		if(communityMember == null) {
+//			communityMember = new CommunityMember(name, email);
+//			communityMemberRepo.save(communityMember);
+//		}
+//				return "redirect:/all-community-members";
+//		
+//	}
+//	
+//	@RequestMapping("/delete-community-member")
+//	public String deleteCommunityMemberById(long id) {
+//
+//		communityMemberRepo.deleteById(id);
+//		
+//		return "redirect:/all-community-members";
+//	}
+//
 }
