@@ -79,6 +79,15 @@ public class TeacherController {
 		return "redirect:/all-teachers";
 	}
 	
+	@RequestMapping("/login-submit")
+	public String loginSubmit(String emailAddress) {
+		Teacher teacher = teacherRepo.findByEmail(emailAddress);
+		Long teacherId = teacher.getId();
+		
+		return "redirect:/teacher?id=" + teacherId;
+		
+	}
+	
 	
 	
 
