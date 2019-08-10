@@ -97,6 +97,8 @@ public class MaterialControllerTest {
 	
 	@Test
 	public void shouldDeleteMaterialById() {
+		when(materialRepo.findById(id)).thenReturn(Optional.of(material));
+		when(teacherRepo.findByMaterials(material)).thenReturn(teacher);
 		underTest.deleteMaterialById(id);
 		verify(materialRepo).deleteById(id);
 		

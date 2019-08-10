@@ -25,7 +25,7 @@
   .navbar {
     overflow: hidden;
     background-color: #333;
-    position: sticky;
+   <!-- position: sticky;-->
     position: -webkit-sticky;
     top: 0;
   }
@@ -95,21 +95,43 @@
     
 }
 
-#teacherPersonalInfo {
+.personalInfo {
   display: flex;
   flex-flow: row;
   margin: auto auto;
   background-color: #aaa;
 }
-#teacherWelcomeBanner {
+.welcomeBanner {
   background-color: #f1f1f1;
 }
-#teacherTextInfo {
+.textInfo {
   margin: auto;
 }
-#profilePic {
+.profilePic {
   height: 260px;
   width: 260px;
+}
+
+.teacherPost input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.teacherPost button, #schoolDelete button {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 #forms, #lists {
@@ -122,8 +144,8 @@
 #addNeed, #addMaterial {
   display: flex;
   flex-direction: row;
-  height: 250px;
-  width: 300px;
+  height: auto;
+  width: 45%;
   padding: 2em;
   justify-content: left;  
   border-color: black;
@@ -133,20 +155,53 @@
   display: flex;
   flex-direction: column;
   margin-top: 2em;
-  height: 250px;
-  width: 300px;
+  height: auto;
+  width: 45%;
   border: black;
   padding: 2em;
-  justify-content: left;
+  justify-content: space-evenly;
  }
+
+ .teacherPostList h3{
+  border: black;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  background-color: #aaa;
+  padding: 2em;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+ }
+
+ 
 
  .teacherPostList a {
    display: flex;
    flex-flow: column;
   line-height: 2em;
+  justify-content: space-evenly;
  }
 
- 
+ .teacherPostList button {
+  
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+ }
+
+ .teacherListInfo {
+   display: flex;
+   flex-flow: row;
+   margin-left: 1em;
+ }
+
+
+
+
 
   .footer {
     padding: 20px;
@@ -167,5 +222,16 @@
       width: 100%;
     }
   }
+  .navbar{
+  justify-content: initial;
+  }
 
+.btn-primary{
+background-color: #1B709E;
+ border: 1px solid transparent;
+}
 
+.btn-primary:hover{
+background-color: #005E78;
+border: 1px solid transparent;
+}
