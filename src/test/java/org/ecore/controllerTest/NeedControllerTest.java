@@ -1,6 +1,5 @@
 package org.ecore.controllerTest;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -18,7 +17,6 @@ import org.ecore.repository.TagRepository;
 import org.ecore.repository.TeacherRepository;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -53,6 +51,12 @@ public class NeedControllerTest {
 
 	@Mock
 	private Model model;
+	
+	@Mock
+	private TeacherRepository teacherRepo;
+	
+	@Mock
+	private Teacher teacher;
 
 	@Mock
 	private Teacher teacher;
