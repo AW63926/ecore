@@ -1,14 +1,23 @@
 package org.ecore.mvcTest;
 
-import javax.annotation.Resource;
-import java.util.Optional;
-import java.util.Collection;
+import static org.hamcrest.CoreMatchers.is;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
+
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Optional;
+
+import javax.annotation.Resource;
 
 import org.ecore.controller.NeedController;
 import org.ecore.model.Need;
 import org.ecore.model.Tag;
 import org.ecore.model.Teacher;
+import org.ecore.repository.CommunityMemberRepository;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.TagRepository;
 import org.ecore.repository.TeacherRepository;
@@ -19,13 +28,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
-import static org.mockito.Mockito.when;
-import static org.hamcrest.CoreMatchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
 
 @RunWith(SpringRunner.class)
@@ -40,6 +42,9 @@ public class NeedControllerMockMvcTest {
 	
 	@MockBean
 	private TeacherRepository teacherRepo;
+	
+	@MockBean
+	private CommunityMemberRepository communityMemberRepo;
 
 	@Mock
 	private Need need;
