@@ -72,7 +72,8 @@ public class TeacherControllerTest {
 		String schoolName = "school name";
 		String teacherName = "new teacher";
 		String teacherSpecialty = "teacher specialty";
-		underTest.addTeacher(teacherName, teacherSpecialty, schoolName);
+		String email = "email";
+		underTest.addTeacher(teacherName, teacherSpecialty, schoolName, email);
 		
 		ArgumentCaptor<Teacher> teacherArgument = ArgumentCaptor.forClass(Teacher.class);
 		verify(teacherRepo).save(teacherArgument.capture());

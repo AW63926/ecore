@@ -32,6 +32,8 @@ public class Teacher {
 	@OneToMany(mappedBy = "teacher")
 	private Collection<Material> materials;
 
+	private String email;
+
 	public long getId() {
 		return id;
 	}
@@ -48,12 +50,17 @@ public class Teacher {
 	public String getSpecialty() {
 		return specialty;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
 
 
-	public Teacher(String name, String specialty, School school) {
+	public Teacher(String name, String specialty, School school, String email) {
 		this.name = name;
 		this.specialty = specialty;
 		this.school = school;
+		this.email = email;
 	}
 	
 	public Teacher () {

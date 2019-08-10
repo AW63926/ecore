@@ -19,6 +19,8 @@ public interface TeacherRepository extends CrudRepository<Teacher, Long> {
 
 	Teacher findByNeeds(Need need);
 
+	Teacher findByEmail(String emailAddress);
+
 
 
 }
