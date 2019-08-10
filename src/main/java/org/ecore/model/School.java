@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class School {
 
@@ -22,6 +24,7 @@ public class School {
 
 	private String mapUrl;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "school")
 	private Collection<Teacher> teachers;
 
