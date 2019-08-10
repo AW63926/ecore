@@ -51,12 +51,6 @@ public class NeedControllerTest {
 
 	@Mock
 	private Model model;
-	
-	@Mock
-	private TeacherRepository teacherRepo;
-	
-	@Mock
-	private Teacher teacher;
 
 	@Mock
 	private Teacher teacher;
