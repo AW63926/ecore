@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Tag {
 	
@@ -15,7 +17,8 @@ public class Tag {
 	@Id
 	private long id;
 	public String name;
-
+	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "tags")
 	private Collection<Need> needs;
 	
