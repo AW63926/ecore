@@ -9,7 +9,6 @@ import org.ecore.model.Need;
 import org.ecore.model.Tag;
 import org.ecore.model.Teacher;
 import org.ecore.notFoundException.NeedNotFoundException;
-import org.ecore.repository.CommunityMemberRepository;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.TagRepository;
 import org.ecore.repository.TeacherRepository;
@@ -32,9 +31,6 @@ public class NeedController {
 	@Resource
 	TeacherRepository teacherRepo;
 	
-	@Resource
-	CommunityMemberRepository communityMemberRepo;
-
 	@RequestMapping("/need")
 	public String findOneNeed(@RequestParam(value = "id") long id, Model model) throws NeedNotFoundException {
 		Optional<Need> need = needRepo.findById(id);

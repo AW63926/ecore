@@ -9,6 +9,7 @@ import org.ecore.controller.NeedController;
 import org.ecore.model.Need;
 import org.ecore.model.Tag;
 import org.ecore.model.Teacher;
+import org.ecore.repository.CommunityMemberRepository;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.TagRepository;
 import org.ecore.repository.TeacherRepository;

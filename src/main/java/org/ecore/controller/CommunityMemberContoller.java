@@ -45,23 +45,24 @@ public class CommunityMemberContoller {
 
 	}
 
-	@RequestMapping("/add-community-member")
-	public String addCommunityMember(String name, String email) {
-		CommunityMember communityMember = communityMemberRepo.findByNameIgnoreCaseLike(name);
-		
-		if(communityMember == null) {
-			communityMember = new CommunityMember(name, email);
-			communityMemberRepo.save(communityMember);
-		}
-				return "redirect:/all-community-members";
-		
-	}
-	@RequestMapping("/delete-community-member")
-	public String deleteCommunityMemberById(long id) {
-
-		communityMemberRepo.deleteById(id);
-		
-		return "redirect:/all-community-members";
-	}
-
+//	@RequestMapping("/add-community-member")
+//	public String addCommunityMember(String name, String email) {
+//		CommunityMember communityMember = communityMemberRepo.findByNameIgnoreCaseLike(name);
+//		
+//		if(communityMember == null) {
+//			communityMember = new CommunityMember(name, email);
+//			communityMemberRepo.save(communityMember);
+//		}
+//				return "redirect:/all-community-members";
+//		
+//	}
+//	
+//	@RequestMapping("/delete-community-member")
+//	public String deleteCommunityMemberById(long id) {
+//
+//		communityMemberRepo.deleteById(id);
+//		
+//		return "redirect:/all-community-members";
+//	}
+//
 }
