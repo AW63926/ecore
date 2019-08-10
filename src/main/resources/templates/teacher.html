@@ -52,6 +52,8 @@
         <p th:text= "${teacher.specialty}"></p>
         <h3>School</h3>
         <p th:each="school: ${teacher.school}" th:text="${school.name}"></p>
+        <h3>Email</h3>
+        <p  th:text= "${teacher.email}"></p>
       
         <form class="teacherPost" method="POST">
                 <div>
