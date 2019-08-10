@@ -38,3 +38,11 @@ function removeTag(tagId){
     xhr.open('POST', '/materials/tags/remove/' + tagId + '/' + materialIdToRemove.value, true);
     xhr.send();
 }
+
+window.onload = function() {
+    window.setTimeout(fadeout, 8000); //8 seconds
+  }
+  
+  function fadeout() {
+    document.getElementById('fadeout').style.opacity = '0';
+  }
