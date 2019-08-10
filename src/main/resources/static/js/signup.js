@@ -1,24 +1,19 @@
-$(window, document, undefined).ready(function() {
+// Get the modal
+var modal = document.getElementById('id01');
 
-    $('.input').blur(function() {
-      var $this = $(this);
-      if ($this.val())
-        $this.addClass('used');
-      else
-        $this.removeClass('used');
-    });
-    
-    });
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
   
-  
-  $('#tab1').on('click' , function(){
-      $('#tab1').addClass('login-shadow');
-     $('#tab2').removeClass('signup-shadow');
-  });
-  
-  $('#tab2').on('click' , function(){
-      $('#tab2').addClass('signup-shadow');
-     $('#tab1').removeClass('login-shadow');
-  
-  
-  });
+ // Get the modal
+var modal = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+}
