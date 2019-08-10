@@ -51,7 +51,7 @@ public class TeacherController {
 		return ("all-teachers");
 
 	}
-
+	//new
 	@RequestMapping("/add-teacher")
 	public String addTeacher(String name, String specialty, String school, String email) {
 		School school1 = schoolRepo.findByNameIgnoreCaseLike(school);
