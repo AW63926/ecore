@@ -159,7 +159,7 @@ public class NeedJPATest {
 		School school2 = new School("name", "district", "address", "map");
 		schoolRepo.save(school2);
 
-		Teacher teacher3 = new Teacher("name", "specialty", school2);
+		Teacher teacher3 = new Teacher("name", "specialty", school2, "email");
 		teacherRepo.save(teacher3);
 		long teacherId = teacher3.getId();
 		
