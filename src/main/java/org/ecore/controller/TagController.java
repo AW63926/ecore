@@ -29,6 +29,8 @@ public class TagController {
 		if(tag.isPresent()) {
 			model.addAttribute("tags", tag.get());
 			model.addAttribute("needs", tag.get().getNeeds());
+			model.addAttribute("materials", tag.get().getMaterials());
+
 			return "tag";
 		}
 		throw new TagNotFoundException();
