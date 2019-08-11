@@ -68,6 +68,8 @@
     background-color: #f1f1f1;
     padding: 20px;
     text-align: justify;
+    flex-grow: 0;
+
   }
   
   
@@ -76,6 +78,8 @@
     flex: 70%;
     background-color: white;
     padding: 20px;
+    flex-shrink: 0;
+
   }
   
   .content {
@@ -83,6 +87,7 @@
     flex: 70%;
     background-color: white;
     padding:20px;
+
   }
   
   
@@ -198,11 +203,13 @@
    display: flex;
    flex-flow: row;
    margin-left: 1em;
- }
+
+  }
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding: 20px 0px 0px;
 }
   .footer {
         padding: 10px;
@@ -274,20 +281,25 @@ margin-right: 20px;
 .suggestions {
   margin: 0;
   padding: 0;
-  position: relative;
 }
 
-.suggestions li {
+.suggestions li{
+  list-style: none;
+  height: 30px;
+  margin: 20px;
+}
+/* .suggestions li {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  align-items: flex-start;
+  justify-content: flex-start;
   background: #ddd;
   list-style: none;
   color: #333;
   outline: none;
   border: none;
+  width: 405px;
 
-}
+} */
 
 /* .suggestions li a {
   background: #ddd;
@@ -302,6 +314,7 @@ margin-right: 20px;
 
 .suggestions li:hover{
   background-color: #666;
+
 }
 
   .search{
@@ -309,17 +322,17 @@ margin-right: 20px;
   background-position: 4px 2px; 
   background-repeat: no-repeat;
   font-family: Arial, Helvetica, sans-serif;
-  width: 300px; 
   font-size: 16px;
-  padding: 15px 14px 14px 60px;
-  border: 1px solid black;
-  outline-color: #333; 
-  position: absolute;
-  right: 100px; 
+  border: 3px solid #777;
+  outline: black;
+  padding: 15px 14px 14px 60px; 
   bottom: 8px;
+  width: 100%;
+  flex: 30%;
+  
 }
 
-/* .name{
+ /* .name{
   background: #ddd;
   color: blue;
   list-style: none;
@@ -327,30 +340,31 @@ margin-right: 20px;
   padding: 0px;
   outline: none;
   border: none;
-}  */
+  list-style-type: none;
+}   */
 
 
   .name a{
   font-family: Arial, Helvetica, sans-serif;
   color:#333;
   font-style: bold;
-  width: 200px;
-  margin: 20px;
-  padding: 2px;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
   border: black;
- 
- }  
+  text-decoration: none;
+  flex: 30% 
 
+ } 
+ 
  .name a:hover{
   font-family: Arial, Helvetica, sans-serif;
   font-style: bold;
   background-color: #666;
   color: white;
-  width: 200px;
-  margin: 20px;
-  padding: 2px;
-  
- 
+  margin: 0;
+  padding: 0;
+  flex: 30%
  }
 
  @media screen and (max-width: 700px) {
