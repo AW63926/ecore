@@ -187,6 +187,9 @@ padding-left: 0;
 text-align: center;
 padding: 10px;
 }
+.right-side{
+margin-top: 20px;
+}
 .small_logo{
 padding-top: 10px;
 }
@@ -197,13 +200,15 @@ height: 56px;
 padding-top: 10px;
 }
 .schools{
-line-height: 30px;
-font-size: 20px;
-list-style: none;
+font-size: 18px;
 }
 .new_school_title{
 margin-top: 20px;
 }
 .modal-header{
 background-color: #1abc9c;
+}
+.modal-trigger{
+margin-top: 20px;
+margin-right: 20px;
 }

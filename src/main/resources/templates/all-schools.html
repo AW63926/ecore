@@ -23,76 +23,6 @@
     <img class="ecore" src="./images/ecore2.png" style="height:150px"/>
     <h3>Educational • Collaborative • Open • Resource • Engine</h3>
 </div>
-
-<!--  <div class="navbar">-->
-<!--    <a href="/index" class="active">Home</a>-->
-<!--    <a href="/all-schools">Schools</a>-->
-<!--    <a href="/teacher-login">Teachers</a>-->
-<!--    <a href="/all-community-members">Community</a>-->
-<!--    <a href="/all-materials">Resources</a>-->
-<!--  </div>-->
-<!--  <div class="row">-->
-<!--    <div class="side">-->
-<!--      <h2></h2>-->
-<!--                    <div class="img"><img src="./images/smallicon.png" style="height:150px" class="center"/></div>-->
-<!--                    <br>-->
-<!--                    <p>Information about ECORE</p>-->
-<!--                    <h7>ECORE connects schools, teachers, and community members to share supplies and -->
-<!--                      resources. -->
-<!--                      Teachers have the ability to interact with resource requests, ability to -->
-<!--                      interact with a need request, and communicate with the community at large through a form on -->
-<!--                      their post.-->
-<!--                    </h7>-->
-<!--                   <br><br>-->
-<!--                   <div class="img"><img src="./images/schools.png" style="height:56px" class="center"/></div><br>-->
-<!--                   <div class="img"><img src="./images/teacher.png" style="height:56px" class="center"/></div><br>-->
-<!--                   <div class="img"><img src="./images/community.png" style="height:56px" class="center"/></div><br>-->
-<!--                   <div class="img"><img src="./images/resources.png" style="height:56px" class="center"/></div><br>-->
-<!--    </div>-->
-<!--        <div class="main">-->
-<!--         -->
-<!--        <h2>Member Schools</h2>-->
-<!--    <div th:each= "school: ${schools}">-->
-<!--        <li>-->
-<!--        <a th:href="@{/school(id=${school.id})}" th:text="${school.name}"></a>-->
-
-<!--        -->
-<!--        </li>-->
-<!--     </div>-->
-
-<!--     <form method="POST" class="form">-->
-<!--         <div class="form-group">-->
-<!--             <input type="text" name="name" placeholder="enter name" required="required" class="form-control"/>-->
-<!--     -->
-<!--         </div>-->
-
-<!--         <div class="form-group">-->
-<!--             <input type="text" name="district" placeholder="enter district" required="required" class="form-control"/>-->
-<!--       -->
-<!--            </div>-->
-<!--         <div class="form-group">-->
-<!--            <input type="text" name="address" placeholder="enter address" required="required" class="form-control"/>-->
-<!--           -->
-<!--        </div>-->
-
-<!--        <div class="form-group">-->
-<!--            <input type="text" name="mapUrl" placeholder="enter map link" class="form-control"/>-->
-<!--       -->
-<!--        </div>-->
-
-<!--        <div class="form-group">-->
-<!--            <button formaction="/add-school" class="btn btn-primary">Add School</button>-->
-<!--        </div>-->
-
-<!--     </form>-->
-
-<!--    </div>-->
-<!--</div>-->
-<!--    -->
-<!--        <div class="footer">-->
-<!--                <h2>The Footer</h2>-->
-<!--              </div>-->
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -141,9 +71,11 @@
         <div class="col-md-7 right-side">
             <h3>Member Schools</h3>
             <div th:each="school: ${schools}">
-                <li class="schools">
-                    <a th:href="@{/school(id=${school.id})}" th:text="${school.name}"></a>
-                </li>
+                <ul>
+                    <li class="schools">
+                        <a th:href="@{/school(id=${school.id})}" th:text="${school.name}"></a>
+                    </li>
+                </ul>
             </div>
             <h3 class="new_school_title">Create a New School</h3>
             <form method="POST" class="form">
