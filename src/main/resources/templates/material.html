@@ -81,8 +81,8 @@
     
     <div>
       <ul>
-        <li th:each="file : ${files}">
-          <a th:href="${file}" th:text="${file}" />
+        <li th:each="file : ${material.postedResources}">
+          <a th:href="${file.resourceUrl}" th:text="${file}" />
         </li>
       </ul>
     </div>
