@@ -24,12 +24,12 @@ public class ResponseEmailController {
 		try {
 			MimeMessage message = sender.createMimeMessage();
 			MimeMessageHelper helper = new MimeMessageHelper(message);
-			System.out.println("METHOD FIRING**************");
+			
 			Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(name);
-			System.out.println("TEACHER FOUND!!!!!!!!!!!!!!!!");
+			
 
 			helper.setTo(teacher.getEmail());
-			System.out.println("TEACHER EMAIL ******************" + teacher.getEmail());
+			
 			helper.setText(responderName + " has responded with: " + comment + "\tContact info is: " + email);
 			helper.setSubject("Response to Resource Request");
 			sender.send(message);
