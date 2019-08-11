@@ -32,7 +32,7 @@ public class MaterialController {
 	@Resource
 	TeacherRepository teacherRepo;
 
-	@RequestMapping("/single-material")
+	@RequestMapping("/material")
 	public String findOneMaterial(@RequestParam(value = "id") long id, Model model) throws MaterialNotFoundException {
 
 		Optional<Material> material = materialRepo.findById(id);

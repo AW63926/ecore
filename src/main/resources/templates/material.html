@@ -52,28 +52,44 @@
                 <h2 th:text="${message}"/>
             </div>
 
-            <div>
-                <form class="form" method="POST" enctype="multipart/form-data" action="/add-item">
-                    <div class="form-group">
-                        <div class="col-md-8">
-                            File to upload:<input type="file" name="file"/>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="submit" value="Upload"/>
-                        </div>
-                    </div>
-                    <input class="materialId" name="id" type="hidden" th:value="${material.id}"/>
-                    </table>
-                </form>
-            </div>
-            <div>
-                <ul>
-                    <li th:each="file : ${files}">
-                        <a th:href="${file}" th:text="${file}"/>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
+    <div>
+      <input class="materialId" name ="materialId" type="hidden" th:value="${material.id}"/>
+      <section class= "addTag">
+        <input type="text" placeholder="Add A Tag To Your Need"/>
+        <button>Submit Tag</button>
+      </section>
+      <section class ="tagsList">
+        <ul th:each="tag: ${material.tags}">
+          <input class= "tagId" type="hidden" name="id" th:value="${tag.id}"/>
+          <a th:href="@{/tag(id=${tag.id})}" th:text= "${tag.name}"></a>
+          <button class= "x">&times;</button>
+        </ul>
+      </section>
+    </div>
+    <div id="fadeout" th:if="${message}">
+      <h2 th:text="${message}"/>
+    </div>
+    
+    <div>
+      <form method="POST" enctype="multipart/form-data" action="/add-item">
+        <table>
+          <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+          <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+        <input class="materialId" name="id" type="hidden" th:value="${material.id}" />
+        </table>
+      </form>
+    </div>
+    
+    <div>
+      <ul>
+        <li th:each="file : ${material.postedResources}">
+          <a th:href="${file.resourceUrl}" th:text="${file}" />
+        </li>
+      </ul>
+    </div>
+    </div>
+
 
     </div>
 </div>
