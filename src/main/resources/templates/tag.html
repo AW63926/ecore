@@ -8,41 +8,11 @@
     <title>A Tag</title>
 </head>
 <body>
-  <div class="header">
-    <img class="ecore"  src="./images/ecore2.png" style="height:150px"/>
-    <h3>Educational • Collaborative • Open • Resource • Engine</h3>
-  </div>
-  
-  <div class="navbar">
-    <a href="/index" class="active">Home</a>
-    <a href="/all-schools">Schools</a>
-    <a href="/teacher-login">Teachers</a>
-    <a href="/all-community-members">Community</a>
-    <a href="/all-materials">Resources</a>
-  </div>
-  <div class="row">
-    <div class="side">
-      <h2></h2>
-                    <div class="img"><img src="./images/smallicon.png" style="height:150px" class="center"/></div>
-                    <br>
-                    <p>Information about ECORE</p>
-                    <h7>ECORE connects schools, teachers, and community members to share supplies and 
-                      resources. 
-                      Teachers have the ability to interact with resource requests, ability to 
-                      interact with a need request, and communicate with the community at large through a form on 
-                      their post.
-                    </h7>
-                   <br><br>
-                   <div class="img"><img src="./images/schools.png" style="height:56px" class="center"/></div><br>
-                   <div class="img"><img src="./images/teacher.png" style="height:56px" class="center"/></div><br>
-                   <div class="img"><img src="./images/community.png" style="height:56px" class="center"/></div><br>
-                   <div class="img"><img src="./images/resources.png" style="height:56px" class="center"/></div><br>
-    </div>
                 <div class="main">
     <div th:each= "tag: ${tags}">
         <h2 th:text = "${tag.name}"></h2>
         <div th:each="need: ${needs}">
-          <h3 id = "singleneed"> <a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></h3>
+          <h3 id = "singleneed"><a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></h3>
      
     </div>
     <div th:each="material: ${materials}">
@@ -51,10 +21,6 @@
 </div>
 </div>
 </div>
-    
-        <div class="footer">
-                <h2>The Footer</h2>
-              </div>
     
 </body>
 </html>
