@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="header">
-    <img class="ecore"  src="./images/ecore2.png" style="height:150px"/>
+    <img class="ecore"  src="../images/ecore2.png" style="height:150px"/>
     <h3>Educational • Collaborative • Open • Resource • Engine</h3>
   </div>
   
@@ -23,7 +23,7 @@
   <div class="row">
     <div class="side">
       <h2></h2>
-                    <div class="img"><img src="./images/smallicon.png" style="height:150px" class="center"/></div>
+                    <div class="img"><img src="../images/smallicon.png" style="height:150px" class="center"/></div>
                     <br>
                     <p>Information about ECORE</p>
                     <h7>ECORE connects schools, teachers, and community members to share supplies and 
@@ -33,10 +33,10 @@
                       their post.
                     </h7>
                    <br><br>
-                   <div class="img"><img src="./images/schools.png" style="height:56px" class="center"/></div><br>
-                   <div class="img"><img src="./images/teacher.png" style="height:56px" class="center"/></div><br>
-                   <div class="img"><img src="./images/community.png" style="height:56px" class="center"/></div><br>
-                   <div class="img"><img src="./images/resources.png" style="height:56px" class="center"/></div><br>
+                   <div class="img"><img src="../images/schools.png" style="height:56px" class="center"/></div><br>
+                   <div class="img"><img src="../images/teacher.png" style="height:56px" class="center"/></div><br>
+                   <div class="img"><img src="../images/community.png" style="height:56px" class="center"/></div><br>
+                   <div class="img"><img src="../images/resources.png" style="height:56px" class="center"/></div><br>
     </div>
                 <div class="main">
 <h1> A single Need </h1>
@@ -52,11 +52,12 @@
     </div>
 
     <h2>Send an Email to a Teacher to Fulfill Their Need </h2>
-        <form action="mailto:someone@example.com" method="post" enctype="text/plain">
-            Name:<br>
-            <input type="text" name="name"><br>
-            E-mail:<br>
-            <input type="text" name="mail"><br>
+        <form action="/responseemail" method="post" th:object="${needs}">
+            <input th:each="teacher : ${needs.teacher}" type="hidden" th:value="${teacher.name}" name="name"><br>
+            Your Name:<br>
+            <input type="text" name="responderName"><br>
+            Your Email:<br>
+            <input type="email" name="email"><br>
             Comment:<br>
             <input type="text" name="comment" size="50"><br><br>
             <input type="submit" value="Send">
@@ -67,8 +68,7 @@
     
 </div>
 
-</div>
-    
+
         <div class="footer">
                 <h2>The Footer</h2>
               </div>
