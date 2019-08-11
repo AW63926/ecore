@@ -25,7 +25,7 @@
   .navbar {
     overflow: hidden;
     background-color: #333;
-   <!-- position: sticky;-->
+   /* <!-- position: sticky;--> */
     position: -webkit-sticky;
     top: 0;
   }
@@ -40,9 +40,9 @@
     text-decoration: none;
   }
   
-  .navbar a.right, .search-box {
+  /* .navbar a.right, .search-box {
     float: right;
-  }
+  } */
   
   
   .navbar a:hover {
@@ -293,22 +293,23 @@ border: 1px solid transparent;
   width: 300px; 
   font-size: 16px;
   padding: 15px 14px 14px 60px;
-  border: 1px solid black;
+  border: none;
   outline-color: #333; 
-  position: absolute;
   right: 100px; 
   bottom: 8px;
+  display: flex;
+  justify-content: flex-end;
+  /* <!-- position: sticky;--> */
+  /* position: -moz-sticky; */
 }
 
-/* .name{
-  background: #ddd;
-  color: blue;
+ .name{
   list-style: none;
   margin: 0px 20px 0px 0px;
   padding: 0px;
   outline: none;
   border: none;
-}  */
+}  
 
 
   .name a{
