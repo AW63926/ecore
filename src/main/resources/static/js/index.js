@@ -17,7 +17,9 @@ const matchArray = findMatches(this.value, needs);
 const html = matchArray.map(allNames =>{
     return `
     <li>
-    <span class = "name">${allNames.name}</span> 
+    <span class = "name">
+    <a href = "/need?id=${allNames.id}">${allNames.name}</a>
+    </span>
     </li>
     `;
 }).join('');

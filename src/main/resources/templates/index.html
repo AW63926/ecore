@@ -30,11 +30,6 @@
   <input class = "search" type = "text" name = "" placeholder = "Search">
   <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
   <ul class = "suggestions">
-   <li> 
-      <div class = "searchAllNeeds" th:each="need: ${needs}">
-          <a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
-        </div>
-  </li>
    </ul>
   
   </form>

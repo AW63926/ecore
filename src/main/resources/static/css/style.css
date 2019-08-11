@@ -241,48 +241,85 @@ border: 1px solid transparent;
   align-content: right;
 } */
 
+.suggestions {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
 
 .suggestions li {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   background: #ddd;
   list-style: none;
-  margin: 0px 20px 0px 0px;
-  padding: 0px;
-  display: flex;
-  justify-content: center;
   color: #333;
   outline: none;
   border: none;
 
 }
 
-.suggestions li a {
+/* .suggestions li a {
   background: #ddd;
   list-style: none;
   margin: 0px 20px 0px 0px;
   padding: 0px;
-  display: flex;
-  justify-content: center;
   display: none;
+  justify-content: center;
   outline: none;
   border: none;
-}
+} */
 
 .suggestions li:hover{
-  background-color: #aaa
+  background-color: #666;
 }
 
-.search {
+  .search{
   background-image: url("../images/search-icon.png");
   background-position: 4px 2px; 
   background-repeat: no-repeat;
-  width: 80%; 
+  font-family: Arial, Helvetica, sans-serif;
+  width: 300px; 
   font-size: 16px;
   padding: 15px 14px 14px 60px;
-  border: 1px solid #ddd;
-  margin: 20px 10px;  
-  
+  border: 1px solid black;
+  outline-color: #333; 
+  position: absolute;
+  right: 100px; 
+  bottom: 8px;
 }
 
-.name{
-  color: #333;
-}
+/* .name{
+  background: #ddd;
+  color: blue;
+  list-style: none;
+  margin: 0px 20px 0px 0px;
+  padding: 0px;
+  outline: none;
+  border: none;
+}  */
+
+
+  .name a{
+  font-family: Arial, Helvetica, sans-serif;
+  color:#333;
+  font-style: bold;
+  width: 200px;
+  margin: 20px;
+  padding: 2px;
+  border: black;
+ 
+ }  
+
+ .name a:hover{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: bold;
+  background-color: #666;
+  color: white;
+  width: 200px;
+  margin: 20px;
+  padding: 2px;
+  
+ 
+ }
+
