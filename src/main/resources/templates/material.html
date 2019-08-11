@@ -60,10 +60,10 @@
           <button class= "x">&times;</button>
         </ul>
       </section>
+
+
     </div>
-    <div id="fadeout" th:if="${message}">
-      <h2 th:text="${message}"/>
-    </div>
+    
     
     <div>
       <form method="POST" enctype="multipart/form-data" action="/add-item">
@@ -74,6 +74,11 @@
         </table>
       </form>
     </div>
+    
+    <div id="fadeout" th:if="${message}">
+      <h2 th:text="${message}"/>
+    </div>
+  
     
     <div>
       <ul>
