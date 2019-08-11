@@ -77,7 +77,13 @@
                 <p class="descriptors">Posting Teacher</p>
                 <p th:each="teacher: ${material.teacher}" th:text="${teacher.name}"></p>
             </div>
-            <div>
+            <section class="tagsList">
+                <ul th:each="tag: ${material.tags}">
+                    <input class="tagId" type="hidden" name="id" th:value="tag.id"/>
+                    <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.name}"></a>
+                    <!--                        <button class="x">&times;</button>-->
+                </ul>
+            </section>
                 <form class="form">
                     <div class="form-group">
                         <input class="form-control" name="materialId" type="hidden" th:value="${material.id}"/>
@@ -87,26 +93,19 @@
                     <input type="text" placeholder="Add A Tag To Your Need"/>
                     <button>Submit Tag</button>
                 </section>
-                <section class="tagsList">
-                    <ul th:each="tag: ${material.tags}">
-                        <input class="tagId" type="hidden" name="id" th:value="tag.id"/>
-                        <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.name}"></a>
-                        <button class="x">&times;</button>
-                    </ul>
-                </section>
-            </div>
+
             <div id="fadeout" th:if="${message}">
                 <h2 th:text="${message}"/>
             </div>
 
             <div>
-                <form>
+                <form class="material-upload">
                     <div class="form-group" method="POST" enctype="multipart/form-data" action="/add-item">
                         <label for="exampleFormControlFile1">File to upload</label>
                         <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file">
                     </div>
                     <div class="form-group">
-                        <input class="form-control-file" type="submit" value="Upload"/>
+                        <input class="form-control-file" type="submit" value="Upload" style="width:100px" />
                     </div>
                     <div class="form-group">
                         <input class="materialId" name="id" type="hidden" th:value="${material.id}"/>
