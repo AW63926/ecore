@@ -123,7 +123,8 @@ public class TeacherController {
 
 	@RequestMapping("/teacher-signup")
 	public String teacherSignup(String name, String specialty, String schoolName, String email) {
-		School school = schoolRepo.findByNameIgnoreCaseLike(schoolName);
+
+		School school = schoolRepo.findByNameIgnoreCaseLike("school1");
 
 
 		Teacher newTeacher = teacherRepo.findByNameIgnoreCaseLike(name);
