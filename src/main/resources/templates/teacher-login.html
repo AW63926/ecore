@@ -67,10 +67,11 @@
     <input type="text" placeholder="Specialty" name="specialty" required>
     
 
-    <select id="schoolDrop" >
-      <option id="dropPlaceholder" value="" disabled selected hidden>Select School</option>
-      <option th:each="school : ${schools}" th:value="${school.name}" th:utext="${school.name}" name="schoolName" ></option>
+    <select id="schoolDrop" name="schoolName" >
+      <option id="dropPlaceholder" value="" disabled selected hidden label="Select School"></option>
+      <option th:each="school : ${schools}" th:value="${school.name}" th:utext="${school.name}" name="schoolName"></option>
     </select>
+    
 
     <input type="text" placeholder="Email" name="email" required>
 
