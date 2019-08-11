@@ -7,12 +7,13 @@ import javax.persistence.EntityManager;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
-
+import org.ecore.filestorage.StorageService;
 import org.ecore.model.School;
 import org.ecore.repository.SchoolRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,6 +26,9 @@ public class SchoolJpaTest {
 	
 	@Resource
 	EntityManager entityManager;
+	
+	@MockBean
+	private StorageService storage;
 
 	@Test
 	public void shouldSaveAndLoadSchool() {

@@ -18,4 +18,6 @@ public class indexController {
 		model.addAttribute("needs", needRepo.findAll());
 		return "index";
 	}
+	
+	
 }

@@ -9,6 +9,7 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import org.ecore.filestorage.StorageService;
 import org.ecore.model.School;
 import org.ecore.model.Teacher;
 import org.ecore.repository.SchoolRepository;
@@ -17,6 +18,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -33,10 +35,13 @@ public class TeachersJPATest {
 	@Resource
 	private SchoolRepository schoolRepo;
 	
+	@MockBean
+	private StorageService storage;
+	
 	@Test
 	public void shouldSaveAndLoadTeacher() {
 		School school1 = schoolRepo.save(new School ("name", "dis", "add", "map" ));
-		Teacher teacher = teacherRepo.save(new Teacher("name", "specialty", school1));
+		Teacher teacher = teacherRepo.save(new Teacher("name", "specialty", school1, "email"));
 		long teacherId = teacher.getId();
 		
 		entityManager.flush();
@@ -51,7 +56,7 @@ public class TeachersJPATest {
 	@Test
 	public void shouldGenerateTeacherId() {
 		School school1 = schoolRepo.save(new School ("name", "dis", "add", "map" ));
-		Teacher teacher = teacherRepo.save(new Teacher("name", "specialty", school1));
+		Teacher teacher = teacherRepo.save(new Teacher("name", "specialty", school1, "email"));
 		long teacherId = teacher.getId();
 		
 		entityManager.flush();
@@ -65,8 +70,8 @@ public class TeachersJPATest {
 		School school1 = schoolRepo.save(new School ("name", "dis", "add", "map" ));
 		long schoolId = school1.getId();
 		
-		Teacher teacher1 = teacherRepo.save(new Teacher("name", "spec", school1));
-		Teacher teacher2 = teacherRepo.save(new Teacher("name1", "speci", school1));
+		Teacher teacher1 = teacherRepo.save(new Teacher("name", "spec", school1, "email"));
+		Teacher teacher2 = teacherRepo.save(new Teacher("name1", "speci", school1, "email"));
 		
 		entityManager.flush();
 		entityManager.clear();

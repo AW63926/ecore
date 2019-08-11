@@ -9,6 +9,7 @@ import java.util.Optional;
 
 import javax.annotation.Resource;
 
+import org.ecore.filestorage.StorageService;
 import org.ecore.model.Material;
 import org.ecore.model.School;
 import org.ecore.model.Tag;
@@ -21,6 +22,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -41,6 +43,12 @@ public class MaterialJpaTest {
 	
 	@Resource
 	private SchoolRepository schoolRepo;
+	
+	@MockBean
+	private StorageService storage;
+	
+	
+	
 	
 	private Teacher teacher;
 	
