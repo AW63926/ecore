@@ -104,8 +104,8 @@ public class TeacherController {
 	}
 
 	@RequestMapping("/teacher-login")
-	public String showLogin() {
-
+	public String showLogin(Model model) {
+		model.addAttribute("schools", schoolRepo.findAll());
 		return "teacher-login";
 	}
 
@@ -119,20 +119,20 @@ public class TeacherController {
 	}
 
 	@RequestMapping("/teacher-signup")
-	public String teacherSignup(String name, String specialty, String school, String email) {
-		School school1 = schoolRepo.findByNameIgnoreCaseLike(school);
+	public String teacherSignup(String name, String specialty, String schoolName, String email) {
+		School school = schoolRepo.findByNameIgnoreCaseLike(schoolName);
 
 		if (school == null) {
 			String schoolDistrict = "dist";
 			String schoolAddress = "address";
 			String schoolMapUrl = "url";
-			school1 = new School(school, schoolDistrict, schoolAddress, schoolMapUrl);
-			schoolRepo.save(school1);
+			school = new School(schoolName, schoolDistrict, schoolAddress, schoolMapUrl);
+			schoolRepo.save(school);
 		}
 		
 		Teacher newTeacher = teacherRepo.findByNameIgnoreCaseLike(name);
 		if (newTeacher == null) {
-			newTeacher = new Teacher(name, specialty, school1, email);
+			newTeacher = new Teacher(name, specialty, school, email);
 			teacherRepo.save(newTeacher);
 		}
 		
