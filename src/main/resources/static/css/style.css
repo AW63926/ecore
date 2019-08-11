@@ -172,6 +172,13 @@ border: 1px solid transparent;
  list-style: none;
  margin-bottom: 10px;
 }
+.side-image-container{
+padding-left: 6px;
+}
+.left-side p{
+padding: 15px;
+text-align: justify;
+}
 .left-side{
 background-color: #f1f1f1;
 padding-left: 0;
