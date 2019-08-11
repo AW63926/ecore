@@ -1,4 +1,4 @@
-* {
+ *{
     box-sizing: border-box;
   }
   
@@ -62,7 +62,7 @@
     -ms-flex-wrap: wrap; 
     flex-wrap: wrap;
   }
-
+​
   .responsive {
     width: 100%;
     height: auto;
@@ -92,22 +92,54 @@
   }
   
   
+<<<<<<< HEAD
+​
+=======
+
+>>>>>>> dfa876f4c01345b193461d560e15e53391439d56
+   .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+    .navbar {
+        overflow: hidden;
+        background-color: #333;
+        top: 0;
+      }
+      .navbar a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+​
+        .navbar a.active {
+          background-color: #666;
+          color: white;
+        }
+<<<<<<< HEAD
+​
+=======
+
+>>>>>>> dfa876f4c01345b193461d560e15e53391439d56
   .fakeimg {
     background-color: #aaa;
     width: 100%;
     padding: 20px;
   }
-
+​
   .descriptors{
     font-weight: bold;
   }
-
+​
   .hiddenInput {
     display : none;
     
     
 }
-
+​
 .personalInfo {
   display: flex;
   flex-flow: row;
@@ -124,7 +156,7 @@
   height: 260px;
   width: 260px;
 }
-
+​
 .teacherPost input{
   width: 100%;
   padding: 12px 20px;
@@ -134,7 +166,7 @@
   border-radius: 10px;
   box-sizing: border-box;
 }
-
+​
 .teacherPost button, #schoolDelete button {
   width: 100%;
   background-color: #206ea1;
@@ -146,14 +178,14 @@
   cursor: pointer;
   font-size: 14px;
 }
-
+​
 #forms, #lists {
   display: flex;
   flex-flow: row;
   justify-content: space-evenly;
   background: #f1f1f1;
 }
-
+​
 #addNeed, #addMaterial {
   display: flex;
   flex-direction: row;
@@ -163,7 +195,7 @@
   justify-content: left;  
   border-color: black;
 }
-
+​
 .teacherPostList {
   display: flex;
   flex-direction: column;
@@ -174,7 +206,7 @@
   padding: 2em;
   justify-content: space-evenly;
  }
-
+​
  .teacherPostList h3{
   border: black;
   border: 1px solid #ccc;
@@ -184,16 +216,16 @@
   justify-content: space-evenly;
   box-sizing: border-box;
  }
-
+​
  
-
+​
  .teacherPostList a {
    display: flex;
    flex-flow: column;
   line-height: 2em;
   justify-content: space-evenly;
  }
-
+​
  .teacherPostList button {
   
   background-color: #206ea1;
@@ -205,33 +237,26 @@
   cursor: pointer;
   font-size: 14px;
  }
-
+​
  .teacherListInfo {
    display: flex;
    flex-flow: row;
    margin-left: 1em;
  }
-
-
+​
+​
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
   /* width: 50%; */
 }
-
-
+​
+​
   .footer {
     padding: 20px;
     text-align: center;
     background: #ddd;
-  }
-
-  @media screen and (max-width: 700px) {
-    .row {   
-      flex-direction: column;
-    }
-
   }
   
   @media screen and (max-width: 400px) {
@@ -243,28 +268,28 @@
   .navbar{
   justify-content: initial;
   }
-
+​
 .btn-primary{
 background-color: #1B709E;
  border: 1px solid transparent;
 }
-
+​
 .btn-primary:hover{
 background-color: #005E78;
 border: 1px solid transparent;
 }
-
+​
 /* .search-box{
   display: flex;
   align-content: right;
 } */
-
+​
 .suggestions {
   margin: 0;
   padding: 0;
   position: relative;
 }
-
+​
 .suggestions li {
   display: flex;
   align-items: flex-end;
@@ -274,9 +299,8 @@ border: 1px solid transparent;
   color: #333;
   outline: none;
   border: none;
-
 }
-
+​
 /* .suggestions li a {
   background: #ddd;
   list-style: none;
@@ -287,11 +311,11 @@ border: 1px solid transparent;
   outline: none;
   border: none;
 } */
-
+​
 .suggestions li:hover{
   background-color: #666;
 }
-
+​
   .search{
   background-image: url("../images/search-icon.png");
   background-position: 4px 2px; 
@@ -306,7 +330,7 @@ border: 1px solid transparent;
   right: 100px; 
   bottom: 8px;
 }
-
+​
 /* .name{
   background: #ddd;
   color: blue;
@@ -316,8 +340,8 @@ border: 1px solid transparent;
   outline: none;
   border: none;
 }  */
-
-
+​
+​
   .name a{
   font-family: Arial, Helvetica, sans-serif;
   color:#333;
@@ -328,7 +352,7 @@ border: 1px solid transparent;
   border: black;
  
  }  
-
+​
  .name a:hover{
   font-family: Arial, Helvetica, sans-serif;
   font-style: bold;
@@ -340,4 +364,3 @@ border: 1px solid transparent;
   
  
  }
-
