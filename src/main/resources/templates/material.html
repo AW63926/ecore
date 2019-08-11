@@ -59,7 +59,7 @@
       </section>
       <section class ="tagsList">
         <ul th:each="tag: ${material.tags}">
-          <input class= "tagId" type="hidden" name="id" th:value="tag.id"/>
+          <input class= "tagId" type="hidden" name="id" th:value="{tag.id}"/>
           <a th:href="@{/tag(id=${tag.id})}" th:text= "${tag.name}"></a>
           <button class= "x">&times;</button>
         </ul>
