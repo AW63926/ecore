@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Arrays;
 
 import org.ecore.controller.TagController;
+import org.ecore.filestorage.StorageService;
 import org.ecore.model.Tag;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.TagRepository;
@@ -42,6 +43,9 @@ public class TagControllerMockMvcTest {
 
 	@Mock
 	private Tag anotherTag;
+	
+	@MockBean
+	private StorageService storage;
 
 	@Test
 	public void shouldRouteToSingleTagView() throws Exception {

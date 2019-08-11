@@ -31,7 +31,7 @@ public class ResponseEmailController {
 		MimeMessage message = sender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message);
 
-		helper.setTo("ecoresummer2019@gmail.com");
+		helper.setTo("ecoreproject2019@gmail.com");
 		helper.setText("I want to help");
 		helper.setSubject("Willing to help");
 

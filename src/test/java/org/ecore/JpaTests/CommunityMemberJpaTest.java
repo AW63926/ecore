@@ -6,14 +6,14 @@ import javax.annotation.Resource;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 
-
-
+import org.ecore.filestorage.StorageService;
 import org.ecore.model.CommunityMember;
 import org.ecore.repository.CommunityMemberRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,6 +23,9 @@ public class CommunityMemberJpaTest {
 	
 	@Resource
 	CommunityMemberRepository communityMemberRepo;
+	
+	@MockBean
+	private StorageService storage;
 	
 	@Resource
 	TestEntityManager entityManager;
