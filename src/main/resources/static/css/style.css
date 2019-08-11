@@ -34,7 +34,7 @@
     text-decoration: none;
   }
   
-  .navbar a.right, .search-box {
+  .navbar a.right {
     float: right;
   }
   
