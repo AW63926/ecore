@@ -5,52 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Schools</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-        <div class="main">
-         
-        <h2>Member Schools</h2>
-    <div th:each= "school: ${schools}">
-        <li>
-        <a th:href="@{/school(id=${school.id})}" th:text="${school.name}"></a>
 
-        
-        </li>
-     </div>
+<div class="header">
+    <img class="ecore" src="./images/ecore2.png" style="height:150px"/>
+    <h3>Educational • Collaborative • Open • Resource • Engine</h3>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href="/index" class="active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/all-schools">Schools</a>
+            </li>
+            <li class="nav-item">
+                <a href="/teacher-login">Teachers</a>
+            </li>
+            <li class="nav-item">
+                <a href="/all-community-members">Community</a>
+            </li>
+            <li class="nav-item">
+                <a href="/all-materials">Resources</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-     <form method="POST" class="form">
-         <div class="form-group">
-             <input type="text" name="name" placeholder="enter name" required="required" class="form-control"/>
-     
-         </div>
 
-         <div class="form-group">
-             <input type="text" name="district" placeholder="enter district" required="required" class="form-control"/>
-       
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 left-side">
+            <h2></h2>
+            <div class="small_logo"><img src="./images/smallicon.png" style="height:150px" class="center"/></div>
+            <h3>About ECORE</h3>
+            <p>ECORE connects schools, teachers, and community members to share supplies and
+                resources.
+                Teachers have the ability to interact with resource requests, ability to
+                interact with a need request, and communicate with the community at large through a form on
+                their post.
+            </p>
+            <ul class="side-image-container">
+                <li><a href="/all-schools"><img src="./images/schools.png" class="side-image"/></a></li>
+                <li><a href="/teacher-login"><img src="./images/teacher.png"  class="side-image"/></a></li>
+                <li><a href="/all-community-members"><img src="./images/community.png" class="side-image"/></a></li>
+                <li><a href="/all-materials"><img src="./images/resources.png" class="side-image"/></a></li>
+            </ul>
+        </div>
+        <div class="col-md-7 right-side">
+            <h3>Member Schools</h3>
+            <div th:each="school: ${schools}">
+                <ul>
+                    <li class="schools">
+                        <a th:href="@{/school(id=${school.id})}" th:text="${school.name}"></a>
+                    </li>
+                </ul>
             </div>
-         <div class="form-group">
-            <input type="text" name="address" placeholder="enter address" required="required" class="form-control"/>
-           
+            <h3 class="new_school_title">Create a New School</h3>
+            <form method="POST" class="form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="enter name" required="required" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="district" placeholder="enter district" required="required"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="address" placeholder="enter address" required="required"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="mapUrl" placeholder="enter map link" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <button formaction="/add-school" class="btn btn-primary">Add School</button>
+                </div>
+            </form>
         </div>
-
-        <div class="form-group">
-            <input type="text" name="mapUrl" placeholder="enter map link" class="form-control"/>
-       
-        </div>
-
-        <div class="form-group">
-            <button formaction="/add-school" class="btn btn-primary">Add School</button>
-        </div>
-
-     </form>
-
     </div>
 </div>
-  
+
+</div>
+<div class="footer">
+    <h3>The Footer</h3>
+</div>
+
 </body>
 </html>

@@ -1,7 +1,8 @@
 package org.ecore.controller;
 
 import javax.mail.internet.MimeMessage;
-
+import org.ecore.model.Teacher;
+import org.ecore.repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -11,31 +12,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ResponseEmailController {
-
 	@Autowired
 	private JavaMailSender sender;
 
+	@Autowired
+	private TeacherRepository teacherRepo;
+
 	@RequestMapping(value = "/responseemail")
 	@ResponseBody
-	String home() {
+	public String home(String name, String responderName, String email, String comment) {
 		try {
-			sendEmail();
+			MimeMessage message = sender.createMimeMessage();
+			MimeMessageHelper helper = new MimeMessageHelper(message);
+			
+			Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(name);
+			
+
+			helper.setTo(teacher.getEmail());
+			
+			helper.setText(responderName + " has responded with: " + comment + "\tContact info is: " + email);
+			helper.setSubject("Response to Resource Request");
+			sender.send(message);
 			return "Email Sent!";
 		} catch (Exception ex) {
 			return "Error in sending email: " + ex;
 		}
-
 	}
-
-	private void sendEmail() throws Exception {
-		MimeMessage message = sender.createMimeMessage();
-		MimeMessageHelper helper = new MimeMessageHelper(message);
-
-		helper.setTo("ecoreproject2019@gmail.com");
-		helper.setText("I want to help");
-		helper.setSubject("Willing to help");
-
-		sender.send(message);
-	}
-
 }
