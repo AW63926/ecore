@@ -27,11 +27,9 @@ public class Need {
 	@Lob
 	public String descNeed;
 	
-	@JsonIgnore
 	@ManyToOne
 	private Teacher teacher;
 
-	@JsonIgnore
 	@ManyToMany
 	private Collection<Tag> tags;
 

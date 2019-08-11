@@ -8,32 +8,6 @@
     <title>Material</title>
 </head>
 <body>
-        <div class="header">
-                <h1>ECORE</h1>
-                <p>We can use a large icon. </p>
-              </div>
-              
-              <div class="navbar">
-                  <a href="/index" class="active">Home</a>
-                  <a href="/all-schools">Schools</a>
-                <a href="/teacher-login">Teachers</a>
-                <a href="/all-community-members">Community</a>
-                <a href="/all-materials">Resources</a>
-              </div>
-              
-              <div class="row">
-                <div class="side">
-                  <h2>ECORE</h2>
-                  <h5>(Below is icon of ecore)</h5>
-                  <div class="fakeimg" style="height:200px;">Image</div>
-                  <p>Information about ECORE</p>
-                  <h3>more information about the most recent requests for the website</h3>
-                  <p>Lorem ipsum dolor sit ame.</p>
-                  <div class="fakeimg" style="height:60px;">Image</div><br>
-                  <div class="fakeimg" style="height:60px;">Image</div><br>
-                  <div class="fakeimg" style="height:60px;">Image</div><br>
-                  <div class="fakeimg" style="height:60px;">Image</div>
-                </div>
                 <div class="main">
 
     <div th:each= "material: ${material}">
@@ -61,7 +35,7 @@
         </ul>
       </section>
     </div>
-    <div th:if="${message}">
+    <div id="fadeout" th:if="${message}">
       <h2 th:text="${message}"/>
     </div>
     
@@ -84,15 +58,6 @@
     </div>
     </div>
 
-   
-</div>
-
-
-    
-        <div class="footer">
-                <h2>The Footer</h2>
-              </div>
-    
               <script src="./js/material.js"></script>
 </body>
 </html>
