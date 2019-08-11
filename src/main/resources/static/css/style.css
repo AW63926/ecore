@@ -92,15 +92,7 @@
   }
   
   
-<<<<<<< HEAD
-​
-=======
-
->>>>>>> dfa876f4c01345b193461d560e15e53391439d56
    .navbar a {
-      float: left;
-      display: block;
-      color: white;
       text-align: center;
       padding: 14px 20px;
       text-decoration: none;
@@ -119,11 +111,7 @@
           background-color: #666;
           color: white;
         }
-<<<<<<< HEAD
 ​
-=======
-
->>>>>>> dfa876f4c01345b193461d560e15e53391439d56
   .fakeimg {
     background-color: #aaa;
     width: 100%;
