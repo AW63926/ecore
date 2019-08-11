@@ -13,7 +13,7 @@ import org.ecore.repository.MaterialRepository;
 import org.ecore.repository.NeedRepository;
 import org.ecore.repository.SchoolRepository;
 import org.ecore.repository.TeacherRepository;
-import org.mockito.Mock;
+//import org.mockito.Mock;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -123,7 +123,7 @@ public class TeacherController {
 
 	@RequestMapping("/teacher-signup")
 	public String teacherSignup(String name, String specialty, String schoolName, String email) {
-		School school = schoolRepo.findByNameIgnoreCaseLike("school1");
+		School school = schoolRepo.findByNameIgnoreCaseLike(schoolName);
 
 
 		Teacher newTeacher = teacherRepo.findByNameIgnoreCaseLike(name);
