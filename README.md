@@ -1,4 +1,4 @@
-(/images/ecore2.png)
+![](/images/ecore2.png)
 # ECORE
 ***
 ## ECORE connects schools, teachers, and community member to share supplies and resources.
