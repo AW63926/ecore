@@ -55,7 +55,7 @@
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title= "Close Modal"></span>
 
-<form class = "modal-content" action="/teacher-signup">
+<form class = "modal-content"  action="/teacher-signup" th:object="${schools}">
   <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
@@ -67,7 +67,10 @@
     <input type="text" placeholder="Specialty" name="specialty" required>
     
 
-    <input type="text" placeholder="School" name="school" required>
+    <select id="schoolDrop" >
+      <option id="dropPlaceholder" value="" disabled selected hidden>Select School</option>
+      <option th:each="school : ${schools}" th:value="${school.name}" th:utext="${school.name}" name="schoolName" ></option>
+    </select>
 
     <input type="text" placeholder="Email" name="email" required>
 

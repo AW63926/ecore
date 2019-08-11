@@ -52,8 +52,8 @@ public class SchoolController {
 		return ("all-schools");
 
 	}
-
-	@RequestMapping("/add-school")
+	
+		@RequestMapping("/add-school")
 	public String addSchool(String name, String district, String address, String mapUrl) {
 		School school = schoolRepo.findByNameIgnoreCaseLike(name);
 
