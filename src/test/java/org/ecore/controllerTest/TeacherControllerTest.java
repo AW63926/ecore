@@ -1,12 +1,12 @@
 package org.ecore.controllerTest;
 
-import static org.mockito.Mockito.when;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
-import java.util.Arrays;
 
 import org.ecore.controller.TeacherController;
 import org.ecore.model.School;
@@ -20,6 +20,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.ui.Model;
 
 public class TeacherControllerTest {
@@ -39,6 +40,7 @@ public class TeacherControllerTest {
 	@Mock
 	private SchoolRepository schoolRepo;
 	
+		
 	@Mock
 	private Model model;
 	
