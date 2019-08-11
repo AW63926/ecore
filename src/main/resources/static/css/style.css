@@ -1,20 +1,25 @@
-* {
+ *{
     box-sizing: border-box;
   }
+  
+  
   body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
   }
+  
+  
   .header {
     padding: 80px;
     text-align: center;
     background: #1abc9c;
     color: white;
   }
+  
+  
   .header h1 {
     font-size: 40px;
   }
-<<<<<<< HEAD
   
   
   .navbar {
@@ -57,7 +62,7 @@
     -ms-flex-wrap: wrap; 
     flex-wrap: wrap;
   }
-
+​
   .responsive {
     width: 100%;
     height: auto;
@@ -87,7 +92,7 @@
   }
   
   
-=======
+​
    .navbar a {
       float: left;
       display: block;
@@ -105,26 +110,28 @@
           background-color: #ddd;
           color: black;
         }
-
+​
         .navbar a.active {
           background-color: #666;
           color: white;
         }
->>>>>>> 78cf88035986648e4b3129975a49fac6edecd845
+​
   .fakeimg {
     background-color: #aaa;
     width: 100%;
     padding: 20px;
   }
-
+​
   .descriptors{
     font-weight: bold;
   }
-
+​
   .hiddenInput {
     display : none;
+    
+    
 }
-
+​
 .personalInfo {
   display: flex;
   flex-flow: row;
@@ -141,7 +148,7 @@
   height: 260px;
   width: 260px;
 }
-
+​
 .teacherPost input{
   width: 100%;
   padding: 12px 20px;
@@ -151,7 +158,7 @@
   border-radius: 10px;
   box-sizing: border-box;
 }
-
+​
 .teacherPost button, #schoolDelete button {
   width: 100%;
   background-color: #206ea1;
@@ -163,14 +170,14 @@
   cursor: pointer;
   font-size: 14px;
 }
-
+​
 #forms, #lists {
   display: flex;
   flex-flow: row;
   justify-content: space-evenly;
   background: #f1f1f1;
 }
-
+​
 #addNeed, #addMaterial {
   display: flex;
   flex-direction: row;
@@ -180,7 +187,7 @@
   justify-content: left;  
   border-color: black;
 }
-
+​
 .teacherPostList {
   display: flex;
   flex-direction: column;
@@ -191,7 +198,7 @@
   padding: 2em;
   justify-content: space-evenly;
  }
-
+​
  .teacherPostList h3{
   border: black;
   border: 1px solid #ccc;
@@ -201,14 +208,18 @@
   justify-content: space-evenly;
   box-sizing: border-box;
  }
+​
+ 
+​
  .teacherPostList a {
    display: flex;
    flex-flow: column;
   line-height: 2em;
   justify-content: space-evenly;
  }
-
+​
  .teacherPostList button {
+  
   background-color: #206ea1;
   color: white;
   padding: 14px 20px;
@@ -218,72 +229,130 @@
   cursor: pointer;
   font-size: 14px;
  }
+​
  .teacherListInfo {
    display: flex;
    flex-flow: row;
    margin-left: 1em;
  }
+​
+​
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  /* width: 50%; */
 }
+​
+​
   .footer {
-        padding: 10px;
-        text-align: center;
-        background-color: #1abc9c;
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
   }
-
+  
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }
+  .navbar{
+  justify-content: initial;
+  }
+​
 .btn-primary{
 background-color: #1B709E;
  border: 1px solid transparent;
 }
-
+​
 .btn-primary:hover{
 background-color: #005E78;
 border: 1px solid transparent;
 }
-.side-image-container li{
- list-style: none;
- margin-bottom: 10px;
+​
+/* .search-box{
+  display: flex;
+  align-content: right;
+} */
+​
+.suggestions {
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
-.side-image-container{
-padding-left: 6px;
+​
+.suggestions li {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: #ddd;
+  list-style: none;
+  color: #333;
+  outline: none;
+  border: none;
 }
-.left-side p{
-padding: 15px;
-text-align: justify;
+​
+/* .suggestions li a {
+  background: #ddd;
+  list-style: none;
+  margin: 0px 20px 0px 0px;
+  padding: 0px;
+  display: none;
+  justify-content: center;
+  outline: none;
+  border: none;
+} */
+​
+.suggestions li:hover{
+  background-color: #666;
 }
-.left-side{
-background-color: #f1f1f1;
-padding-left: 0;
+​
+  .search{
+  background-image: url("../images/search-icon.png");
+  background-position: 4px 2px; 
+  background-repeat: no-repeat;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 300px; 
+  font-size: 16px;
+  padding: 15px 14px 14px 60px;
+  border: 1px solid black;
+  outline-color: #333; 
+  position: absolute;
+  right: 100px; 
+  bottom: 8px;
 }
-.left-side h3{
-text-align: center;
-padding: 10px;
-}
-.right-side{
-margin-top: 20px;
-}
-.small_logo{
-padding-top: 10px;
-}
-.side-image{
-height: 56px;
-}
-.right-side{
-padding-top: 10px;
-}
-.schools{
-font-size: 18px;
-}
-.new_school_title{
-margin-top: 20px;
-}
-.modal-header{
-background-color: #1abc9c;
-}
-.modal-trigger{
-margin-top: 20px;
-margin-right: 20px;
-}
+​
+/* .name{
+  background: #ddd;
+  color: blue;
+  list-style: none;
+  margin: 0px 20px 0px 0px;
+  padding: 0px;
+  outline: none;
+  border: none;
+}  */
+​
+​
+  .name a{
+  font-family: Arial, Helvetica, sans-serif;
+  color:#333;
+  font-style: bold;
+  width: 200px;
+  margin: 20px;
+  padding: 2px;
+  border: black;
+ 
+ }  
+​
+ .name a:hover{
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: bold;
+  background-color: #666;
+  color: white;
+  width: 200px;
+  margin: 20px;
+  padding: 2px;
+  
+ 
+ }
