@@ -19,7 +19,58 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-        <div class="main">
+
+<div class="header">
+    <img class="ecore" src="./images/ecore2.png" style="height:150px"/>
+    <h3>Educational • Collaborative • Open • Resource • Engine</h3>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href="/index" class="active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/all-schools">Schools</a>
+            </li>
+            <li class="nav-item">
+                <a href="/teacher-login">Teachers</a>
+            </li>
+            <li class="nav-item">
+                <a href="/all-community-members">Community</a>
+            </li>
+            <li class="nav-item">
+                <a href="/all-materials">Resources</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 left-side">
+            <h2></h2>
+            <div class="small_logo"><img src="./images/smallicon.png" style="height:150px" class="center"/></div>
+            <h3>About ECORE</h3>
+            <p>ECORE connects schools, teachers, and community members to share supplies and
+                resources.
+                Teachers have the ability to interact with resource requests, ability to
+                interact with a need request, and communicate with the community at large through a form on
+                their post.
+            </p>
+            <ul class="side-image-container">
+                <li><a href="/all-schools"><img src="./images/schools.png" class="side-image"/></a></li>
+                <li><a href="/teacher-login"><img src="./images/teacher.png"  class="side-image"/></a></li>
+                <li><a href="/all-community-members"><img src="./images/community.png" class="side-image"/></a></li>
+                <li><a href="/all-materials"><img src="./images/resources.png" class="side-image"/></a></li>
+            </ul>
+        </div>
+        <div class="col-md-7 right-side">
             <h3>Member Schools</h3>
             <div th:each="school: ${schools}">
                 <ul>
@@ -52,6 +103,9 @@
     </div>
 </div>
 
+</div>
+<div class="footer">
+    <h3>The Footer</h3>
 </div>
 
 </body>
