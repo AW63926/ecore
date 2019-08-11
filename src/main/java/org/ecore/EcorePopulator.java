@@ -50,7 +50,7 @@ public class EcorePopulator implements CommandLineRunner{
 		
 		CommunityMember member2 = communityMemberRepo.save(new CommunityMember("member2", "email2"));
 		
-		
+
 		School school1 = schoolRepo.save(new School("school1", "district1", "address1", "mapUrl1"));
 		School school2 = schoolRepo.save(new School("school2", "district2", "address2", "mapUrl2"));
 		
@@ -62,8 +62,10 @@ public class EcorePopulator implements CommandLineRunner{
 		Teacher teacher3 = teacherRepo.save(new Teacher("name3", "specialty1", school1, "email3"));
 		Teacher teacher4 = teacherRepo.save(new Teacher("name4", "specialty2", school2, "email4"));
 		
+
 		Need need1 = needRepo.save(new Need("need1", 1, "desc1", teacher1, tag));
 		Need need2 = needRepo.save(new Need("need2", 1, "desc2", teacher2, tag));
+
 		
 		Material material1 = materialRepo.save(new Material("material1", 1, "desc1", teacher1, tag));
 		Material material2 = materialRepo.save(new Material("material2", 2, "desc2", teacher2, tag));
