@@ -1,63 +1,133 @@
 <!DOCTYPE html>
-<html xmlns:th = "http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Material</title>
 </head>
 <body>
-                <div class="main">
-
-    <div th:each= "material: ${material}">
-        <h2 th:text = "${material.name}"></h2>
-        <p class="descriptors"> Quantity</p>
-        <p th:text= "${material.quantity}"></p>
-        <p class="descriptors">Description</p>
-        <p th:text= "${material.descMaterial}"></p>
-        <p class="descriptors">Posting Teacher</p>
-        <p th:each="teacher: ${material.teacher}" th:text= "${teacher.name}"></p>
-    </div>
-    
-
-    <div>
-      <input class="materialId" name ="materialId" type="hidden" th:value="${material.id}"/>
-      <section class= "addTag">
-        <input type="text" placeholder="Add A Tag To Your Need"/>
-        <button>Submit Tag</button>
-      </section>
-      <section class ="tagsList">
-        <ul th:each="tag: ${material.tags}">
-          <input class= "tagId" type="hidden" name="id" th:value="${tag.id}"/>
-          <a th:href="@{/tag(id=${tag.id})}" th:text= "${tag.name}"></a>
-          <button class= "x">&times;</button>
+<div class="header">
+    <img class="ecore" src="./images/ecore2.png" style="height:150px"/>
+    <h3>Educational • Collaborative • Open • Resource • Engine</h3>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href="/index" class="active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/all-schools">Schools</a>
+            </li>
+            <li class="nav-item">
+                <a href="/teacher-login">Teachers</a>
+            </li>
+            <li class="nav-item">
+                <a href="/all-community-members">Community</a>
+            </li>
+            <li class="nav-item">
+                <a href="/all-materials">Resources</a>
+            </li>
         </ul>
-      </section>
     </div>
-    <div id="fadeout" th:if="${message}">
-      <h2 th:text="${message}"/>
-    </div>
-    
-    <div>
-      <form method="POST" enctype="multipart/form-data" action="/add-item">
-        <table>
-          <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
-          <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
-        <input class="materialId" name="id" type="hidden" th:value="${material.id}" />
-        </table>
-      </form>
-    </div>
-    
-    <div>
-      <ul>
-        <li th:each="file : ${files}">
-          <a th:href="${file}" th:text="${file}" />
-        </li>
-      </ul>
-    </div>
-    </div>
+</nav>
 
-              <script src="./js/material.js"></script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 left-side">
+            <div class="small_logo"><img src="./images/smallicon.png" style="height:150px" class="center"/></div>
+            <h3>About ECORE</h3>
+            <p>ECORE connects schools, teachers, and community members to share supplies and
+                resources.
+                Teachers have the ability to interact with resource requests, ability to
+                interact with a need request, and communicate with the community at large through a form on
+                their post.
+            </p>
+            <ul class="side-image-container">
+                <li><a href="/all-schools"><img src="./images/schools.png" class="side-image"/></a></li>
+                <li><a href="/teacher-login"><img src="./images/teacher.png" class="side-image"/></a></li>
+                <li><a href="/all-community-members"><img src="./images/community.png" class="side-image"/></a></li>
+                <li><a href="/all-materials"><img src="./images/resources.png" class="side-image"/></a></li>
+            </ul>
+        </div>
+        <div class="col-md-7 right-side">
+            <div th:each="material: ${material}">
+                <h3 th:text="${material.name}"></h3>
+                <p class="descriptors"> Quantity</p>
+                <p th:text="${material.quantity}"></p>
+                <p class="descriptors">Description</p>
+                <p th:text="${material.descMaterial}"></p>
+                <p class="descriptors">Posting Teacher</p>
+                <p th:each="teacher: ${material.teacher}" th:text="${teacher.name}"></p>
+            </div>
+            <div>
+                <form class="form">
+                    <div class="form-group">
+                        <input class="form-control" name="materialId" type="hidden" th:value="${material.id}"/>
+                    </div>
+                </form>
+                <section class="addTag">
+                    <input type="text" placeholder="Add A Tag To Your Need"/>
+                    <button>Submit Tag</button>
+                </section>
+                <section class="tagsList">
+                    <ul th:each="tag: ${material.tags}">
+                        <input class="tagId" type="hidden" name="id" th:value="tag.id"/>
+                        <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.name}"></a>
+                        <button class="x">&times;</button>
+                    </ul>
+                </section>
+            </div>
+            <div id="fadeout" th:if="${message}">
+                <h2 th:text="${message}"/>
+            </div>
+
+            <div>
+                <form class="form" method="POST" enctype="multipart/form-data" action="/add-item">
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            File to upload:<input type="file" name="file"/>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="submit" value="Upload"/>
+                        </div>
+                    </div>
+                    <input class="materialId" name="id" type="hidden" th:value="${material.id}"/>
+                    </table>
+                </form>
+            </div>
+            <div>
+                <ul>
+                    <li th:each="file : ${files}">
+                        <a th:href="${file}" th:text="${file}"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<div class="footer">
+    <h2>The Footer</h2>
+</div>
+<script src="./js/material.js"></script>
 </body>
 </html>
