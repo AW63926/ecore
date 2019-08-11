@@ -52,21 +52,16 @@ public class EcorePopulator implements CommandLineRunner{
 		
 
 
-		Tag tag1 = tagRepo.save(new Tag("tag1"));
-		Tag tag2 = tagRepo.save(new Tag("tag2"));
+		School school1 = schoolRepo.save(new School("Middleboro High School", "Middleboro City Schools", "2900 N. High St Middleboro OH 44455", "mapUrl1"));
+		School school2 = schoolRepo.save(new School("New Berlin Middle School", "Wayne County Local Schools", "14500 Main St East City Oh 44499", "mapUrl2"));
 		
+		Tag tag1 = tagRepo.save(new Tag("pencils"));
+		Tag tag2 = tagRepo.save(new Tag("paper"));
 
 		
-
-
-
-		School school1 = schoolRepo.save(new School("school1", "district1", "address1", "mapUrl1"));
-		School school2 = schoolRepo.save(new School("school2", "district2", "address2", "mapUrl2"));
-		
-		
-		Teacher teacher1 = teacherRepo.save(new Teacher("Ryan", "specialty1", school1, "kelley.ryanj@gmail.com"));
-		Teacher teacher2 = teacherRepo.save(new Teacher("name2", "specialty2", school2, "email2"));
-		Teacher teacher3 = teacherRepo.save(new Teacher("name3", "specialty1", school1, "email3"));
+		Teacher teacher1 = teacherRepo.save(new Teacher("Ryan Kelley", "English", school1, "kelley.ryanj@gmail.com"));
+		Teacher teacher2 = teacherRepo.save(new Teacher("Baker Mayfield", "PE", school2, "brownsboss@gmail.com"));
+		Teacher teacher3 = teacherRepo.save(new Teacher("Justin Fields", "PE", school1, "ousman@osu.edu"));
 		Teacher teacher4 = teacherRepo.save(new Teacher("name4", "specialty2", school2, "email4"));
 		
 
