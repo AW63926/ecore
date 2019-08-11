@@ -19,5 +19,11 @@ public class indexController {
 		return "index";
 	}
 	
+	@RequestMapping("/indexcontent")
+	public String showIndexContent(Model model) {
+		model.addAttribute("needs", needRepo.findAll());
+		return "indexcontent";
+	}
+	
 	
 }
