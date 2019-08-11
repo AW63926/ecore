@@ -62,6 +62,11 @@
     -ms-flex-wrap: wrap; 
     flex-wrap: wrap;
   }
+
+  .responsive {
+    width: 100%;
+    height: auto;
+  }
   
   .side {
     -ms-flex: 30%; 
