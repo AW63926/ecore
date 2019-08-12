@@ -27,17 +27,10 @@
         <p th:text ="${school.mapUrl}"></p>
 
         <form id="schoolDelete" method="POST">
-          
             <div>
                 <input class="hiddenInput" type="number" name="schoolId" th:value="${school.id}"/>
                 </div>
-            <div>
-           
-
-            <div>
                 <button th:formaction="@{/delete-school}">delete</button>
-            </div>
-
         </form>
         
     </div>
