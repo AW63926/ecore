@@ -4,6 +4,12 @@ const tagsList = document.querySelector('.tagsList');
 const documentContainer = document.querySelector('.container');
 const materialId = document.querySelector('.materialId');
 
+  $(document).ready(function(){
+  $(".navbar li").removeClass("active");
+  $(".navbar li a").removeClass("active");
+  $('#all-materials').addClass('active');
+  });
+
 const xhr = new XMLHttpRequest()
 xhr.onreadystatechange = function(){
     if(xhr.readyState === 4 && xhr.status === 200){
