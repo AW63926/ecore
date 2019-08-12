@@ -163,6 +163,12 @@
 .btn-primary{
 background-color: #1B709E;
  border: 1px solid transparent;
+ min-width: 140px;
+     min-height: 40px;
+}
+.btn-secondary{
+    min-width: 140px;
+    min-height: 40px;
 }
 
 .btn-primary:hover{
@@ -329,3 +335,9 @@ padding-left: 0;
     border-color: #1abc9c;
 }
 
+.right-side .form-control{
+ width: 75%;
+}
+.right-side .form{
+margin-top: 20px;
+}
