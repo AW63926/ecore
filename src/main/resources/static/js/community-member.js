@@ -2,6 +2,6 @@
 $(document).ready(function(){
 $(".navbar li").removeClass("active");
 $(".navbar li a").removeClass("active");
-$('#community-member').addClass('active');
+$('#all-community-members').addClass('active');
 
 });
