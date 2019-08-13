@@ -113,8 +113,31 @@
                 <li><a href="/all-materials"><img src="./images/resources.png" class="side-image"/></a></li>
             </ul>
         </div>
-        <div class="col-md-7 right-side">
-
+        <div class="col-md-7 right-side sch">
+            <section class="welcomeBanner" th:each= "school: ${schools}">
+                                    <div>
+                                        <h2 th:text = "${school.name}"></h2>
+                                    </div>
+                    <div  class="personalInfo" >
+                      <div>
+                          <img class="profilePic"  src="./images/schoolavatar.jpg"/>
+                      </div>
+                      <div class="textInfo">
+                        <h3>Address</h3>
+                        <p th:text ="${school.address}"></p>
+                        <h3>School District</h3>
+                        <p th:text ="${school.district}"></p>
+                        <h3>Map</h3>
+                        <p th:text ="${school.mapUrl}"></p>
+                        <form class="form" method="POST">
+                            <div class="form-group">
+                                <input class="hiddenInput" type="number" name="schoolId" th:value="${school.id}"/>
+                                </div>
+                                <button class="btn btn-primary" th:formaction="@{/delete-school}">Delete</button>
+                        </form>
+                    </div>
+                  </div>
+                  </section>
         </div>
     </div>
 </div>

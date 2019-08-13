@@ -54,10 +54,6 @@
   display: flex;
   flex-flow: row;
   margin: auto auto;
-  background-color: #aaa;
-}
-.welcomeBanner {
-  background-color: #f1f1f1;
 }
 .textInfo {
   margin: auto;
@@ -344,3 +340,14 @@ padding-left: 0;
 .right-side .form{
 margin-top: 20px;
 }
+.right-side.sch{
+margin-top: 0;
+padding-top: 0;
+}
+.sch h2{
+text-align: center;
+padding-top: 25px;
+margin-bottom: 40px;
+}
+.addTag .form-control{
+margin-bottom: 20px;}
