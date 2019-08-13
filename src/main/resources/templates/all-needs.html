@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="./css/style.css">
-<title>Needs</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Needs</title>
 </head>
 
 <body>
-				
-                <div class="main">
 
-	<h1>A List of Needs</h1>
+<div class="main">
 
-	<div th:each="need: ${needs}">
-		<li><a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
-		</li>
-	</div>
+    <h3>A List of Needs</h3>
 
-	
-	
-
-
+    <div th:each="need: ${needs}">
+        <li><a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
+        </li>
+    </div>
 </div>
-
-
 </body>
 </html>
