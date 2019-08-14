@@ -7,24 +7,14 @@
 <link rel="stylesheet" href="./css/style.css">
 <title>Needs</title>
 </head>
-
 <body>
-				
                 <div class="main">
-
 	<h1>Active Needs</h1>
 
 	<div th:each="need: ${needs}">
 		<li><a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
 		</li>
 	</div>
-
-	
-	
-
-
 </div>
-
-
 </body>
 </html>
