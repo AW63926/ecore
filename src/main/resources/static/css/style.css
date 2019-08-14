@@ -165,6 +165,7 @@
 .teacherPostList {
   display: flex;
   flex-direction: column;
+  vertical-align: top;
   margin-top: 2em;
   height: auto;
   width: 45%;

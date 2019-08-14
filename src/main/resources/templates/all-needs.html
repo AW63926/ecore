@@ -12,7 +12,7 @@
 				
                 <div class="main">
 
-	<h1>A List of Needs</h1>
+	<h1>Active Needs</h1>
 
 	<div th:each="need: ${needs}">
 		<li><a th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>

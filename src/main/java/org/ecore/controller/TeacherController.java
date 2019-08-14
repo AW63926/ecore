@@ -101,7 +101,7 @@ public class TeacherController {
 		for(Material material : foundTeacher.getMaterials()) {
 			materialRepo.delete(material);
 		}
-		teacherRepo.delete(foundTeacher);
+		teacherRepo.deleteById(teacherId);
 
 		return "redirect:/all-teachers";
 	}
@@ -115,6 +115,9 @@ public class TeacherController {
 	@RequestMapping("/login-submit")
 	public String loginSubmit(String emailAddress) {
 		Teacher teacher = teacherRepo.findByEmail(emailAddress);
+		if(teacher == null ) {
+			return "redirect:/search-not-found";
+		}
 		Long teacherId = teacher.getId();
 
 		return "redirect:/teacher?id=" + teacherId;
@@ -128,7 +131,11 @@ public class TeacherController {
 
 
 
-		Teacher newTeacher = teacherRepo.findByNameIgnoreCaseLike(name);
+		Teacher newTeacher = teacherRepo.findByEmail(email);
+		if (newTeacher != null) {
+			return "redirect:/user-duplicate";
+		}
+		
 		if (newTeacher == null) {
 			newTeacher = new Teacher(name, specialty, school, email);
 			teacherRepo.save(newTeacher);
