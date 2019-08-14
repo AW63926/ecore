@@ -31,48 +31,41 @@
         <p th:each="teacher: ${material.teacher}" th:text="${teacher.name}"></p>
     </div>
     <div>
-        <form class="form">
+        <form>
             <div class="form-group">
                 <input class="form-control" name="materialId" type="hidden" th:value="${material.id}"/>
             </div>
         </form>
-        <form class="addTag form" method="POST">
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="Add A Tag To Your Need"/>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary">Submit Tag</button>
-            </div>
-        </form>
+        <section class="addTag">
+            <input class="form-control" type="text" placeholder="Add A Tag To Your Need"/>
+            <button class="btn btn-primary">Submit Tag</button>
+        </section>
         <section class="tagsList">
             <ul th:each="tag: ${material.tags}">
                 <input class="tagId" type="hidden" name="id" th:value="${tag.id}"/>
                 <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.name}"></a>
-                <button class="x btn btn-secondary">X</button>
+                <button class="x btn btn-secondary">Remove Tag</button>
             </ul>
         </section>
     </div>
     <div id="fadeout" th:if="${message}">
-        <h5 th:text="${message}"></h5>
+        <p th:text="${message}"></p>
     </div>
     <div id="fadeout" th:if="${message}">
-        <h5 th:text="${message}"></h5>
+        <p th:text="${message}"></p>
     </div>
-
-    <div>
-        <form method="POST" enctype="multipart/form-data" action="/add-item">
+        <form method="POST" class="tagForm" enctype="multipart/form-data" action="/add-item">
             <div class="form-group">
                 <label for="file">File to Upload</label>
                 <input class="form-control-file" type="file" name="file" id="file" />
             </div>
             <div class="form-group">
-                <button class="btn btn-primary" type="submit" name="Upload">Upload</button>
+                <button class="btn btn-primary" type="submit" name="Upload">Upload File</button>
             </div>
             <div class="form-group">
                 <input class="materialId form" name="id" type="hidden" th:value="${material.id}" />
             </div>
         </form>
-    </div>
     <div>
         <ul>
             <li th:each="file : ${material.postedResources}">

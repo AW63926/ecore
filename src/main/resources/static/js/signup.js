@@ -17,3 +17,9 @@ window.onclick = function(event) {
     }
 }
 }
+$(document).ready(function(){
+$(".navbar li").removeClass("active");
+$(".navbar li a").removeClass("active");
+$('#teacher-login').addClass('active');
+
+});
