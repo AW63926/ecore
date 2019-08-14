@@ -398,3 +398,13 @@ float: right;
 .community-form .form-control {
 width: 75%;
 }
+.tags-list ul{
+padding-left: 0;
+}
+.tags-list a{
+font-size: 18px;
+}
+.x{
+background-color: transparent;
+    color: #f32b2b;
+    border: 0;}
