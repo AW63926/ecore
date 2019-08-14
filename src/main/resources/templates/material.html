@@ -51,22 +51,6 @@
             <div id="fadeout" th:if="${message}">
                 <h2 th:text="${message}"/>
             </div>
-
-
-    <div>
-      <input class="materialId" name ="materialId" type="hidden" th:value="${material.id}"/>
-      <section class= "addTag">
-        <input type="text" placeholder="Add A Tag To Your Need"/>
-        <button>Submit Tag</button>
-      </section>
-      <section class ="tagsList">
-        <ul th:each="tag: ${material.tags}">
-          <input class= "tagId" type="hidden" name="id" th:value="${tag.id}"/>
-          <a th:href="@{/tag(id=${tag.id})}" th:text= "${tag.name}"></a>
-          <button class= "x">&times;</button>
-        </ul>
-      </section>
-    </div>
     <div id="fadeout" th:if="${message}">
       <h2 th:text="${message}"/>
     </div>

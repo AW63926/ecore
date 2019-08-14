@@ -47,6 +47,7 @@ public class MaterialController {
 	@RequestMapping("/all-materials")
 	public String findAllMaterials(Model model) {
 		model.addAttribute("materials", materialRepo.findAll());
+		model.addAttribute("teachers", teacherRepo.findAll());
 		return "all-materials";
 
 	}
