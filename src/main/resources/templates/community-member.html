@@ -10,10 +10,10 @@
 <body>
 
                 <div class="main">
-<h1> A single Need </h1>
+
 
     <div th:each= "need: ${needs}">
-      <p th:text = "${need.name}"></p>
+      <h1 th:text = "${need.name}"></h1>
       <p class="descriptors">Quantity Requested</p>
         <p th:text ="${need.quantity}"></p>
         <p class="descriptors">Description</p>

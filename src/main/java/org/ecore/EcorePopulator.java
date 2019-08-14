@@ -66,8 +66,8 @@ public class EcorePopulator implements CommandLineRunner{
 		
 
 
-		Need need1 = needRepo.save(new Need("Books for Middleboro", 1, "desc1", teacher1, tag));
-		Need need2 = needRepo.save(new Need("basketballs for Wayne COunty", 1, "desc2", teacher2, tag));
+		Need need1 = needRepo.save(new Need("Books for Middleboro", 1, "Books", teacher1, tag));
+		Need need2 = needRepo.save(new Need("basketballs for Wayne COunty", 1, "Basketballs", teacher2, tag));
 
 		
 		Material material1 = materialRepo.save(new Material("english tests", 1, "download", teacher1, tag));
