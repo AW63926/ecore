@@ -246,6 +246,10 @@ padding-left: 0;
 text-align: center;
 padding: 10px;
 }
+.left-side h5{
+padding: 15px;
+text-align: justify;
+}
 .right-side{
 margin-top: 20px;
 }
