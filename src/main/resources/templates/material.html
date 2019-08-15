@@ -31,12 +31,12 @@
                 <p th:each="teacher: ${material.teacher}" th:text="${teacher.name}"></p>
             </div>
             <div>
-                <form class="form">
+                <form >
                     <div class="form-group">
                         <input class="form-control" name="materialId" type="hidden" th:value="${material.id}"/>
                     </div>
                 </form>
-                <section class="addTag">
+                <section  class="addTag">
                     <input type="text" placeholder="Add A Tag To Your Need"/>
                     <button>Submit Tag</button>
                 </section>
@@ -56,7 +56,7 @@
     </div>
     
     <div>
-      <form method="POST" enctype="multipart/form-data" action="/add-item">
+      <form class="teacherPost" method="POST" enctype="multipart/form-data" action="/add-item">
         <table>
           <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
           <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
