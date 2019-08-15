@@ -162,6 +162,11 @@
   border-color: black;
 }
 
+.profilePic {
+  height: 370px;
+  width: 280px;
+}
+
 .teacherPostList {
   display: flex;
   flex-direction: column;
