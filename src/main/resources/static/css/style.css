@@ -165,7 +165,8 @@
 .teacherPostList {
   display: flex;
   flex-direction: column;
-  vertical-align: top;
+  justify-content: center;
+  width: 100%;
   margin-top: 2em;
   height: auto;
   width: 45%;
@@ -366,6 +367,12 @@ margin-right: 20px;
   margin: 0;
   padding: 0;
   flex: 30%
+ }
+
+ .resource{
+   height: 180px;
+   width: 480px;
+   align-content: center;
  }
 
  @media screen and (max-width: 700px) {

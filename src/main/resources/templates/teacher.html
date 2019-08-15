@@ -108,44 +108,44 @@
       </div>
       </div>
 
-      <div id="lists">
+      
         <div class="teacherPostList" th:each="teacher: ${teachers}">
             <h3>Your Currently Posted Resources</h3>
             
             <div class="teacherListInfo" th:each="material: ${teacher.materials}">
-            <a th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
-            <div>
-            <form>
               <div>
-              <input type="hidden" name="id" th:value="${material.id}"/>
-            </div>
-
-            <div>
-              <button th:formaction="@{/delete-material}">delete</button>
-            </div>
-            </form>
-          </div>
+                <form>
+                  <div>
+                    <input type="hidden" name="id" th:value="${material.id}"/>
+                  </div>
+                  
+                  <div>
+                    <button th:formaction="@{/delete-material}">delete</button>
+                  </div>
+                </form>
+              </div>
+              <a th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
           </div>
         </div>
 
         <div class="teacherPostList" th:each="teacher: ${teachers}">
           <h3>Your Currently Posted Needs</h3>
           <div class="teacherListInfo" th:each="need: ${teacher.needs}">
-          <a  th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
-
-          <form>
+            
+            <form>
               <div>
-              <input type="hidden" name="needName" th:value="${need.name}"/>
-            </div>
-
-            <div>
-              <button th:formaction="@{/delete-need}">delete</button>
-            </div>
+                <input type="hidden" name="needName" th:value="${need.name}"/>
+              </div>
+              
+              <div>
+                <button th:formaction="@{/delete-need}">delete</button>
+              </div>
             </form>
+            <a  th:href="@{/need(id=${need.id})}" th:text="${need.name}"></a>
         </div>
         </div>
-      </div>
-      <h2><a href="/all-materials">View All Materials</h2>
+      
+        <div class="resource"> <a href="/all-materials" target="main"><img src="./images/resources.png" alt="resources" class="responsive"/></a></div><br>
 
 </div>
    
