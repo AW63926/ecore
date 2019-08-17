@@ -123,6 +123,11 @@
   width: 260px;
 }
 
+.schoolPic{
+  height: 150;
+  width: 300;
+}
+
 .teacherPost input, .addTag input{
   width: 100%;
   padding: 12px 20px;
