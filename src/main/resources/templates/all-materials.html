@@ -9,10 +9,10 @@
 </head>
 <body>
         <div class="main">
-            <h3>Materials</h3>
+            <p class="pageHeader">Materials</p>
             <div th:each="material: ${materials}">
                 <ul>
-                    <li class="schools">
+                    <li class="needList">
                         <a th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
                     </li>
                 </ul>
