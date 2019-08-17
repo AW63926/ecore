@@ -9,42 +9,11 @@
 </head>
 <body>
 
-  <div class="header">
-    <img class="ecore"  src="../images/ecore2.png" style="height:150px"/>
-    <h3>Educational • Collaborative • Open • Resource • Engine</h3>
-  </div>
-  
-  <div class="navbar">
-    <a href="/index" class="active">Home</a>
-    <a href="/all-schools">Schools</a>
-    <a href="/teacher-login">Teachers</a>
-    <a href="/all-community-members">Community</a>
-    <a href="/all-materials">Resources</a>
-  </div>
-  <div class="row">
-    <div class="side">
-      <h2></h2>
-                    <div class="img"><img src="../images/smallicon.png" style="height:150px" class="center"/></div>
-                    <br>
-                    <p>Information about ECORE</p>
-                    <h7>ECORE connects schools, teachers, and community members to share supplies and 
-                      resources. 
-                      Teachers have the ability to interact with resource requests, ability to 
-                      interact with a need request, and communicate with the community at large through a form on 
-                      their post.
-                    </h7>
-                   <br><br>
-                   <div class="img"><img src="../images/schools.png" style="height:56px" class="center"/></div><br>
-                   <div class="img"><img src="../images/teacher.png" style="height:56px" class="center"/></div><br>
-                   <div class="img"><img src="../images/community.png" style="height:56px" class="center"/></div><br>
-                   <div class="img"><img src="../images/resources.png" style="height:56px" class="center"/></div><br>
-    </div>
-
                 <div class="main">
-<h1> A single Need </h1>
+
 
     <div th:each= "need: ${needs}">
-      <p th:text = "${need.name}"></p>
+      <p class="pageHeader" th:text = "${need.name}"></p>
       <p class="descriptors">Quantity Requested</p>
         <p th:text ="${need.quantity}"></p>
         <p class="descriptors">Description</p>
@@ -53,29 +22,24 @@
         <p th:each= "teacher: ${needs.teacher}" th:text="${teacher.name}"></p>
     </div>
 
-    <h2>Send an Email to a Teacher to Fulfill Their Need </h2>
-        <form action="/responseemail" method="post" th:object="${needs}">
-            <input th:each="teacher : ${needs.teacher}" type="hidden" th:value="${teacher.name}" name="name"><br>
+    <p class="postHeader">Send A Response Or Inquiry About The Need </p>
+        <form class="teacherPost" action="/responseemail" method="post" th:object="${needs}">
+            <input th:each="teacher : ${needs.teacher}" type="hidden" th:value="${teacher.id}" name="id"><br>
             Your Name:<br>
             <input type="text" name="responderName"><br>
             Your Email:<br>
             <input type="email" name="email"><br>
             Comment:<br>
-            <input type="text" name="comment" size="50"><br><br>
-            <input type="submit" value="Send">
-            <input type="reset" value="Reset">
+            <div class="emailButton">
+            <input  type="text" name="comment" size="50"><br><br>
+            <button  type="submit" value="Send">Send</button>
+            <button  type="reset" value="Reset">Cancel</button>
+        </div>
             </form>
-            <a href="http://localhost:8080/all-needs">Back to home</a>
+           
 
     
 </div>
-
-
-
-        <div class="footer">
-                <h2>The Footer</h2>
-              </div>
-
 
     <script src="../js/need.js"></script>
 </body>

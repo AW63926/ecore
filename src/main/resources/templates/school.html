@@ -16,15 +16,15 @@
                     </div>
     <div  class="personalInfo" >
       <div>
-          <img class="profilePic"  src="./images/schoolavatar.jpg"/>
+          <img class="schoolPic"/><img src="./images/schoolavatar.jpg" alt="avatar" class="responsive"/>
       </div>
       <div class="textInfo">
         <h3>Address</h3>
         <p th:text ="${school.address}"></p>
         <h3>SchoolDistrict</h3>
         <p th:text ="${school.district}"></p>
-        <h3>Map</h3>
-        <p th:text ="${school.mapUrl}"></p>
+        <!-- <h3>Map</h3>
+        <p th:text ="${school.mapUrl}"></p> -->
 
         <form id="schoolDelete" method="POST">
           

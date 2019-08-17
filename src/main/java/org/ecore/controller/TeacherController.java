@@ -87,7 +87,7 @@ public class TeacherController {
 		}
 			teacherRepo.delete(foundTeacher);
 		
-		return "redirect:/all-teachers";
+		return "redirect:/teacher-login";
 	}
 
 	@RequestMapping("/del-teacher")
@@ -101,9 +101,9 @@ public class TeacherController {
 		for(Material material : foundTeacher.getMaterials()) {
 			materialRepo.delete(material);
 		}
-		teacherRepo.delete(foundTeacher);
+		teacherRepo.deleteById(teacherId);
 
-		return "redirect:/all-teachers";
+		return "redirect:/teacher-login";
 	}
 
 	@RequestMapping("/teacher-login")
@@ -115,6 +115,9 @@ public class TeacherController {
 	@RequestMapping("/login-submit")
 	public String loginSubmit(String emailAddress) {
 		Teacher teacher = teacherRepo.findByEmail(emailAddress);
+		if(teacher == null ) {
+			return "redirect:/search-not-found";
+		}
 		Long teacherId = teacher.getId();
 
 		return "redirect:/teacher?id=" + teacherId;
@@ -124,10 +127,15 @@ public class TeacherController {
 	@RequestMapping("/teacher-signup")
 	public String teacherSignup(String name, String specialty, String schoolName, String email) {
 
-		School school = schoolRepo.findByNameIgnoreCaseLike("school1");
+		School school = schoolRepo.findByNameIgnoreCaseLike(schoolName);
 
 
-		Teacher newTeacher = teacherRepo.findByNameIgnoreCaseLike(name);
+
+		Teacher newTeacher = teacherRepo.findByEmail(email);
+		if (newTeacher != null) {
+			return "redirect:/user-duplicate";
+		}
+		
 		if (newTeacher == null) {
 			newTeacher = new Teacher(name, specialty, school, email);
 			teacherRepo.save(newTeacher);

@@ -2,22 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ECORE</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ECORE</title>
+   <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="./images/favicon.jpg">
 
 </head>
 <body>
@@ -26,72 +17,46 @@
     <img class="ecore" src="./images/ecore2.png" style="height:150px"/>
     <h3>Educational • Collaborative • Open • Resource • Engine</h3>
 </div>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="/index" class="active">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="/all-schools">Schools</a>
-            </li>
-            <li class="nav-item">
-                <a href="/teacher-login">Teachers</a>
-            </li>
-            <li class="nav-item">
-                <a href="/all-community-members">Community</a>
-            </li>
-            <li class="nav-item">
-                <a href="/all-materials">Resources</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-5 left-side">
-            <h2></h2>
-            <div class="small_logo"><img src="./images/smallicon.png" style="height:150px" class="center"/></div>
-            <h3>About ECORE</h3>
-            <p>ECORE connects schools, teachers, and community members to share supplies and
-                resources.
-                Teachers have the ability to interact with resource requests, ability to
-                interact with a need request, and communicate with the community at large through a form on
-                their post.
-            </p>
-            <ul class="side-image-container">
-                <li><a href="/all-schools"><img src="./images/schools.png" class="side-image"/></a></li>
-                <li><a href="/teacher-login"><img src="./images/teacher.png"  class="side-image"/></a></li>
-                <li><a href="/all-community-members"><img src="./images/community.png" class="side-image"/></a></li>
-                <li><a href="/all-materials"><img src="./images/resources.png" class="side-image"/></a></li>
-            </ul>
-        </div>
-        <div class="col-md-7 right-side">
-            <h2>Title</h2>
-            <h5>Description </h5>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco.</p>
-            <br>
-            <h2>Title</h2>
-            <h5>Description</h5>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco.</p>
-        </div>
-    </div>
+<div class="navbar">
+  <a href="/index">Home</a>
+  <a href="/all-schools" target="main">Schools</a>
+  <a href="/teacher-login" target="main">Teachers</a>
+  <a href="/all-community-members" target="main">Community</a>
+  <!-- <a href="/all-materials" target="main">Resources</a> -->
+</div>
 </div>
 
+<div class="row">
+  <div class="side">
+      <form class = "search-form">
+          <input class = "search" type = "text" name = "" placeholder = "Search">
+          <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+          <ul class = "suggestions">
+           </ul>
+          
+          </form>
+                  <div class="img"><img src="./images/smallicon.png" style="height:150px" class="center"/></div>
+                  <br>
+                  <h3>About ECORE</h3>
+                  <h5>Students benefit when we work together</h5>
+                  <p>Teachers and schools need your help to bring their classroom dreams to life. ECORE supports building of a 
+                    better future by connecting schools, teachers, and community members to share supplies and resources.
+                  </p>
+                  </h5>
+                 <br><br>
+                 <div class="img"><a href="/all-schools" target="main"><img src="./images/schools.png" alt="Schools" class="responsive"/></a></div><br>
+                 <div class="img"><a href="/teacher-login" target="main"><img src="./images/teacher.png" alt="teacher" class="responsive"/></a></div><br>
+                 <div class="img"><a href="/all-community-members" target="main"><img src="./images/community.png" alt="community" class="responsive"/></a></div><br>
+                 <!-- <div class="img"> <a href="/all-materials" target="main"><img src="./images/resources.png" alt="resources" class="responsive"/></a></div><br> -->
+  </div>
+  <div class="main"><iframe name="main" src="/indexcontent" height="100%" width="100%" style="border:none;"></iframe>
+  </div>
 </div>
 <div class="footer">
-    <h3>The Footer</h3>
+  <p> Copyright © 2019 ECORE. All Rights Reserved.</p>
+
 </div>
 
 

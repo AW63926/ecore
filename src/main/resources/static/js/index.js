@@ -18,7 +18,7 @@ const html = matchArray.map(allNames =>{
     return `
     <li>
     <span class = "name">
-    <a href = "/need?id=${allNames.id}">${allNames.name}</a>
+    <a href = "/need/community?id=${allNames.id}" target="main">${allNames.name}</a>
     </span>
     </li>
     `;
