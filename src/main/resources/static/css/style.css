@@ -185,7 +185,10 @@
   border: 1px solid #ccc;
   border-radius: 14px;
   background-color: #aaa;
-  padding: 2em;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   justify-content: space-evenly;
   box-sizing: border-box;
  }

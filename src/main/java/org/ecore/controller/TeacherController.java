@@ -87,7 +87,7 @@ public class TeacherController {
 		}
 			teacherRepo.delete(foundTeacher);
 		
-		return "redirect:/all-teachers";
+		return "redirect:/teacher-login";
 	}
 
 	@RequestMapping("/del-teacher")
@@ -103,7 +103,7 @@ public class TeacherController {
 		}
 		teacherRepo.deleteById(teacherId);
 
-		return "redirect:/all-teachers";
+		return "redirect:/teacher-login";
 	}
 
 	@RequestMapping("/teacher-login")
