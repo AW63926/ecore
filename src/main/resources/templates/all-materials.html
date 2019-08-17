@@ -17,10 +17,38 @@
                     </li>
                 </ul>
             </div>
+            <form method="POST" class="form">
+                <h3>Add A New Material</h3>
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="enter name" required="required" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="quantity" placeholder="enter quantity" required="required"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="descMaterial" placeholder="enter description" required="required"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="teacherName" placeholder="enter teacher" required="required"
+                           class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="tagName" placeholder="enter tag (optional)" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" th:formaction="@{/add-material}">add material</button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>
 
+</div>
+<div class="footer">
+    <h2>The Footer</h2>
 </div>
 </body>
 </html>

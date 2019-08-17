@@ -10,10 +10,10 @@
 <body>
 
                 <div class="main">
-
+<h1> A single Need </h1>
 
     <div th:each= "need: ${needs}">
-      <p class="pageHeader" th:text = "${need.name}"></p>
+      <p th:text = "${need.name}"></p>
       <p class="descriptors">Quantity Requested</p>
         <p th:text ="${need.quantity}"></p>
         <p class="descriptors">Description</p>
@@ -30,16 +30,21 @@
             Your Email:<br>
             <input type="email" name="email"><br>
             Comment:<br>
-            <div class="emailButton">
-            <input  type="text" name="comment" size="50"><br><br>
-            <button  type="submit" value="Send">Send</button>
-            <button  type="reset" value="Reset">Cancel</button>
-        </div>
+            <input type="text" name="comment" size="50"><br><br>
+            <input type="submit" value="Send">
+            <input type="reset" value="Reset">
             </form>
-           
+            <a href="http://localhost:8080/all-needs">Back to home</a>
 
     
 </div>
+
+
+
+        <div class="footer">
+                <h2>The Footer</h2>
+              </div>
+
 
     <script src="../js/need.js"></script>
 </body>

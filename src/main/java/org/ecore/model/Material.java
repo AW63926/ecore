@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,9 +25,6 @@ public class Material {
 	private int quantity;
 	
 	private String descMaterial;
-	
-	@OneToMany(mappedBy = "material")
-	private Collection<PostedResource> postedResources;
 	
 	@JsonIgnore
 	@ManyToMany
@@ -49,11 +45,6 @@ public class Material {
 	
 	public Material() {
 		
-	}
-	
-	
-	public Collection<PostedResource> getPostedResources() {
-		return postedResources;
 	}
 
 	public long getId() {

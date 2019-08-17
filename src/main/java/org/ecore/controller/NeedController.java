@@ -75,10 +75,9 @@ public class NeedController {
 	}
 
 	@RequestMapping("/add-need")
-	public String addNeed(String needName, int needQuantity, String needDescription, Long teacherId,
+	public String addNeed(String needName, int needQuantity, String needDescription, String teacherName,
 			String tagName) {
-		Optional<Teacher> foundTeacher = teacherRepo.findById(teacherId);
-		Teacher teacher = foundTeacher.get();
+		Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(teacherName);
 
 		Need newNeed = needRepo.findByNameIgnoreCaseLike(needName);
 		Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);
