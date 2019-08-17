@@ -8,10 +8,12 @@
     <title>Document</title>
 </head>
 <body>
+
           <div class="main">
               <p class="pageHeader">Active Need Requests</p>
               	<div  th:each="need: ${needs}">
                     <ul class="needList">
+
                         <li class="schools"><a th:href="@{/need/community(id=${need.id})}" th:text="${need.name}"></a>
                         </li>
                     </ul>
@@ -19,5 +21,9 @@
           </div>
       </div>
   </div>
+  <div class="footer">
+      <h3>The Footer</h3>
+  </div>
+
 </body>
 </html>
