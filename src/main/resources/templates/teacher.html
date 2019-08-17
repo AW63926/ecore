@@ -46,35 +46,35 @@
     <div id="forms">
     <div id="addMaterial">
       <form class="teacherPost" method="POST" >
-        <h3>Post a Resource</h3>
-        <div>
-          <label>ResourceName</label>
-            <input type="text" name="name" placeholder="enter name" required="required"/>
-        </div>
-​
-        <div>
-            <label>Quantity</label>
-                <input type="number" name="quantity" min="0" placeholder="enter quantity" required="required"/>
-        </div>
-​
-        <div>
-            <label>Description</label>
-            <input type="text" name="descMaterial" placeholder="enter description" required="required"/>
-        </div>
-​
-        <div>
-            <input th:each="teacher: ${teachers}" type="hidden" name="teacherId" th:value="${teacher.id}"/>
-        </div>
-​
-        <div>
-            <label>Tag Name</label>
-            <input type="text" name="tagName" placeholder="enter tag" required="required" />
-        </div>
-​
-        <div>
-            <button th:formaction="@{/add-material}">add material</button>
-        </div>
-      </form>
+          <h3>Post A Resource</h3>
+          <div>
+              <label>Material Name</label>
+              <input type="text" name="name" placeholder="enter name" required="required"/>
+          </div>
+  
+          <div>
+              <label>Quantity</label>
+                  <input type="number" name="quantity" min="0" placeholder="enter quantity" required="required"/>
+          </div>
+  
+          <div>
+              <label>Description</label>
+              <input type="text" name="descMaterial" placeholder="enter description" required="required"/>
+          </div>
+  
+          <div>
+              <input th:each="teacher: ${teachers}" type="hidden" name="teacherId" th:value="${teacher.id}"/>
+          </div>
+  
+          <div>
+              <label>Tag Name</label>
+              <input type="text" name="tagName" placeholder="enter tag" required="required" />
+          </div>
+  
+          <div>
+              <button th:formaction="@{/add-material}">Add Resource</button>
+          </div>
+        </form>
     </div>
 ​
     <div id="addNeed">
@@ -105,7 +105,7 @@
           </div>
   
           <div>
-              <button th:formaction="@{/add-need}">add need</button>
+              <button th:formaction="@{/add-need}">Add Need</button>
           </div>
         </form>
       </div>

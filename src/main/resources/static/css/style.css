@@ -286,10 +286,7 @@ background-color: #1abc9c;
 margin-top: 20px;
 margin-right: 20px;
 }
-/* .search-box{
-display: flex;
-align-content: right;
-} */
+
 .suggestions {
 margin: 0;
 padding: 0;
@@ -299,27 +296,7 @@ list-style: none;
 height: 30px;
 margin: 20px;
 }
-/* .suggestions li {
-display: flex;
-align-items: flex-start;
-justify-content: flex-start;
-background: #ddd;
-list-style: none;
-color: #333;
-outline: none;
-border: none;
-width: 405px;
-} */
-/* .suggestions li a {
-background: #ddd;
-list-style: none;
-margin: 0px 20px 0px 0px;
-padding: 0px;
-display: none;
-justify-content: center;
-outline: none;
-border: none;
-} */
+
 .suggestions li:hover{
 background-color: #666;
 }
