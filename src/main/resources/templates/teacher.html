@@ -11,7 +11,10 @@
                 <div class="main">
     <section class="welcomeBanner" th:each= "teacher: ${teachers}">
     <div >
+      <div class="teacherLogout">
     <h2>Welcome to your home page</h2>
+    <button class="logout"><a href="/teacher-login">Log Out</a></button>
+  </div>
         <h2 th:text = "${teacher.name}"></h2>
         </a>
       </div>
@@ -39,7 +42,7 @@
           </div>
     </div>
   </section>
-
+​
     <div id="forms">
     <div id="addMaterial">
       <form class="teacherPost" method="POST" >
@@ -48,32 +51,32 @@
           <label>ResourceName</label>
             <input type="text" name="name" placeholder="enter name" required="required"/>
         </div>
-
+​
         <div>
             <label>Quantity</label>
                 <input type="number" name="quantity" min="0" placeholder="enter quantity" required="required"/>
         </div>
-
+​
         <div>
             <label>Description</label>
             <input type="text" name="descMaterial" placeholder="enter description" required="required"/>
         </div>
-
+​
         <div>
             <input th:each="teacher: ${teachers}" type="hidden" name="teacherId" th:value="${teacher.id}"/>
         </div>
-
+​
         <div>
             <label>Tag Name</label>
             <input type="text" name="tagName" placeholder="enter tag" required="required" />
         </div>
-
+​
         <div>
             <button th:formaction="@{/add-material}">add material</button>
         </div>
       </form>
     </div>
-
+​
     <div id="addNeed">
         <form class="teacherPost" method="POST">
           <h3>Post a Need</h3>
@@ -107,7 +110,7 @@
         </form>
       </div>
       </div>
-
+​
       
         <div class="teacherPostList" th:each="teacher: ${teachers}">
             <h3>Your Currently Posted Resources</h3>
@@ -127,7 +130,7 @@
               <a th:href="@{/material(id=${material.id})}" th:text="${material.name}"></a>
           </div>
         </div>
-
+​
         <div class="teacherPostList" th:each="teacher: ${teachers}">
           <h3>Your Currently Posted Needs</h3>
           <div class="teacherListInfo" th:each="need: ${teacher.needs}">
@@ -146,7 +149,7 @@
         </div>
       
         <div class="resource"> <a href="/all-materials" target="main"><img src="./images/resources.png" alt="resources" class="responsive"/></a></div><br>
-
+​
 </div>
    
 </body>

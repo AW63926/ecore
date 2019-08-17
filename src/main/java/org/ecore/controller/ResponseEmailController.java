@@ -1,5 +1,7 @@
 package org.ecore.controller;
 
+import java.util.Optional;
+
 import javax.mail.internet.MimeMessage;
 import org.ecore.model.Teacher;
 import org.ecore.repository.TeacherRepository;
@@ -20,12 +22,13 @@ public class ResponseEmailController {
 
 	@RequestMapping(value = "/responseemail")
 	@ResponseBody
-	public String home(String name, String responderName, String email, String comment) {
+	public String home(Long id, String responderName, String email, String comment) {
 		try {
 			MimeMessage message = sender.createMimeMessage();
 			MimeMessageHelper helper = new MimeMessageHelper(message);
 			
-			Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(name);
+			Optional<Teacher> foundTeacher = teacherRepo.findById(id);
+			Teacher teacher = foundTeacher.get();
 			
 
 			helper.setTo(teacher.getEmail());

@@ -86,9 +86,9 @@ public class TeacherControllerTest {
 	
 	@Test
 	public void shouldRemoveTeacherFromModelByName() {
-		String teacherName = teacher.getName();
-		when(teacherRepo.findByNameIgnoreCaseLike(teacherName)).thenReturn(teacher);
-		underTest.deleteTeacherByName(teacherName);
+		
+		when(teacherRepo.findById(TEACHER_ID)).thenReturn(Optional.of(teacher));
+		underTest.deleteTeacherByName(TEACHER_ID);
 		verify(teacherRepo).delete(teacher);
 	}
 	
