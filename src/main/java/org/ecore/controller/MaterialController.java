@@ -53,9 +53,10 @@ public class MaterialController {
 	}
 
 	@RequestMapping("/add-material")
-	public String addMaterial(String name, int quantity, String descMaterial, String teacherName, String tagName) {
+	public String addMaterial(String name, int quantity, String descMaterial, Long teacherId, String tagName) {
 		
-		Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(teacherName);
+		Optional<Teacher> foundTeacher = teacherRepo.findById(teacherId);
+		Teacher teacher = foundTeacher.get();
 		
 		Material material = materialRepo.findByName(name);
 		Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);

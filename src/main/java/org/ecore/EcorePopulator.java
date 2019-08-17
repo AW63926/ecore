@@ -55,8 +55,8 @@ public class EcorePopulator implements CommandLineRunner{
 		School school1 = schoolRepo.save(new School("Middleboro High School", "Middleboro City Schools", "2900 N. High St Middleboro OH 44455", "mapUrl1"));
 		School school2 = schoolRepo.save(new School("New Berlin Middle School", "Wayne County Local Schools", "14500 Main St East City Oh 44499", "mapUrl2"));
 		
-		Tag tag1 = tagRepo.save(new Tag("pencils"));
-		Tag tag2 = tagRepo.save(new Tag("paper"));
+		Tag tag1 = tagRepo.save(new Tag("books"));
+		Tag tag2 = tagRepo.save(new Tag("test"));
 
 		
 		Teacher teacher1 = teacherRepo.save(new Teacher("Ryan Kelley", "English", school1, "kelley.ryanj@gmail.com"));
@@ -66,12 +66,12 @@ public class EcorePopulator implements CommandLineRunner{
 		
 
 
-		Need need1 = needRepo.save(new Need("Books for Middleboro", 1, "Books", teacher1, tag));
-		Need need2 = needRepo.save(new Need("Basketballs for Wayne County", 1, "Basketballs", teacher2, tag));
+		Need need1 = needRepo.save(new Need("Books for Middleboro", 1, "Books", teacher1, tag1));
+		Need need2 = needRepo.save(new Need("Basketballs for Wayne County", 1, "Basketballs", teacher2));
 
 		
-		Material material1 = materialRepo.save(new Material("english tests", 1, "download", teacher1, tag));
+		Material material1 = materialRepo.save(new Material("english tests", 1, "download", teacher1, tag2));
 
-		Material material2 = materialRepo.save(new Material("extra gym mats", 2, "slightly used", teacher2, tag));
+		Material material2 = materialRepo.save(new Material("extra gym mats", 2, "slightly used", teacher2));
 	}
 }

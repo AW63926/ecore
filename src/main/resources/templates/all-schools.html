@@ -9,15 +9,15 @@
 </head>
 <body>
         <div class="main">
-            <h3>Member Schools</h3>
+            <p class="pageHeader">Member Schools</p>
             <div th:each="school: ${schools}">
                 <ul>
-                    <li class="schools">
+                    <li class="needList">
                         <a th:href="@{/school(id=${school.id})}" th:text="${school.name}"></a>
                     </li>
                 </ul>
             </div>
-            <h3 class="new_school_title">Create a New School</h3>
+            <p class="postHeader">Create A New School</p>
             <form method="POST" class="teacherPost">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="enter name" required="required" class="form-control"/>

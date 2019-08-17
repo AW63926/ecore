@@ -60,7 +60,7 @@
         </div>
 
         <div>
-            <input th:each="teacher: ${teachers}" type="hidden" name="teacherName" th:value="${teacher.name}"/>
+            <input th:each="teacher: ${teachers}" type="hidden" name="teacherId" th:value="${teacher.id}"/>
         </div>
 
         <div>
@@ -93,7 +93,7 @@
           </div>
   
           <div>
-              <input th:each="teacher: ${teachers}" type="hidden" name="teacherName" th:value="${teacher.name}"/>
+              <input th:each="teacher: ${teachers}" type="hidden" name="teacherId" th:value="${teacher.id}"/>
           </div>
   
           <div>

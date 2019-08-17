@@ -9,9 +9,9 @@
 </head>
 <body>
           <div class="main">
-              <h3>A List of Needs</h3>
-              	<div th:each="need: ${needs}">
-                    <ul>
+              <p class="pageHeader">Active Need Requests</p>
+              	<div  th:each="need: ${needs}">
+                    <ul class="needList">
                         <li class="schools"><a th:href="@{/need/community(id=${need.id})}" th:text="${need.name}"></a>
                         </li>
                     </ul>

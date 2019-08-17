@@ -84,11 +84,11 @@ public class MaterialControllerTest {
 		String materialName = "name";
 		int quantity = 1;
 		String materialDesc = "desc";
-		String teacherName = "teacher";
+		Long teacherId = 1L;
 		String tagName = "tag name";
 		
-		when(teacherRepo.findByNameIgnoreCaseLike(teacherName)).thenReturn(teacher);
-		underTest.addMaterial(materialName, quantity, materialDesc, teacherName, tagName);
+		when(teacherRepo.findById(teacherId)).thenReturn(Optional.of(teacher));
+		underTest.addMaterial(materialName, quantity, materialDesc, teacherId, tagName);
 		ArgumentCaptor<Material> materialArgument = ArgumentCaptor.forClass(Material.class);
 		verify(materialRepo).save(materialArgument.capture());
 		assertEquals("name", materialArgument.getValue().getName());		
