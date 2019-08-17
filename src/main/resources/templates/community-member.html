@@ -22,9 +22,9 @@
         <p th:each= "teacher: ${needs.teacher}" th:text="${teacher.name}"></p>
     </div>
 
-    <p class="postHeader">Send A Response Or Inquiry About The Need </p>
+    <p class="postHeader">Send an Email to a Teacher to Fulfill Their Need </p>
         <form class="teacherPost" action="/responseemail" method="post" th:object="${needs}">
-            <input th:each="teacher : ${needs.teacher}" type="hidden" th:value="${teacher.id}" name="id"><br>
+            <input th:each="teacher : ${needs.teacher}" type="hidden" th:value="${teacher.name}" name="name"><br>
             Your Name:<br>
             <input type="text" name="responderName"><br>
             Your Email:<br>

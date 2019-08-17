@@ -11,10 +11,7 @@
                 <div class="main">
     <section class="welcomeBanner" th:each= "teacher: ${teachers}">
     <div >
-      <div class="teacherLogout">
     <h2>Welcome to your home page</h2>
-    <button class="logout"><a href="/teacher-login">Log Out</a></button>
-  </div>
         <h2 th:text = "${teacher.name}"></h2>
         </a>
       </div>
