@@ -32,7 +32,7 @@ public class MaterialController {
 	@Resource
 	TeacherRepository teacherRepo;
 
-	@RequestMapping("/material")
+	@RequestMapping("/single-material")
 	public String findOneMaterial(@RequestParam(value = "id") long id, Model model) throws MaterialNotFoundException {
 
 		Optional<Material> material = materialRepo.findById(id);
@@ -47,16 +47,14 @@ public class MaterialController {
 	@RequestMapping("/all-materials")
 	public String findAllMaterials(Model model) {
 		model.addAttribute("materials", materialRepo.findAll());
-		model.addAttribute("teachers", teacherRepo.findAll());
 		return "all-materials";
 
 	}
 
 	@RequestMapping("/add-material")
-	public String addMaterial(String name, int quantity, String descMaterial, Long teacherId, String tagName) {
+	public String addMaterial(String name, int quantity, String descMaterial, String teacherName, String tagName) {
 		
-		Optional<Teacher> foundTeacher = teacherRepo.findById(teacherId);
-		Teacher teacher = foundTeacher.get();
+		Teacher teacher = teacherRepo.findByNameIgnoreCaseLike(teacherName);
 		
 		Material material = materialRepo.findByName(name);
 		Tag tag = tagRepo.findByNameIgnoreCaseLike(tagName);

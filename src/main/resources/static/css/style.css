@@ -6,7 +6,7 @@
     margin: 0;
   }
   .header {
-    padding: 40px;
+    padding: 80px;
     text-align: center;
     background: #1abc9c;
     color: white;
@@ -68,8 +68,6 @@
     background-color: #f1f1f1;
     padding: 20px;
     text-align: justify;
-    flex-grow: 0;
-
   }
   
   
@@ -78,8 +76,6 @@
     flex: 70%;
     background-color: white;
     padding: 20px;
-    flex-shrink: 0;
-
   }
   
   .content {
@@ -87,7 +83,6 @@
     flex: 70%;
     background-color: white;
     padding:20px;
-
   }
   
   
@@ -123,12 +118,7 @@
   width: 260px;
 }
 
-.schoolPic{
-  height: 150;
-  width: 300;
-}
-
-.teacherPost input, .addTag input{
+.teacherPost input{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -138,7 +128,7 @@
   box-sizing: border-box;
 }
 
-.teacherPost button, #schoolDelete button, .addTag button {
+.teacherPost button, #schoolDelete button {
   width: 100%;
   background-color: #206ea1;
   color: white;
@@ -167,16 +157,9 @@
   border-color: black;
 }
 
-.profilePic {
-  height: 370px;
-  width: 280px;
-}
-
 .teacherPostList {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
   margin-top: 2em;
   height: auto;
   width: 45%;
@@ -190,10 +173,7 @@
   border: 1px solid #ccc;
   border-radius: 14px;
   background-color: #aaa;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding: 2em;
   justify-content: space-evenly;
   box-sizing: border-box;
  }
@@ -214,44 +194,19 @@
   cursor: pointer;
   font-size: 14px;
  }
- .logout{
-  background-color: #206ea1;
-  color: white;
-  padding: 14px 20px;
-  width: 30%;
-  margin: 10px 8px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
- }
-
- .teacherLogout{
-   display: flex;
-   justify-content: space-between;
- }
-
- .logout a{
-  list-style-type: none;
-  text-decoration: none;
-  font-size: 24px;
-  color: white;
- }
  .teacherListInfo {
    display: flex;
    flex-flow: row;
    margin-left: 1em;
-
-  }
+ }
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px 0px 0px;
 }
   .footer {
         padding: 10px;
-        text-align: right;
+        text-align: center;
         background-color: #1abc9c;
   }
 
@@ -319,25 +274,20 @@ margin-right: 20px;
 .suggestions {
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
-.suggestions li{
-  list-style: none;
-  height: 30px;
-  margin: 20px;
-}
-/* .suggestions li {
+.suggestions li {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: flex-end;
+  justify-content: flex-end;
   background: #ddd;
   list-style: none;
   color: #333;
   outline: none;
   border: none;
-  width: 405px;
 
-} */
+}
 
 /* .suggestions li a {
   background: #ddd;
@@ -352,7 +302,6 @@ margin-right: 20px;
 
 .suggestions li:hover{
   background-color: #666;
-
 }
 
   .search{
@@ -360,17 +309,17 @@ margin-right: 20px;
   background-position: 4px 2px; 
   background-repeat: no-repeat;
   font-family: Arial, Helvetica, sans-serif;
+  width: 300px; 
   font-size: 16px;
-  border: 3px solid #777;
-  outline: black;
-  padding: 15px 14px 14px 60px; 
+  padding: 15px 14px 14px 60px;
+  border: 1px solid black;
+  outline-color: #333; 
+  position: absolute;
+  right: 100px; 
   bottom: 8px;
-  width: 100%;
-  flex: 30%;
-  
 }
 
- /* .name{
+/* .name{
   background: #ddd;
   color: blue;
   list-style: none;
@@ -378,64 +327,30 @@ margin-right: 20px;
   padding: 0px;
   outline: none;
   border: none;
-  list-style-type: none;
-}   */
+}  */
 
 
   .name a{
   font-family: Arial, Helvetica, sans-serif;
   color:#333;
   font-style: bold;
-  font-size: 20px;
-  margin: 0;
-  padding: 0;
+  width: 200px;
+  margin: 20px;
+  padding: 2px;
   border: black;
-  text-decoration: none;
-  flex: 30% 
-
- } 
  
+ }  
+
  .name a:hover{
   font-family: Arial, Helvetica, sans-serif;
   font-style: bold;
   background-color: #666;
   color: white;
-  margin: 0;
-  padding: 0;
-  flex: 30%
- }
-
- .resource{
-   height: 180px;
-   width: 480px;
-   align-content: center;
- }
-
- .pageHeader {
-  font-size: 40px;
-  font-style: bold;
- }
-
- .postHeader{
-  font-size: 40px;
-  font-style: bold;
-  margin-top: 40px;
-  margin-bottom: 20px;
- }
-
- .needList, .needList a, .schools a{
-   list-style-type: none;
-   text-decoration: none;
-   font-size: 24px;
- }
-
- .needMaterialList{
-   text-indent: 2em;
-   font-size: 24px;
- }
-
- .needMaterialList a{
-   text-decoration: none;
+  width: 200px;
+  margin: 20px;
+  padding: 2px;
+  
+ 
  }
 
 

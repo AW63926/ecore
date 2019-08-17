@@ -9,10 +9,10 @@
 </head>
 <body>
                 <div class="main">
-
+<h1> A single Need </h1>
 
     <div th:each= "need: ${needs}">
-      <h1 th:text = "${need.name}"></h1>
+      <p th:text = "${need.name}"></p>
       <p class="descriptors">Quantity Requested</p>
         <p th:text ="${need.quantity}"></p>
         <p class="descriptors">Description</p>
@@ -47,8 +47,11 @@
             <input type="submit" value="Send">
             <input type="reset" value="Reset">
             </form> -->
+            <a href="http://localhost:8080/all-needs">Back to home</a>
+
     
 </div>
+
 
 
     <script src="./js/need.js"></script>

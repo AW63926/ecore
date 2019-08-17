@@ -25,14 +25,5 @@ public class indexController {
 		return "indexcontent";
 	}
 	
-	@RequestMapping("/search-not-found")
-	public String showSearchNotFound(Model model) {
-		
-		return "search-not-found";
-	}
-	@RequestMapping("/user-duplicate")
-	public String showDuplicateError() {
-		return "user-duplicate";
-	}
 	
 }
